@@ -1,0 +1,29 @@
+{
+  "_comment": "최신순으로 관리합니다. 새 소식은 이 배열의 맨 위에 추가하세요. date는 표시되는 그대로 쓰입니다.",
+  "news": [
+    {
+      "date": "July 2026",
+      "text": "A new Korea–U.S. collaborative project on AI-based core solutions for unmanned surface vessels has been awarded by KEIT (2026–2028)."
+    },
+    {
+      "date": "June 2026",
+      "text": "Prof. Song received the Young Faculty Award from Inha University."
+    },
+    {
+      "date": "2026",
+      "text": "Prof. Song began serving as Editorial Director of the Society of Naval Architects of Korea (SNAK)."
+    },
+    {
+      "date": "March 2026",
+      "text": "Our study on wind-assisted vessels using the SIL system was published in Ocean Engineering."
+    },
+    {
+      "date": "January 2026",
+      "text": "Our work on CFD modelling of ship air lubrication systems appeared in the Journal of Marine Science and Engineering."
+    },
+    {
+      "date": "February 2025",
+      "text": "Prof. Song was appointed Chair of the Department of Naval Architecture and Ocean Engineering."
+    }
+  ]
+}

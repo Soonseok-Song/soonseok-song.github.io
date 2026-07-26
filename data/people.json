@@ -1,0 +1,99 @@
+{
+  "pi": {
+    "name_en": "Soonseok Song",
+    "name_ko": "송순석",
+    "degree": "PhD",
+    "title": "Assistant Professor & Department Chair",
+    "department": "Department of Naval Architecture and Ocean Engineering",
+    "university": "Inha University",
+    "email": "s.song@inha.ac.kr",
+    "office": "Room 2N483",
+    "phone": "+82-32-860-7338",
+    "photo": "song-soonseok.jpg",
+    "interests": [
+      "Ship resistance and hull roughness",
+      "Marine biofouling and antifouling coatings",
+      "Computational fluid dynamics (CFD)",
+      "Experimental fluid dynamics (EFD)",
+      "Marine renewable energy"
+    ],
+    "education": [
+      { "degree": "PhD, Naval Architecture, Ocean & Marine Engineering", "school": "University of Strathclyde, UK", "year": "2020" },
+      { "degree": "MSc, Naval Architecture & Ocean Engineering", "school": "Inha University", "year": "2017" },
+      { "degree": "MSc, Subsea Engineering & Management", "school": "Newcastle University, UK", "year": "2016" },
+      { "degree": "BSc, Naval Architecture & Ocean Engineering", "school": "Inha University", "year": "2015" }
+    ],
+    "experience": [
+      { "role": "Department Chair", "org": "Dept. of Naval Architecture and Ocean Engineering, Inha University", "period": "2025–present" },
+      { "role": "Assistant Professor", "org": "Dept. of Naval Architecture and Ocean Engineering, Inha University", "period": "2022–present" },
+      { "role": "Research Associate", "org": "University of Strathclyde, UK", "period": "2020–2022" },
+      { "role": "Research Assistant", "org": "University of Strathclyde, UK", "period": "2019–2020" }
+    ],
+    "awards": [
+      { "year": "2026", "text": "Young Faculty Award, Inha University" },
+      { "year": "2024", "text": "Songam Award, Society of Naval Architects of Korea (SNAK)" },
+      { "year": "2022", "text": "Honorable Mention, Vice Admiral E. L. Cochrane Award, SNAME" }
+    ],
+    "service": [
+      { "period": "2026–present", "text": "Editorial Director, Society of Naval Architects of Korea (SNAK)" },
+      { "period": "2025–present", "text": "Industry–Academia Cooperation Division, Naval Vessel Technology Research Group, SNAK" },
+      { "period": "2024–present", "text": "Structural Technical Advisory Team, Central Coast Guard of Korea" },
+      { "period": "2021–2022", "text": "International Maritime Organization — GloFouling Partnerships" }
+    ]
+  },
+
+  "current": [
+    {
+      "name_en": "Gyeongseo Min",
+      "name_ko": "민경서",
+      "photo": "min-gyeongseo.jpg",
+      "topic": "Ship manoeuvring · energy-saving devices · tidal turbines"
+    },
+    {
+      "name_en": "Haechan Yun",
+      "name_ko": "윤해찬",
+      "photo": "yun-haechan.jpg",
+      "topic": "Hull roughness · ship manoeuvring · ice resistance"
+    },
+    {
+      "name_en": "Younguk Do",
+      "name_ko": "도영욱",
+      "photo": "do-younguk.jpg",
+      "topic": "Floating offshore wind · rotor sails · ice-going ships"
+    },
+    {
+      "name_en": "Kangmin Kim",
+      "name_ko": "김강민",
+      "photo": "kim-kangmin.jpg",
+      "topic": "Tidal turbines · propeller modelling"
+    },
+    {
+      "name_en": "Keounghyun Jung",
+      "name_ko": "정경현",
+      "photo": "jung-keounghyun.jpg",
+      "topic": "Resistance and self-propulsion testing"
+    },
+    {
+      "name_en": "Mingi Kim",
+      "name_ko": "김민기",
+      "photo": null,
+      "topic": ""
+    },
+    {
+      "name_en": "Seunghee Song",
+      "name_ko": "송승희",
+      "photo": "song-seunghee.jpg",
+      "topic": "Ship resistance testing"
+    }
+  ],
+
+  "alumni": [
+    {
+      "name_en": "Wooseok Choi",
+      "name_ko": "최우석",
+      "graduated": "",
+      "thesis": "",
+      "position": "Hanwha Ocean"
+    }
+  ]
+}

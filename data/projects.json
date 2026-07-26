@@ -1,0 +1,237 @@
+{
+  "_comment": "새 과제는 이 배열의 맨 위에 추가하세요. scope 값은 resistance / hydrodynamics / polar / renewable / environmental / other 중 하나입니다 (Research 페이지의 연구 분야와 연결됩니다).",
+  "projects": [
+    {
+      "title_en": "Korea–U.S. Collaborative Development and Demonstration of AI-Based Core Solutions for Unmanned Surface Vessels",
+      "title_ko": "한·미 공동연구를 통한 AI 기반 무인수상함 핵심솔루션 개발 및 실증",
+      "agency_en": "Korea Evaluation Institute of Industrial Technology (KEIT)",
+      "agency_ko": "한국산업기술기획평가원",
+      "period": "2026–2028",
+      "scope": "hydrodynamics"
+    },
+    {
+      "title_en": "Development of an Eco-Friendly Icebreaking Container Ship to Navigate a New Arctic Shipping Route",
+      "title_ko": "북극 신항로 개척을 위한 친환경 쇄빙컨테이너선 개발",
+      "agency_en": "Korea Institute of Marine Science & Technology Promotion (KIMST)",
+      "agency_ko": "해양수산과학기술진흥원",
+      "period": "2026–2030",
+      "scope": "polar"
+    },
+    {
+      "title_en": "Development of an Analytical Model for Underwater Dissolved Oxygen Supply in Marine Cage Fish Farms",
+      "title_ko": "해상가두리 수중산소 공급 분석 모델 개발",
+      "agency_en": "National Institute of Fisheries Science (NIFS)",
+      "agency_ko": "국립수산과학원",
+      "period": "2026",
+      "scope": "environmental"
+    },
+    {
+      "title_en": "Analysis of Roll Reduction Performance during High-Speed Manoeuvring",
+      "title_ko": "고속 운항 조종 시 횡동요 저감성능 해석",
+      "agency_en": "Korea Research Institute of Ships and Ocean Engineering (KRISO)",
+      "agency_ko": "선박해양플랜트연구소",
+      "period": "2026",
+      "scope": "hydrodynamics"
+    },
+    {
+      "title_en": "Performance Analysis and Extrapolation of Polar Vessels via Ice–Ship Collision Tank Model Tests",
+      "title_ko": "빙-선박 충돌 수조모형시험을 통한 극지선박의 성능해석 및 확장",
+      "agency_en": "Korea Institute of Human Resources Development in Science and Technology (KIRD)",
+      "agency_ko": "국가과학기술인력개발원",
+      "period": "2026",
+      "scope": "polar"
+    },
+    {
+      "title_en": "Development of CFD Simulation Techniques for Scour Phenomena around Bridge Piers",
+      "title_ko": "교각 주변의 세굴현상 구현 CFD 시뮬레이션 기법 개발",
+      "agency_en": "Inha University",
+      "agency_ko": "인하대학교",
+      "period": "2026–2027",
+      "scope": "environmental"
+    },
+    {
+      "title_en": "Digital Shipyard Workforce Development",
+      "title_ko": "디지털조선소 전문인력양성",
+      "agency_en": "Korea Institute for Advancement of Technology (KIAT)",
+      "agency_ko": "한국산업기술진흥원",
+      "period": "2026–2030",
+      "scope": "other"
+    },
+    {
+      "title_en": "Study on Wave Resistance Measurement Techniques for Rotor Sail Vessels",
+      "title_ko": "로터세일 선박의 파랑 중 저항 실험 기법에 관한 연구",
+      "agency_en": "Korea Institute of Human Resources Development in Science and Technology (KIRD)",
+      "agency_ko": "국가과학기술인력개발원",
+      "period": "2026",
+      "scope": "hydrodynamics"
+    },
+    {
+      "title_en": "Development of a PC2-Class Icebreaking Ship for Year-Round Operation in High-Latitude Arctic Regions",
+      "title_ko": "북극 고위도 연중 운항이 가능한 세계 최고 수준의 PC(Polar Class) 2급 쇄빙선 개발",
+      "agency_en": "Korea Evaluation Institute of Industrial Technology (KEIT)",
+      "agency_ko": "한국산업기술기획평가원",
+      "period": "2025–2028",
+      "scope": "polar"
+    },
+    {
+      "title_en": "Development of a Full-Scale Ship Resistance Prediction Model Based on Flat Plate Frictional Resistance for Antifouling Coating Performance Evaluation",
+      "title_ko": "방오도료 적용 선박의 유효마력 산출을 위한 평판 마찰저항 기반 실선 예측 모델 개발",
+      "agency_en": "Hanwha Ocean",
+      "agency_ko": "한화오션",
+      "period": "2025",
+      "scope": "resistance"
+    },
+    {
+      "title_en": "Study on Standard Manoeuvrability Prediction under High-Speed Operating Conditions",
+      "title_ko": "고속 운항조건 표준 조종성능 예측 연구",
+      "agency_en": "Korea Research Institute of Ships and Ocean Engineering (KRISO)",
+      "agency_ko": "선박해양플랜트연구소",
+      "period": "2025",
+      "scope": "hydrodynamics"
+    },
+    {
+      "title_en": "Study on the Effects of Marine Biofouling on Naval Vessel Performance",
+      "title_ko": "해양생물이 함정 성능에 미치는 영향 개선연구",
+      "agency_en": "Ministry of National Defense",
+      "agency_ko": "국방부",
+      "period": "2025",
+      "scope": "resistance"
+    },
+    {
+      "title_en": "Next-Generation Core Researcher Joint Research Programme",
+      "title_ko": "미래세대 핵심연구자 공동연구 프로그램",
+      "agency_en": "Inha University",
+      "agency_ko": "인하대학교",
+      "period": "2025–2026",
+      "scope": "other"
+    },
+    {
+      "title_en": "Development of Thrust Control Techniques for Improved Manoeuvrability of Twin-Screw Vessels",
+      "title_ko": "쌍축선 조종성 향상을 위한 추력 제어 기법 개발",
+      "agency_en": "Inha University",
+      "agency_ko": "인하대학교",
+      "period": "2025–2026",
+      "scope": "hydrodynamics"
+    },
+    {
+      "title_en": "Ship Design and Shipbuilding Technology Development of a Liquid Hydrogen Test Carrier (2K Class)",
+      "title_ko": "액체수소 운반시험선(2k급) 설계 및 건조기술 개발",
+      "agency_en": "Korea Evaluation Institute of Industrial Technology (KEIT)",
+      "agency_ko": "한국산업기술기획평가원",
+      "period": "2024–2028",
+      "scope": "other"
+    },
+    {
+      "title_en": "Development of Mooring Line Load Monitoring and Load Reduction Devices for 15 MW+ Floating Offshore Wind Turbines",
+      "title_ko": "15MW+급 부유식해상풍력 계류선 하중 모니터링 및 하중 저감장치 개발",
+      "agency_en": "Korea Institute of Energy Technology Evaluation and Planning (KETEP)",
+      "agency_ko": "한국에너지기술평가원",
+      "period": "2024–2028",
+      "scope": "renewable"
+    },
+    {
+      "title_en": "Development of CFD-Based Manoeuvrability and Roll Motion Prediction Techniques for SMR-Powered Container Ships under High-Speed Conditions",
+      "title_ko": "SMR 추진 컨테이너선 고속운항조건 CFD기반 조종성능 및 횡동요 예측기법 개발",
+      "agency_en": "Korea Research Institute of Ships and Ocean Engineering (KRISO)",
+      "agency_ko": "선박해양플랜트연구소",
+      "period": "2024",
+      "scope": "hydrodynamics"
+    },
+    {
+      "title_en": "Green Marine Bridge Technology Development",
+      "title_ko": "그린 해상교량 기술개발",
+      "agency_en": "Korea Agency for Infrastructure Technology Advancement (KAIA)",
+      "agency_ko": "국토교통과학기술진흥원",
+      "period": "2024–2028",
+      "scope": "environmental"
+    },
+    {
+      "title_en": "Development and Application of a CFD Simulation Model for Tidal Current Turbine Performance Evaluation",
+      "title_ko": "조류발전장치 성능평가를 위한 CFD 시뮬레이션 모델 개발 및 활용",
+      "agency_en": "Inha University",
+      "agency_ko": "인하대학교",
+      "period": "2024–2025",
+      "scope": "renewable"
+    },
+    {
+      "title_en": "Global Advanced Workforce Development for Future Ocean Plant Industries",
+      "title_ko": "미래 해양플랜트 글로벌 고급 전문인력 양성사업",
+      "agency_en": "Korea Institute for Advancement of Technology (KIAT)",
+      "agency_ko": "한국산업기술진흥원",
+      "period": "2022–2025",
+      "scope": "other"
+    },
+    {
+      "title_en": "CFD-Based Capsizing Scenario Modelling for Small Fishing Vessels",
+      "title_ko": "CFD를 이용한 소형어선 전복 상황 재현 모델링",
+      "agency_en": "Korea Maritime Safety Tribunal (KOMSA)",
+      "agency_ko": "한국해양교통안전공단",
+      "period": "2023",
+      "scope": "hydrodynamics"
+    },
+    {
+      "title_en": "CFD-Based Prediction of Ship Hydrodynamic Performance in Waves",
+      "title_ko": "CFD를 이용한 선박의 파랑 중 유체성능 예측",
+      "agency_en": "Inha University",
+      "agency_ko": "인하대학교",
+      "period": "2023–2024",
+      "scope": "hydrodynamics"
+    },
+    {
+      "title_en": "Enhancement of Real-Sea Performance Evaluation through Quantification of Hull Roughness Effects",
+      "title_ko": "선박 거칠기 영향도 정량화를 통한 실운항 성능평가 고도화",
+      "agency_en": "Hanwha Ocean",
+      "agency_ko": "한화오션",
+      "period": "2023",
+      "scope": "resistance"
+    },
+    {
+      "title_en": "Development of Autonomous Ship Technologies",
+      "title_ko": "자율운항선박 기술개발",
+      "agency_en": "Korea Institute of Marine Science & Technology Promotion (KIMST)",
+      "agency_ko": "해양수산과학기술진흥원",
+      "period": "2022–2025",
+      "scope": "hydrodynamics"
+    },
+    {
+      "title_en": "Study on Prediction Methods for Ship Resistance Increase due to Non-Uniform Hull Roughness",
+      "title_ko": "불균일한 선체 거칠기에 따른 선박 저항증가 예측기법 연구",
+      "agency_en": "National Research Foundation of Korea (NRF)",
+      "agency_ko": "한국연구재단",
+      "period": "2022–2025",
+      "scope": "resistance"
+    },
+    {
+      "title_en": "Evaluation of Ship Hydrodynamic Performance and Operational Efficiency Using CFD",
+      "title_ko": "전산유체역학을 이용한 선박의 유체성능 및 운항효율 평가",
+      "agency_en": "Inha University",
+      "agency_ko": "인하대학교",
+      "period": "2022–2023",
+      "scope": "resistance"
+    },
+    {
+      "title_en": "Virtual and Physical Experimental Towing Centre for the Design of Energy Efficient Sea-Faring Vessels",
+      "title_ko": "에너지 효율적 선박 설계를 위한 가상·물리 예인시험 센터",
+      "agency_en": "European Union",
+      "agency_ko": "유럽연합",
+      "period": "2020–2022",
+      "scope": "resistance"
+    },
+    {
+      "title_en": "Development of Smart Antifouling Strategies towards Energy-Efficient Fishing Boats in Turkey",
+      "title_ko": "에너지 효율적 어선을 위한 스마트 방오 전략 개발 (터키)",
+      "agency_en": "Scottish Funding Council",
+      "agency_ko": "스코틀랜드 재정위원회",
+      "period": "2020–2021",
+      "scope": "resistance"
+    },
+    {
+      "title_en": "Assessment of the Current Practices and Local Needs for Developing Smart Antifouling Strategies towards Energy-Efficient Fishing Boats in Turkey",
+      "title_ko": "에너지 효율적 어선을 위한 스마트 방오 전략 현황 및 수요 분석 (터키)",
+      "agency_en": "Scottish Funding Council",
+      "agency_ko": "스코틀랜드 재정위원회",
+      "period": "2019–2020",
+      "scope": "resistance"
+    }
+  ]
+}

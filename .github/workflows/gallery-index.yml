@@ -1,0 +1,67 @@
+name: Update gallery index
+
+# images/gallery/ 에 사진이 추가·삭제되면 data/gallery.json 의 목록을 자동으로 갱신합니다.
+# 덕분에 사진을 올리는 사람은 목록 파일을 손댈 필요가 없습니다.
+
+on:
+  push:
+    paths:
+      - 'images/gallery/**'
+  workflow_dispatch:        # Actions 탭에서 손으로 실행할 수도 있습니다
+
+permissions:
+  contents: write
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rebuild data/gallery.json
+        run: |
+          node <<'SCRIPT'
+          const fs = require('fs');
+          const path = require('path');
+
+          const DIR  = 'images/gallery';
+          const JSON_PATH = 'data/gallery.json';
+          const IMAGE_RE = /\.(jpe?g|png|webp|avif|gif)$/i;
+
+          // 갤러리 폴더의 이미지 목록
+          let files = [];
+          if (fs.existsSync(DIR)) {
+            files = fs.readdirSync(DIR)
+              .filter(f => IMAGE_RE.test(f))
+              .filter(f => !f.startsWith('.'));
+          }
+
+          // 파일명 내림차순 — 파일명을 2026-07-26-xxx.jpg 처럼 날짜로 시작하면
+          // 최신 사진이 갤러리 맨 앞에 옵니다.
+          files.sort((a, b) => b.localeCompare(a, 'en'));
+
+          // 기존 captions 는 보존합니다
+          let data = { captions: {}, items: [] };
+          if (fs.existsSync(JSON_PATH)) {
+            try { data = JSON.parse(fs.readFileSync(JSON_PATH, 'utf8')); }
+            catch (e) { console.log('기존 gallery.json 을 읽을 수 없어 새로 만듭니다:', e.message); }
+          }
+          data._comment = '이 파일은 GitHub Actions가 images/gallery/ 폴더를 읽어 자동으로 갱신합니다. 직접 편집하지 않아도 됩니다. 사진에 설명을 붙이려면 captions에 파일명을 키로 추가하세요.';
+          data.captions = data.captions || {};
+          data.items = files;
+
+          fs.writeFileSync(JSON_PATH, JSON.stringify(data, null, 2) + '\n');
+          console.log(`갤러리 사진 ${files.length}개를 인덱싱했습니다.`);
+          SCRIPT
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet data/gallery.json; then
+            echo "변경 없음 — 커밋하지 않습니다."
+          else
+            git add data/gallery.json
+            git commit -m "chore: update gallery index [skip ci]"
+            git push
+          fi

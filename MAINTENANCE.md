@@ -1,0 +1,328 @@
+# 홈페이지 관리 가이드
+
+RHL 연구실 홈페이지를 고치는 방법입니다. **터미널이나 Git 명령어를 몰라도 브라우저에서 전부 할 수 있습니다.**
+
+- 사이트 주소: **https://soonseok-song.github.io**
+- 저장소: **https://github.com/Soonseok-Song/soonseok-song.github.io**
+
+---
+
+## 가장 중요한 두 가지
+
+**① 수정한 뒤 `Commit changes` 를 눌러야 반영됩니다.** 커밋하면 1~2분 뒤 사이트가 갱신됩니다.
+
+**② 내용은 대부분 `data/` 폴더의 JSON 파일에 있습니다.** HTML을 건드릴 일은 거의 없습니다.
+
+---
+
+## 브라우저에서 파일 고치는 방법 (공통)
+
+1. 저장소로 갑니다 → https://github.com/Soonseok-Song/soonseok-song.github.io
+2. 고칠 파일을 클릭합니다 (예: `data` 폴더 → `publications.json`)
+3. 오른쪽 위 **연필 아이콘**(Edit this file)을 누릅니다
+4. 내용을 고칩니다
+5. 아래 **`Commit changes`** → 초록 버튼 **`Commit changes`**
+6. 1~2분 뒤 사이트에서 확인합니다
+
+> 여러 파일을 한 번에 고치려면 저장소 화면에서 **`.` 키**를 누르세요. 브라우저에 VSCode가 열립니다 (무료).
+
+---
+
+## 무엇을 하려면 어디를 고치나
+
+| 하고 싶은 것 | 고칠 파일 | 소요 |
+|---|---|---|
+| 논문 추가 | `data/publications.json` | 2분 |
+| 연구과제 추가 | `data/projects.json` | 2분 |
+| 소식 추가 | `data/news.json` | 1분 |
+| 학생 추가 / 졸업 처리 | `data/people.json` | 3분 |
+| h-index·피인용수 갱신 | `data/metrics.json` | 30초 |
+| 갤러리 사진 올리기 | `images/gallery/` 폴더에 업로드 | 1분 |
+| 연구 분야 설명 수정 | `research.html` | 5분 |
+| 첫 페이지 소개글 수정 | `index.html` | 5분 |
+| 연락처·모집 안내 수정 | `contact.html` | 3분 |
+
+---
+
+## 1. 논문 추가
+
+`data/publications.json` 을 열고, `"journal": [` 바로 다음에 아래를 붙여넣습니다. **맨 위에 넣으면 최신 논문이 위에 옵니다.**
+
+```json
+    {
+      "year": 2027,
+      "authors": "Kim, K., et al.",
+      "title": "여기에 논문 제목",
+      "venue": "Ocean Engineering",
+      "detail": "370: 128000",
+      "doi": "10.1016/j.oceaneng.2027.128000"
+    },
+```
+
+- `detail` — 권(호): 페이지 또는 논문번호. 없으면 `""`
+- `doi` — 없으면 `""` 로 두세요. 넣으면 제목 뒤에 링크가 생깁니다 (`10.` 으로 시작하는 부분만, `https://doi.org/` 는 빼고)
+- **마지막 항목 뒤에는 쉼표를 붙이지 않습니다**
+
+논문 번호는 자동으로 매겨집니다. 오래된 논문이 1번이라 새 논문을 추가해도 기존 번호가 바뀌지 않습니다.
+
+**학회 발표**를 넣으려면 파일 아래쪽 `"conference": []` 안에 같은 형식으로 넣으면 됩니다. (현재는 화면에 표시되지 않으니, 표시가 필요해지면 알려주세요.)
+
+## 2. 연구과제 추가
+
+`data/projects.json` 의 `"projects": [` 다음에:
+
+```json
+    {
+      "title_en": "English project title",
+      "title_ko": "국문 과제명",
+      "agency_en": "Korea Research Institute of Ships and Ocean Engineering (KRISO)",
+      "agency_ko": "선박해양플랜트연구소",
+      "period": "2027–2029",
+      "scope": "hydrodynamics"
+    },
+```
+
+`scope` 는 아래 여섯 개 중 하나입니다. Projects 페이지의 필터 버튼과 연결됩니다.
+
+| scope 값 | 버튼 이름 |
+|---|---|
+| `resistance` | Ship Resistance |
+| `hydrodynamics` | Ship Hydrodynamics |
+| `polar` | Polar & Ice |
+| `renewable` | Renewable Energy |
+| `environmental` | Environmental |
+| `other` | Other |
+
+> `period` 의 가운데 기호는 en dash(`–`)입니다. 보통 하이픈(`-`)을 써도 표시에는 문제없습니다.
+
+> **예산 금액이나 미공개 산업체 과제 내용은 넣지 마세요.**
+
+## 3. 소식 추가
+
+`data/news.json` 의 `"news": [` 다음에. **맨 위가 최신입니다.**
+
+```json
+    {
+      "date": "March 2027",
+      "text": "One-sentence description of the news."
+    },
+```
+
+`date` 는 적은 그대로 화면에 나옵니다. `March 2027` 처럼 월-연도까지만 쓰는 걸 권합니다.
+
+> 소식은 **비어 있거나 오래된 게 가장 나쁩니다.** 1년 넘게 새 항목이 없으면 사이트가 방치된 것처럼 보입니다. 학기마다 한 번은 확인해 주세요.
+
+## 4. 학생 추가 / 졸업 처리
+
+`data/people.json` 을 엽니다.
+
+**신입생 추가** — `"current": [` 안에:
+
+```json
+    {
+      "name_en": "Gildong Hong",
+      "name_ko": "홍길동",
+      "photo": "hong-gildong.jpg",
+      "topic": "Tidal turbines · propeller modelling"
+    },
+```
+
+사진은 먼저 `images/people/` 폴더에 업로드해야 합니다 (아래 규격 참고). 사진이 아직 없으면 `"photo": null` 로 두세요 — 회색 칸으로 표시됩니다.
+
+**졸업 처리** — `current` 에서 해당 항목을 지우고 `"alumni": [` 안에 추가합니다:
+
+```json
+    {
+      "name_en": "Wooseok Choi",
+      "name_ko": "최우석",
+      "graduated": "2025",
+      "thesis": "Thesis title",
+      "position": "Hanwha Ocean"
+    },
+```
+
+> **졸업생의 회사 이메일이나 개인 연락처는 넣지 마세요.** 현재 직장을 적을 때도 본인 동의를 받는 것이 좋습니다.
+
+## 5. h-index 갱신
+
+`data/metrics.json` — 숫자만 고치면 됩니다.
+
+```json
+{
+  "h_index": 24,
+  "i10_index": 33,
+  "citations": 1820,
+  "source": "Google Scholar",
+  "updated": "June 2027"
+}
+```
+
+Google Scholar 프로필에서 숫자를 확인하고 `updated` 도 함께 바꿔주세요. **연 1회면 충분합니다.**
+
+## 6. 갤러리 사진 올리기 — 학생에게 맡길 수 있는 작업
+
+1. 저장소에서 `images` → `gallery` 폴더로 들어갑니다
+2. 오른쪽 위 **`Add file`** → **`Upload files`**
+3. 사진을 드래그해서 놓습니다
+4. 아래 **`Commit changes`**
+
+**목록 파일은 건드리지 않아도 됩니다.** GitHub Actions가 `data/gallery.json` 을 자동으로 갱신합니다.
+
+**파일명을 날짜로 시작하면 최신 사진이 앞에 옵니다:**
+
+```
+2026-07-26-isope-conference.jpg
+2026-06-14-towing-tank-test.jpg
+```
+
+사진에 설명을 붙이려면 `data/gallery.json` 의 `captions` 에 추가합니다:
+
+```json
+  "captions": {
+    "2026-07-26-isope-conference.jpg": "ISOPE 2026, Seoul"
+  },
+```
+
+**사진을 지우려면** 파일을 삭제하면 됩니다 (파일 클릭 → 휴지통 아이콘 → Commit). 목록도 자동으로 갱신됩니다.
+
+---
+
+## 이미지·영상 규격
+
+| 용도 | 폴더 | 권장 |
+|---|---|---|
+| 인물 사진 | `images/people/` | 세로 3:4, 높이 480px 내외, **200KB 이하** |
+| 연구 그림 | `images/research/` | 폭 900px 내외, **300KB 이하** |
+| 갤러리 사진 | `images/gallery/` | 폭 1200px 이하, **500KB 이하** |
+| 영상 | `videos/` | MP4(H.264), **3MB 이하** |
+
+### ⚠️ GIF는 쓰지 마세요
+
+GIF는 압축이 형편없어서 같은 애니메이션이 MP4보다 **10~20배 큽니다.** 실제로 이 사이트를 만들 때 pptx에서 뽑은 GIF 421MB를 MP4로 바꿨더니 **21MB**가 됐습니다.
+
+MP4로 바꾸려면 [ffmpeg](https://ffmpeg.org)로:
+
+```
+ffmpeg -i input.gif -movflags +faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" -c:v libx264 -crf 30 -an output.mp4
+```
+
+HTML에서는 이렇게 넣으면 GIF처럼 자동재생·무한반복됩니다:
+
+```html
+<video src="videos/파일명.mp4" autoplay muted loop playsinline preload="metadata"></video>
+```
+
+`muted` 가 없으면 브라우저가 자동재생을 막습니다.
+
+### 용량 한도
+
+GitHub Pages 사이트는 **1GB**까지입니다. 현재 약 30MB를 쓰고 있어 여유가 많습니다. 다만 **한 번 커밋한 파일은 지워도 저장소 이력에 남습니다** — 큰 파일을 올리기 전에 크기를 줄여주세요.
+
+30초를 넘는 영상은 저장소에 넣지 말고 **YouTube에 올려 임베드**하는 편이 낫습니다.
+
+---
+
+## 로컬에서 미리 보기 (선택)
+
+HTML 파일을 브라우저로 그냥 열면 **논문·구성원 목록이 비어 보입니다.** 브라우저 보안 정책(`file://`)이 JSON 읽기를 막기 때문입니다. 게시된 사이트에서는 정상 동작하니 문제는 아니지만, 로컬에서 확인하려면:
+
+**방법 1 — VSCode Live Server 확장** (가장 쉬움)
+확장 검색에서 `Live Server` 설치 → `index.html` 우클릭 → `Open with Live Server`
+
+**방법 2 — 터미널**
+```
+cd D:\repos\soonseok-song.github.io
+python -m http.server 8000
+```
+브라우저에서 `http://localhost:8000` 접속
+
+---
+
+## 자동으로 돌아가는 것들
+
+`.github/workflows/` 에 두 개가 있습니다. 손댈 필요 없습니다.
+
+| 워크플로 | 언제 | 무엇을 |
+|---|---|---|
+| `gallery-index.yml` | `images/gallery/` 변경 시 | 갤러리 목록 자동 갱신 |
+| `validate-json.yml` | `data/*.json` 변경 시 | JSON 문법 검사 + 사진 파일 존재 확인 |
+
+**JSON 문법이 틀리면 GitHub이 이메일로 알려줍니다.** 사이트가 조용히 깨지는 걸 막기 위한 것입니다. 실행 결과는 저장소 상단 **Actions** 탭에서 볼 수 있습니다.
+
+---
+
+## 문제 해결
+
+**사이트가 안 바뀐다**
+1~2분 기다렸는지 확인하세요. 그래도 안 되면 저장소 **Actions** 탭에서 실패한 작업(빨간 X)이 있는지 봅니다. 브라우저 강력 새로고침은 `Ctrl+F5`.
+
+**목록이 통째로 사라졌다**
+JSON 문법 오류입니다. 거의 항상 원인은 셋입니다:
+- 마지막 항목 뒤에 **쉼표가 남아 있다** (`},` → `}`)
+- 항목 사이에 **쉼표가 빠졌다**
+- 따옴표 짝이 안 맞는다
+
+**Actions** 탭의 `Validate JSON` 결과를 보면 어느 줄인지 알려줍니다.
+
+**사진이 빈 칸으로 나온다**
+`people.json` 의 `photo` 값과 `images/people/` 의 실제 파일명이 정확히 같은지 확인하세요. **대소문자와 확장자(.jpg / .jpeg)를 구분합니다.**
+
+**잘못 고쳐서 되돌리고 싶다**
+저장소 상단 **`Commits`** → 되돌리고 싶은 커밋 클릭 → 오른쪽 **`...`** → **`Revert`**. 커밋 하나가 취소됩니다.
+
+**AI에게 시키고 싶다**
+Claude Code 같은 도구에 이 저장소 폴더를 열어주고 *"MAINTENANCE.md 읽고 논문 추가해줘"* 라고 하면 됩니다. 논문 여러 편을 한꺼번에 넣거나 디자인을 바꿀 때 편합니다.
+
+---
+
+## 파일 구조
+
+```
+soonseok-song.github.io/
+├─ index.html            Home — 소개, 연구 분야 5개, 소식
+├─ research.html         연구 분야 상세 (그림·영상)
+├─ projects.html         연구과제 (분야 필터)
+├─ publications.html     논문 목록
+├─ people.html           구성원
+├─ gallery.html          갤러리
+├─ contact.html          연락처, 대학원 모집
+│
+├─ css/style.css         전체 디자인. 색을 바꾸려면 파일 맨 위 변수만 수정
+├─ js/site.js            JSON을 읽어 목록을 그리는 스크립트
+│
+├─ data/                 ← 평소 고치는 것은 거의 다 여기
+│   ├─ publications.json 논문
+│   ├─ projects.json     연구과제
+│   ├─ people.json       구성원 (PI·재학생·졸업생)
+│   ├─ metrics.json      h-index 등
+│   ├─ news.json         소식
+│   └─ gallery.json      갤러리 목록 (자동 생성)
+│
+├─ images/
+│   ├─ people/           인물 사진
+│   ├─ research/         연구 그림 (파일명 s08~s36은 원본 슬라이드 번호)
+│   └─ gallery/          갤러리 사진 ← 학생이 업로드하는 곳
+├─ videos/               MP4 영상
+│
+├─ .github/workflows/    자동화 (건드릴 필요 없음)
+├─ .nojekyll             GitHub의 Jekyll 처리를 끄는 빈 파일 — 지우지 마세요
+└─ MAINTENANCE.md        이 문서
+```
+
+### 내비게이션(상단 메뉴)을 고칠 때
+
+메뉴는 **7개 HTML 파일에 각각 들어 있습니다.** 페이지를 추가하거나 메뉴 이름을 바꾸려면 7개를 모두 고쳐야 합니다. 빌드 도구 없이 순수 HTML로 만든 대가인데, 그 덕에 몇 년 뒤에도 이 사이트는 아무 설치 없이 열립니다. 이런 작업은 AI에게 맡기는 편이 빠릅니다.
+
+---
+
+## 절대 올리면 안 되는 것
+
+이 저장소는 **공개(public)** 입니다. 커밋한 파일은 누구나 볼 수 있고, **나중에 지워도 이력에 영구히 남습니다.**
+
+- 주민등록번호, 생년월일, 집 주소가 든 문서 (한글 이력서 등)
+- 개인 휴대폰 번호
+- 학생 개인 이메일
+- 미공개 과제 제안서, 예산 자료, 산업체 기밀 문서
+- 저작권이 출판사에 있는 논문 PDF (CC BY 오픈 액세스 논문은 출처 표시 후 사용 가능)
+
+작업용 원본 파일(pptx, CV, 원본 사진)은 Dropbox의 `00_Claude_code\홈페이지\소스파일\` 에 두고 있습니다. 그쪽은 공개되지 않습니다.

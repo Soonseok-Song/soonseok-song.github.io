@@ -3,35 +3,230 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RHL — Inha University</title>
-  <meta name="description" content="RHL research group, Department of Naval Architecture and Ocean Engineering, Inha University.">
+  <title>RHL — Resistance Hydrodynamics Laboratory, Inha University</title>
+  <meta name="description" content="The Resistance Hydrodynamics Laboratory at Inha University studies the hydrodynamics of ships and marine renewable energy devices, combining towing-tank and flow-channel experiments with high-fidelity CFD.">
+  <meta property="og:title" content="Resistance Hydrodynamics Laboratory — Inha University">
+  <meta property="og:description" content="Hull roughness and biofouling, seakeeping and manoeuvring, ice-going ships, and marine renewable energy.">
+  <meta property="og:image" content="https://soonseok-song.github.io/images/research/s24-ice-test-underwater.jpg">
+  <meta property="og:type" content="website">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body data-page="home">
 
-  <header class="site-header">
-    <p class="eyebrow">Inha University</p>
-    <h1>[LAB_NAME]</h1>
-    <p class="lede">[DEPARTMENT]</p>
+  <header class="site-head">
+    <div class="site-head-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">RHL</span>
+        <span class="brand-sub">Resistance Hydrodynamics Laboratory</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="people.html">People</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>Site under construction</h2>
-      <p>
-        This page is a placeholder. Content is being prepared and the full site
-        will follow shortly.
+  <!-- ── 히어로 ─────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-media">
+      <img src="images/research/s24-ice-test-underwater.jpg" alt="A model icebreaker advancing through artificial ice floes, photographed from below the waterline">
+    </div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Inha University &middot; Naval Architecture and Ocean Engineering</p>
+      <h1>Resistance Hydrodynamics Laboratory</h1>
+      <p class="hero-lede">
+        We study the hydrodynamics of ships and marine renewable energy devices,
+        combining towing-tank and flow-channel experiments with high-fidelity CFD.
       </p>
-      <p>
-        For enquiries, please contact
-        <a href="mailto:[PI_EMAIL]">[PI_EMAIL]</a>.
-      </p>
-    </section>
-  </main>
+    </div>
+    <p class="hero-credit">Ice-tank model test, Newcastle University</p>
+  </section>
 
-  <footer class="site-footer">
-    <p>[LAB_NAME] &middot; [DEPARTMENT], Inha University</p>
+  <!-- ── 소개 ───────────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <p class="section-label">About the laboratory</p>
+        <p class="lede">
+          Our central interest is resistance — what makes a ship harder to push
+          through water, and by how much.
+        </p>
+        <p>
+          That question leads us into hull roughness and marine biofouling, ship motions
+          and manoeuvring in waves, ice-going vessels in polar waters, and energy-saving
+          technologies such as air lubrication and wind-assisted propulsion. We work at
+          both model and full scale, and much of our effort goes into the step between
+          the two — surface roughness, unlike a hull form, cannot simply be scaled up.
+        </p>
+        <p>
+          <strong>Marine renewable energy is a second major strand of our work</strong>:
+          the performance and structural loading of tidal current turbines, and the
+          coupled behaviour of floating offshore wind turbines under wave and mooring
+          loads. Our CFD capability further extends to environmental problems such as
+          dissolved-oxygen transport in aquaculture and scour around bridge piers.
+        </p>
+        <p>
+          We hold that none of our methods is sufficient on its own. Experiments isolate
+          the physics, simulation reaches conditions experiments cannot, and full-scale
+          data from industry keeps both honest. The interesting problems usually appear
+          where the three disagree.
+        </p>
+        <p class="link-row">
+          <a class="btn" href="research.html">Explore our research</a>
+          <a class="btn btn-ghost" href="people.html">Meet the group</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 연구 분야 ──────────────────────────────────────────────────────── -->
+  <section class="section section-tint">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-label">Research scope</p>
+        <h2>Five areas of work</h2>
+        <p>
+          Each area is supported by both experiment and simulation. Follow a card for
+          detail, methods and representative results.
+        </p>
+      </div>
+
+      <div class="grid">
+
+        <a class="card" href="research.html#resistance">
+          <div class="card-media">
+            <img src="images/research/s08-roughness-modelling.jpg" alt="Roughness effect modelling across experimental, theoretical and numerical methods" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Ship Resistance</h3>
+            <p>
+              Modelling the roughness effects of marine biofouling and state-of-the-art
+              antifouling coatings on ship resistance.
+            </p>
+            <p class="card-more">Read more &rarr;</p>
+          </div>
+        </a>
+
+        <a class="card" href="research.html#hydrodynamics">
+          <div class="card-media">
+            <img src="images/research/s19-seakeeping-damaged.jpg" alt="CFD seakeeping simulation of a damaged ship" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Ship Hydrodynamics &amp; Energy Efficiency</h3>
+            <p>
+              Seakeeping and six-degree-of-freedom free-running manoeuvring CFD, with
+              experimental evaluation of air lubrication and wind-assisted propulsion.
+            </p>
+            <p class="card-more">Read more &rarr;</p>
+          </div>
+        </a>
+
+        <a class="card" href="research.html#polar">
+          <div class="card-media">
+            <img src="images/research/s24-ice-test-tank.jpg" alt="Ice-tank model test with a model icebreaker among artificial ice floes" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Polar &amp; Ice-Going Ships</h3>
+            <p>
+              Ice resistance prediction for polar vessels through coupled CFD&ndash;DEM
+              simulation and ice-tank model testing.
+            </p>
+            <p class="card-more">Read more &rarr;</p>
+          </div>
+        </a>
+
+        <a class="card" href="research.html#renewable">
+          <div class="card-media">
+            <img src="images/research/s11-renewable-tidal.jpg" alt="Tidal current turbine simulation" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Marine Renewable Energy</h3>
+            <p>
+              Performance and load analysis of tidal current turbines and floating
+              offshore wind turbines.
+            </p>
+            <p class="card-more">Read more &rarr;</p>
+          </div>
+        </a>
+
+        <a class="card" href="research.html#environmental">
+          <div class="card-media">
+            <img src="images/research/s13-scour-simulation.jpg" alt="Scour simulation around a submerged structure" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Applied &amp; Environmental Hydrodynamics</h3>
+            <p>
+              Dissolved-oxygen transport in marine aquaculture cages and scour around
+              bridge piers.
+            </p>
+            <p class="card-more">Read more &rarr;</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 소식 · 참여 안내 ───────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid-2">
+
+        <div>
+          <p class="section-label">Recent news</p>
+          <h2>What's happening</h2>
+          <div data-news></div>
+        </div>
+
+        <div>
+          <p class="section-label">Join us</p>
+          <h2>Prospective students</h2>
+          <div class="callout">
+            <p>
+              We are looking for motivated students interested in ship hydrodynamics,
+              marine renewable energy, and computational and experimental fluid dynamics.
+              Curiosity and persistence matter more than a specific background.
+            </p>
+            <p>
+              If you would like to work with us, email
+              <a href="mailto:s.song@inha.ac.kr">s.song@inha.ac.kr</a>
+              with your CV and a short note on what you would like to work on.
+            </p>
+          </div>
+          <p class="link-row" style="margin-top:1.25rem">
+            <a class="btn btn-ghost" href="publications.html">Publications</a>
+            <a class="btn btn-ghost" href="projects.html">Projects</a>
+            <a class="btn btn-ghost" href="gallery.html">Gallery</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-foot">
+    <div class="site-foot-inner">
+      <div>
+        <p><strong>Resistance Hydrodynamics Laboratory (RHL)</strong></p>
+        <p>Department of Naval Architecture and Ocean Engineering<br>Inha University</p>
+        <p>Room 2N483, 100 Inha-ro, Michuhol-gu, Incheon 22212, Republic of Korea</p>
+      </div>
+      <div>
+        <p><a href="mailto:s.song@inha.ac.kr">s.song@inha.ac.kr</a></p>
+        <p>+82-32-860-7338</p>
+        <p class="foot-links">
+          <a href="https://scholar.google.com/citations?user=Z9rNtg8AAAAJ&amp;hl=en" rel="noopener">Google Scholar</a>
+          <a href="https://orcid.org/0000-0002-7685-1026" rel="noopener">ORCID</a>
+        </p>
+      </div>
+    </div>
   </footer>
 
+  <script src="js/site.js"></script>
 </body>
 </html>

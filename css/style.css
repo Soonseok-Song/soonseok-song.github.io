@@ -1,96 +1,856 @@
-/* ─────────────────────────────────────────────────────────────
-   기본 스타일. 실제 사이트 작업 때 확장합니다.
-   색을 여기 변수로 모아두면 나중에 한 곳만 고쳐 전체 톤을 바꿀 수 있습니다.
-   ───────────────────────────────────────────────────────────── */
+/* ==========================================================================
+   RHL — Resistance Hydrodynamics Laboratory, Inha University
+   공통 스타일시트
+
+   구조
+     1. 변수 (색·간격·폭)   ← 사이트 톤을 바꾸려면 여기만 고치면 됩니다
+     2. 리셋과 기본 타이포그래피
+     3. 레이아웃 컨테이너
+     4. 헤더 / 내비게이션
+     5. 히어로 (페이지 상단 배너)
+     6. 섹션과 제목
+     7. 카드 그리드
+     8. 연구 분야 (좌우 교대 레이아웃)
+     9. 구성원
+    10. 논문 목록
+    11. 프로젝트 (필터 포함)
+    12. 갤러리
+    13. 미디어 (그림·영상)
+    14. 뉴스
+    15. 푸터
+    16. 유틸리티
+   ========================================================================== */
+
+/* ── 1. 변수 ────────────────────────────────────────────────────────────── */
 
 :root {
-  --ink:      #1a1a1a;   /* 본문 글자 */
-  --ink-soft: #5a5a5a;   /* 보조 글자 */
-  --accent:   #1a3a5c;   /* 강조색 — 나중에 대학 상징색으로 교체 */
-  --rule:     #e2e2e2;   /* 구분선 */
-  --bg:       #ffffff;
-  --measure:  68ch;      /* 본문 한 줄 최대 길이 — 읽기 편한 범위 */
+  /* 글자 */
+  --ink:        #16181d;   /* 본문 */
+  --ink-soft:   #565b66;   /* 보조 설명 */
+  --ink-faint:  #8b909b;   /* 라벨·메타 */
+
+  /* 강조색 — 인하대 계열 청색. 바꾸려면 이 두 줄만 수정 */
+  --accent:     #0d4d8c;
+  --accent-alt: #1567b8;
+
+  /* 배경·선 */
+  --bg:         #ffffff;
+  --bg-soft:    #f5f7f9;
+  --bg-inset:   #eef1f5;
+  --rule:       #e2e6ea;
+
+  /* 치수 */
+  --wide:       1160px;    /* 넓은 콘텐츠 최대폭 */
+  --measure:    68ch;      /* 본문 한 줄 최대 길이 */
+  --radius:     4px;
+  --nav-h:      60px;
+
+  /* 그림자 */
+  --shadow:     0 1px 3px rgba(0,0,0,.07), 0 8px 24px rgba(0,0,0,.05);
 }
 
-/* 방문자가 다크 모드를 쓰는 경우 */
 @media (prefers-color-scheme: dark) {
   :root {
-    --ink:      #e8e8e8;
-    --ink-soft: #a0a0a0;
-    --accent:   #7aa7d0;
-    --rule:     #333333;
-    --bg:       #141414;
+    --ink:        #e6e8ec;
+    --ink-soft:   #a3a9b5;
+    --ink-faint:  #757c88;
+    --accent:     #6faae2;
+    --accent-alt: #8dc0ee;
+    --bg:         #14161a;
+    --bg-soft:    #1b1e23;
+    --bg-inset:   #22262d;
+    --rule:       #2c313a;
+    --shadow:     0 1px 3px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
   }
 }
 
+/* ── 2. 리셋 · 기본 타이포그래피 ──────────────────────────────────────────── */
+
 *, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  padding: 0 1.5rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-               "Helvetica Neue", Arial, sans-serif;
+               "Helvetica Neue", "Malgun Gothic", Arial, sans-serif;
   font-size: 1.0625rem;
   line-height: 1.65;
   color: var(--ink);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* 모든 주요 블록을 같은 폭으로 정렬 */
-.site-header, main, .site-footer {
-  max-width: var(--measure);
-  margin-inline: auto;
-}
-
-.site-header {
-  padding: 4rem 0 2.5rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-.eyebrow {
-  margin: 0 0 0.5rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-}
-
-h1 {
-  margin: 0 0 0.5rem;
-  font-size: clamp(1.75rem, 4vw, 2.5rem);  /* 화면 폭에 따라 자동 조절 */
-  line-height: 1.2;
-  font-weight: 700;
-  color: var(--accent);
-}
-
-.lede {
-  margin: 0;
-  color: var(--ink-soft);
-}
-
-main { padding: 2.5rem 0 4rem; }
-
-h2 {
-  margin: 0 0 1rem;
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-p { margin: 0 0 1rem; }
+img, video { max-width: 100%; height: auto; display: block; }
 
 a {
   color: var(--accent);
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
+a:hover { color: var(--accent-alt); }
 
-.site-footer {
-  padding: 1.5rem 0 3rem;
+h1, h2, h3, h4 {
+  line-height: 1.25;
+  font-weight: 700;
+  margin: 0 0 0.6em;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(1.9rem, 4.2vw, 2.75rem); }
+h2 { font-size: clamp(1.4rem, 2.6vw, 1.85rem); }
+h3 { font-size: 1.15rem; font-weight: 650; }
+h4 { font-size: 1rem;    font-weight: 650; }
+
+p { margin: 0 0 1.1em; }
+p:last-child { margin-bottom: 0; }
+
+ul, ol { margin: 0 0 1.1em; padding-left: 1.3em; }
+li { margin-bottom: 0.35em; }
+
+hr {
+  border: 0;
   border-top: 1px solid var(--rule);
+  margin: 3rem 0;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--bg-inset);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+/* ── 3. 레이아웃 컨테이너 ────────────────────────────────────────────────── */
+
+.wrap {                       /* 넓은 콘텐츠 */
+  max-width: var(--wide);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.prose {                      /* 읽기용 텍스트 — 줄이 너무 길어지지 않게 */
+  max-width: var(--measure);
+}
+
+.prose-center { max-width: var(--measure); margin-inline: auto; }
+
+/* ── 4. 헤더 · 내비게이션 ────────────────────────────────────────────────── */
+
+.site-head {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+
+/* backdrop-filter 미지원 브라우저 대비 */
+@supports not (backdrop-filter: blur(1px)) {
+  .site-head { background: var(--bg); }
+}
+
+.site-head-inner {
+  max-width: var(--wide);
+  margin-inline: auto;
+  padding: 0 1.5rem;
+  min-height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.6rem 0;
+  white-space: nowrap;
+}
+.brand:hover { color: var(--ink); }
+.brand-mark {
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+}
+.brand-sub {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ink-faint);
+}
+
+.site-nav {
+  display: flex;
+  gap: 0.15rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.site-nav a {
+  display: block;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-radius: var(--radius);
+  white-space: nowrap;
+}
+.site-nav a:hover {
+  color: var(--ink);
+  background: var(--bg-soft);
+}
+.site-nav a[aria-current="page"] {
+  color: var(--accent);
+  font-weight: 650;
+}
+
+@media (max-width: 720px) {
+  .site-head-inner { padding-block: 0.4rem; }
+  .brand-sub { display: none; }
+  .site-nav { gap: 0; }
+  .site-nav a { padding: 0.4rem 0.55rem; font-size: 0.875rem; }
+}
+
+/* ── 5. 히어로 ──────────────────────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  min-height: 62vh;
+  padding: 4rem 0 3rem;
+  overflow: hidden;
+  background: var(--bg-inset);
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.hero-media img,
+.hero-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 글자 가독성을 위한 어두운 그라데이션 */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    rgba(6,12,20,.88) 0%,
+    rgba(6,12,20,.62) 42%,
+    rgba(6,12,20,.28) 100%
+  );
+}
+
+.hero-inner {
+  max-width: var(--wide);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  width: 100%;
+  color: #fff;
+}
+.hero-inner h1 { color: #fff; margin-bottom: 0.5rem; }
+.hero-eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.8);
+}
+.hero-lede {
+  max-width: 46ch;
+  font-size: 1.125rem;
+  color: rgba(255,255,255,.92);
+  margin: 0;
+}
+.hero-credit {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.5rem;
+  font-size: 0.6875rem;
+  color: rgba(255,255,255,.55);
+  z-index: 1;
+}
+
+/* 하위 페이지용 — 이미지 없이 제목만 */
+.page-head {
+  padding: 3.5rem 0 2rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 3rem;
+}
+.page-head h1 { margin-bottom: 0.4rem; }
+.page-head .lede {
+  color: var(--ink-soft);
+  max-width: var(--measure);
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .hero { min-height: 54vh; }
+  .hero-lede { font-size: 1.0625rem; }
+  .page-head { padding: 2.5rem 0 1.5rem; margin-bottom: 2rem; }
+}
+
+/* ── 6. 섹션 · 제목 ─────────────────────────────────────────────────────── */
+
+.section { padding: 3.5rem 0; }
+.section + .section { border-top: 1px solid var(--rule); }
+.section-tint { background: var(--bg-soft); }
+
+.section-label {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.section-head { margin-bottom: 2.25rem; }
+.section-head p { color: var(--ink-soft); max-width: var(--measure); }
+
+@media (max-width: 720px) {
+  .section { padding: 2.5rem 0; }
+}
+
+/* ── 7. 카드 그리드 ─────────────────────────────────────────────────────── */
+
+.grid {
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+}
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow .18s ease, transform .18s ease;
+}
+a.card { text-decoration: none; color: inherit; }
+a.card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.card-media {
+  aspect-ratio: 16 / 10;
+  background: var(--bg-inset);
+  overflow: hidden;
+}
+.card-media img,
+.card-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body { padding: 1.1rem 1.2rem 1.3rem; }
+.card-body h3 { margin-bottom: 0.4rem; }
+.card-body p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+}
+.card-more {
+  margin-top: 0.7rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ── 8. 연구 분야 — 좌우 교대 ───────────────────────────────────────────── */
+
+.scope {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  padding: 3rem 0;
+}
+.scope + .scope { border-top: 1px solid var(--rule); }
+
+/* 짝수 번째는 그림을 오른쪽으로 — 페이지가 단조로워지지 않게 */
+.scope:nth-child(even) .scope-media { order: 2; }
+
+.scope-body h2 { margin-bottom: 0.6rem; }
+.scope-body > p { color: var(--ink-soft); }
+
+.scope-keywords {
+  margin: 1.1rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.scope-keywords li {
+  margin: 0;
+  font-size: 0.8125rem;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--rule);
+  border-radius: 100px;
+  color: var(--ink-soft);
+  background: var(--bg-soft);
+}
+
+.scope-media { display: grid; gap: 0.75rem; }
+.scope-media figure { margin: 0; }
+
+@media (max-width: 860px) {
+  .scope { grid-template-columns: 1fr; gap: 1.5rem; padding: 2.25rem 0; }
+  .scope:nth-child(even) .scope-media { order: 0; }
+}
+
+/* ── 9. 구성원 ──────────────────────────────────────────────────────────── */
+
+/* PI 프로필 */
+.pi {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+.pi-photo {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-inset);
+  aspect-ratio: 3 / 4;
+}
+.pi-photo img { width: 100%; height: 100%; object-fit: cover; }
+.pi-name { margin-bottom: 0.2rem; }
+.pi-title { color: var(--ink-soft); margin: 0 0 1.2rem; }
+
+.pi-facts {
+  margin: 0 0 1.4rem;
+  display: grid;
+  gap: 0.45rem;
+  font-size: 0.9375rem;
+}
+.pi-facts div { display: flex; gap: 0.75rem; }
+.pi-facts dt,
+.pi-facts .k {
+  flex: 0 0 6.5rem;
+  color: var(--ink-faint);
+  font-size: 0.875rem;
+  padding-top: 0.1em;
+}
+.pi-facts dd, .pi-facts .v { margin: 0; }
+
+.metric-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  margin-bottom: 1.25rem;
+}
+.metric { line-height: 1.25; }
+.metric-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.metric-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.metric-source {
+  flex-basis: 100%;
+  font-size: 0.8125rem;
+  color: var(--ink-faint);
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .pi { grid-template-columns: 1fr; gap: 1.5rem; }
+  .pi-photo { max-width: 190px; }
+}
+
+/* 학생 카드 */
+.people-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 170px), 1fr));
+}
+.person { text-align: left; }
+.person-photo {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-inset);
+  margin-bottom: 0.7rem;
+}
+.person-photo img { width: 100%; height: 100%; object-fit: cover; }
+.person-name {
+  font-weight: 650;
+  line-height: 1.3;
+  margin-bottom: 0.1rem;
+}
+.person-name-ko {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--ink-faint);
+}
+.person-topic {
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* 졸업생 표 */
+.alumni-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+.alumni-table th,
+.alumni-table td {
+  text-align: left;
+  padding: 0.7rem 0.9rem 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.alumni-table th {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-weight: 600;
+  border-bottom-color: var(--ink-faint);
+}
+
+/* ── 10. 논문 목록 ──────────────────────────────────────────────────────── */
+
+.pub-year {
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.pub-year:first-child { margin-top: 0; }
+
+.pub-list { list-style: none; margin: 0; padding: 0; }
+.pub-item {
+  display: grid;
+  grid-template-columns: 2.4rem 1fr;
+  gap: 0.5rem;
+  padding: 0.7rem 0;
+  margin: 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.9375rem;
+}
+.pub-item:last-child { border-bottom: 0; }
+.pub-num {
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.875rem;
+  padding-top: 0.1em;
+}
+.pub-authors { color: var(--ink-soft); }
+.pub-title { color: var(--ink); font-weight: 550; }
+.pub-venue { color: var(--ink-soft); font-style: italic; }
+.pub-doi {
+  font-size: 0.8125rem;
+  word-break: break-all;
+}
+
+/* 우리 연구실 저자 강조 */
+.pub-authors .lab { font-weight: 700; color: var(--ink); font-style: normal; }
+
+@media (max-width: 560px) {
+  .pub-item { grid-template-columns: 1.9rem 1fr; }
+}
+
+/* ── 11. 프로젝트 ───────────────────────────────────────────────────────── */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 2rem;
+}
+.filter-btn {
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 550;
+  padding: 0.4rem 0.85rem;
+  color: var(--ink-soft);
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.filter-btn:hover { background: var(--bg-soft); color: var(--ink); }
+.filter-btn[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.project-list { list-style: none; margin: 0; padding: 0; }
+.project-item {
+  padding: 1.25rem 0;
+  margin: 0;
+  border-bottom: 1px solid var(--rule);
+}
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: baseline;
+  margin-bottom: 0.4rem;
+}
+.project-period {
+  font-size: 0.8125rem;
+  font-weight: 650;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+.project-agency {
+  font-size: 0.8125rem;
+  color: var(--ink-faint);
+  margin-left: auto;
+  text-align: right;
+}
+.project-title-en {
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 0.15rem;
+}
+.project-title-ko {
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.project-empty {
+  padding: 2rem 0;
+  color: var(--ink-faint);
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .project-agency { margin-left: 0; text-align: left; }
+}
+
+/* ── 12. 갤러리 ─────────────────────────────────────────────────────────── */
+
+.gallery-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr));
+}
+.gallery-item {
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--bg-inset);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s ease;
+}
+.gallery-item:hover img { transform: scale(1.04); }
+
+.gallery-empty {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--ink-faint);
+  background: var(--bg-soft);
+  border: 1px dashed var(--rule);
+  border-radius: var(--radius);
+}
+
+/* ── 13. 미디어 (그림·영상) ─────────────────────────────────────────────── */
+
+figure { margin: 0 0 1.25rem; }
+
+figure img,
+figure video {
+  width: 100%;
+  border-radius: var(--radius);
+  background: var(--bg-inset);
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--ink-faint);
+}
+figcaption cite { font-style: normal; }
+
+/* 클릭해서 재생하는 영상 */
+video[controls] { background: #000; }
+
+.media-note {
+  font-size: 0.8125rem;
+  color: var(--ink-faint);
+}
+
+/* ── 14. 뉴스 ───────────────────────────────────────────────────────────── */
+
+.news-list { list-style: none; margin: 0; padding: 0; }
+.news-item {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0.5rem 1rem;
+  padding: 0.85rem 0;
+  margin: 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.9375rem;
+}
+.news-item:last-child { border-bottom: 0; }
+.news-date {
+  color: var(--ink-faint);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.05em;
+}
+.news-body { margin: 0; }
+
+@media (max-width: 560px) {
+  .news-item { grid-template-columns: 1fr; gap: 0.15rem; }
+}
+
+/* ── 15. 푸터 ───────────────────────────────────────────────────────────── */
+
+.site-foot {
+  margin-top: 4rem;
+  padding: 2.5rem 0 3rem;
+  border-top: 1px solid var(--rule);
+  background: var(--bg-soft);
   font-size: 0.875rem;
   color: var(--ink-soft);
 }
+.site-foot-inner {
+  max-width: var(--wide);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 3rem;
+  justify-content: space-between;
+}
+.site-foot p { margin: 0 0 0.3rem; }
+.site-foot strong { color: var(--ink); }
+.foot-links { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-.site-footer p { margin: 0; }
+/* ── 16. 유틸리티 ───────────────────────────────────────────────────────── */
+
+.lede { font-size: 1.125rem; color: var(--ink-soft); }
+.meta { font-size: 0.875rem; color: var(--ink-faint); }
+.center { text-align: center; }
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  align-items: center;
+  font-size: 0.9375rem;
+}
+
+.btn {
+  display: inline-block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid var(--accent);
+}
+.btn:hover { background: var(--accent-alt); border-color: var(--accent-alt); color: #fff; }
+.btn-ghost {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--rule);
+}
+.btn-ghost:hover { background: var(--bg-soft); color: var(--accent); }
+
+.callout {
+  padding: 1.25rem 1.4rem;
+  background: var(--bg-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.callout h3 { margin-bottom: 0.4rem; }
+.callout p:last-child { margin-bottom: 0; }
+
+/* 스크린리더 전용 */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 키보드 사용자용 포커스 표시 */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* 데이터 로딩 중 표시 */
+.loading {
+  padding: 2rem 0;
+  color: var(--ink-faint);
+  font-size: 0.9375rem;
+}
+
+/* 인쇄 */
+@media print {
+  .site-head, .site-foot, .filters, .hero-media { display: none; }
+  body { font-size: 10pt; }
+  .hero::after { display: none; }
+}
+
+/* 모션을 줄이도록 설정한 사용자 */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
