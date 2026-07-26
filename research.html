@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research — RHL, Inha University</title>
-  <meta name="description" content="Ship resistance and hull roughness, seakeeping and manoeuvring, polar and ice-going ships, marine renewable energy, and applied environmental hydrodynamics.">
+  <meta name="description" content="Roughness effect and ship hydrodynamics, 6-DOF manoeuvring simulation, energy saving devices, Arctic ships, floating offshore wind, tidal turbines, and applied environmental hydrodynamics.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body data-page="research">
@@ -31,7 +31,7 @@
     <div class="page-head">
       <h1>Research</h1>
       <p class="lede">
-        Five areas of work, each supported by both physical experiment and
+        What we work on — each area supported by both physical experiment and
         high-fidelity computation.
       </p>
     </div>
@@ -48,20 +48,23 @@
       </p>
     </div>
 
-    <!-- ── 1. Ship Resistance ─────────────────────────────────────────── -->
-    <section class="scope" id="resistance">
+    <!-- ── 1. Roughness Effect and Ship Hydrodynamics ─────────────────── -->
+    <section class="scope" id="roughness">
       <div class="scope-media">
         <figure>
-          <img src="images/research/s08-roughness-modelling.jpg" alt="Roughness effect modelling using experimental, theoretical and numerical approaches">
-          <figcaption>Roughness effect modelling across experimental (roughness function determination), theoretical (similarity-law scaling) and numerical (modified wall function) approaches.</figcaption>
+          <img src="images/research/roughness-overview.jpg" alt="CFD results comparing smooth and fouled hull conditions, with propeller vortex structures">
+          <figcaption>
+            Smooth and fouled hull conditions compared: axial velocity on the hull
+            surface and propeller tip-vortex structures at the same advance ratio.
+          </figcaption>
         </figure>
         <figure>
-          <video src="videos/s36-resistance-test-a.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Towing tank resistance test"></video>
-          <figcaption>Resistance test in the towing tank.</figcaption>
+          <img src="images/research/s32-propeller-modelling.jpg" alt="Comparison of propeller modelling methods in CFD" loading="lazy">
+          <figcaption>Boundary layer and streamline structure around a propeller.</figcaption>
         </figure>
       </div>
       <div class="scope-body">
-        <h2>Ship Resistance</h2>
+        <h2>Roughness Effect and Ship Hydrodynamics</h2>
         <p>
           A ship's hull is never smooth. Paint, welding and — above all — marine
           biofouling roughen the surface, and that roughness costs fuel. Predicting how
@@ -71,21 +74,23 @@
         </p>
         <p>
           We attack this on three fronts. Flow-channel and towing-tank experiments
-          determine the roughness function of a given surface. Granville's similarity-law
-          scaling extrapolates that measurement to full scale. And a modified
-          wall-function CFD approach carries the roughness effect into a full
+          determine the roughness function of a given surface. Granville's
+          similarity-law scaling extrapolates that measurement to full scale. A modified
+          wall-function CFD approach then carries the roughness effect into a full
           three-dimensional flow field, capturing not only skin friction but also the
           pressure field and propeller performance.
         </p>
         <p>
-          This line of work has produced practical added-resistance diagrams, a
-          prediction method for heterogeneous (patchy) hull roughness, and a
-          re-examination of the Townsin formula that the ITTC has relied on since 1990.
+          Our interest does not stop at biofouling. <strong>Working with industry, we
+          take part in developing eco-friendly antifouling coatings — and, just as
+          importantly, the methods by which their performance is evaluated.</strong> A
+          coating that looks good in a laboratory panel test does not necessarily save
+          fuel at sea, and closing that gap is an engineering problem in its own right.
         </p>
         <ul class="scope-keywords">
           <li>Hull roughness</li>
           <li>Marine biofouling</li>
-          <li>Antifouling coatings</li>
+          <li>Eco-friendly antifouling coatings</li>
           <li>Roughness function</li>
           <li>Similarity-law scaling</li>
           <li>Modified wall function</li>
@@ -93,15 +98,57 @@
       </div>
     </section>
 
-    <!-- ── 2. Ship Hydrodynamics & Energy Efficiency ──────────────────── -->
-    <section class="scope" id="hydrodynamics">
+    <!-- ── 2. 6-DOF Ship Manoeuvring Simulations ──────────────────────── -->
+    <section class="scope" id="manoeuvring">
       <div class="scope-media">
         <figure>
           <video src="videos/s16-free-running-a.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Free-running manoeuvring simulation"></video>
           <figcaption>Six-degree-of-freedom free-running manoeuvring simulation.</figcaption>
         </figure>
         <figure>
-          <img src="images/research/s17-wasp-sil-system.jpg" alt="Software-in-the-loop system for wind-assisted propulsion testing, and its installation in the towing tank">
+          <video src="videos/s10-media4.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Ship motion simulation with response histories"></video>
+          <figcaption>Ship response during a manoeuvre, with heading, roll and speed histories.</figcaption>
+        </figure>
+        <figure>
+          <video src="videos/s10-media1.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Ship manoeuvring CFD"></video>
+          <figcaption>Flow field around the hull during a turning manoeuvre.</figcaption>
+        </figure>
+      </div>
+      <div class="scope-body">
+        <h2>6-DOF Ship Manoeuvring Simulations</h2>
+        <p>
+          A ship in a seaway moves in six degrees of freedom while its rudder and
+          propeller respond continuously. We simulate this directly: <strong>free-running
+          CFD</strong> in which the vessel is not constrained but steers, accelerates and
+          rolls as it would at sea.
+        </p>
+        <p>
+          With this approach we have studied course-keeping in adverse weather,
+          manoeuvring after sudden propulsion or steering failure, the influence of GM and
+          trim variation, path-following control for maritime autonomous surface ships
+          (MASS), push-pull manoeuvring of naval vessels, and the seakeeping of damaged
+          ships.
+        </p>
+        <p>
+          Free-running simulation is expensive, and much of our work goes into making it
+          affordable enough to use as a design tool rather than a demonstration.
+        </p>
+        <ul class="scope-keywords">
+          <li>Free-running CFD</li>
+          <li>Six degrees of freedom</li>
+          <li>Course keeping</li>
+          <li>Autonomous ships (MASS)</li>
+          <li>Seakeeping</li>
+          <li>Propulsion failure</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ── 3. Energy Saving Devices ───────────────────────────────────── -->
+    <section class="scope" id="energy">
+      <div class="scope-media">
+        <figure>
+          <img src="images/research/s17-wasp-sil-system.jpg" alt="Software-in-the-loop system for wind-assisted propulsion testing and its installation in the towing tank">
           <figcaption>
             Software-in-the-loop (SIL) system for wind-assisted propulsion, and its
             installation in the towing tank.
@@ -109,143 +156,209 @@
           </figcaption>
         </figure>
         <figure>
-          <img src="images/research/s17-als-air-injection.jpg" alt="Air injection behaviour compared between experiment and CFD at two wall resolutions">
+          <img src="images/research/wasp-rotor-sail.jpg" alt="Rotor sail force model coupled to 6-DOF free-running CFD, with power and rudder angle results" loading="lazy">
           <figcaption>
-            Air layer formation beneath a flat plate — experiment compared with CFD.
-            <cite>From Min et al. (2026), JMSE 14(2): 234, CC BY.</cite>
+            Rotor sail forces coupled into a 6-DOF free-running simulation: power
+            recovered and rudder angle required, against true wind angle.
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="images/research/als-air-layer.jpg" alt="Air layer behaviour in the stern region and volume flux of air at the propeller plane" loading="lazy">
+          <figcaption>
+            Air lubrication: air layer behaviour at the stern and the resulting air
+            volume flux through the propeller plane.
           </figcaption>
         </figure>
       </div>
       <div class="scope-body">
-        <h2>Ship Hydrodynamics &amp; Energy Efficiency</h2>
+        <h2>Energy Saving Devices</h2>
         <p>
-          A ship in a seaway moves in six degrees of freedom while its rudder and
-          propeller respond continuously. We simulate this directly: free-running CFD in
-          which the vessel is not constrained but steers, accelerates and rolls as it
-          would at sea.
+          IMO carbon regulation has turned energy-saving devices from an option into a
+          practical necessity. We work on two of them.
         </p>
         <p>
-          With this approach we have studied course-keeping in adverse weather,
-          manoeuvring after sudden propulsion or steering failure, the influence of GM
-          and trim variation, path-following control for maritime autonomous surface
-          ships (MASS), and the seakeeping of damaged vessels.
+          <strong>Air lubrication systems</strong> inject air beneath the hull to reduce
+          frictional resistance. The difficulty is numerical: the air layer is thin,
+          unsteady, and highly sensitive to how the near-wall region is resolved. We have
+          quantified how CFD modelling parameters change the predicted air layer, and
+          validated those predictions against experiment.
         </p>
         <p>
-          The same toolset supports energy-saving technologies now under pressure from
-          IMO carbon regulation. We evaluate <strong>air lubrication systems</strong>,
-          where air injected beneath the hull reduces frictional resistance, and
-          <strong>wind-assisted ship propulsion</strong> — wing sails and rotor sails —
-          using a software-in-the-loop method that reproduces aerodynamic forces in the
-          towing tank in real time.
+          <strong>Wind-assisted ship propulsion</strong> — wing sails and rotor sails — we
+          study by computation <em>and</em> experiment. For the experimental side we use a
+          <strong>software-in-the-loop (SIL) method</strong>: aerodynamic forces are
+          computed in real time from the measured motion of the model and applied by fans,
+          so a towing tank can reproduce sailing conditions it was never built for. This
+          lets us measure resistance reduction and heel angle directly instead of
+          inferring them from simulation alone.
         </p>
         <ul class="scope-keywords">
-          <li>Free-running CFD</li>
-          <li>Manoeuvring</li>
-          <li>Seakeeping</li>
-          <li>Autonomous ships</li>
-          <li>Air lubrication</li>
-          <li>Wind-assisted propulsion</li>
-          <li>Rotor sails</li>
+          <li>Air lubrication (ALS)</li>
+          <li>Wind-assisted propulsion (WASP)</li>
+          <li>Wing sails &middot; rotor sails</li>
+          <li>Software-in-the-loop testing</li>
+          <li>Carbon Intensity Indicator</li>
         </ul>
       </div>
     </section>
 
-    <!-- ── 3. Polar & Ice-Going Ships ─────────────────────────────────── -->
-    <section class="scope" id="polar">
+    <!-- ── 4. Arctic Ships ────────────────────────────────────────────── -->
+    <section class="scope" id="arctic">
       <div class="scope-media">
         <figure>
-          <img src="images/research/s24-ice-test-underwater.jpg" alt="Model icebreaker among artificial ice floes seen from below the waterline">
-          <figcaption>Ice resistance model test, seen from below the waterline.</figcaption>
+          <video src="videos/arctic-cfd-dem.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Coupled CFD-DEM simulation of a hull advancing through ice floes"></video>
+          <figcaption>Coupled CFD&ndash;DEM simulation: fluid and individual ice floes solved together.</figcaption>
         </figure>
         <figure>
-          <video src="videos/s29-ice-floe-dem-a.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Coupled CFD-DEM ice floe simulation"></video>
-          <figcaption>Coupled CFD&ndash;DEM simulation of ice floes interacting with a hull.</figcaption>
-        </figure>
-        <figure>
-          <video src="videos/s24-ice-resistance-test-b.mp4" controls preload="metadata" poster="images/research/s29-ice-floe-tank.jpg" aria-label="Ice resistance model test"></video>
-          <figcaption>Ice resistance model test with artificial ice (click to play).</figcaption>
+          <video src="videos/s24-ice-resistance-test-b.mp4" controls preload="metadata" poster="images/hero-poster.jpg" aria-label="Ice resistance model test"></video>
+          <figcaption>Ice resistance model test with synthetic ice (click to play).</figcaption>
         </figure>
       </div>
       <div class="scope-body">
-        <h2>Polar &amp; Ice-Going Ships</h2>
+        <h2>Arctic Ships</h2>
         <p>
           As Arctic routes become navigable, ships must be designed for ice — and ice
-          resistance is a problem that neither conventional CFD nor standard model
-          testing handles well on its own. Ice floes are discrete bodies: they collide
-          with one another and with the hull, break, rotate, and are pushed under.
+          resistance is a problem that neither conventional CFD nor standard model testing
+          handles well on its own. Ice floes are discrete bodies: they collide with one
+          another and with the hull, break, rotate, and are pushed under.
         </p>
         <p>
-          We combine <strong>coupled CFD&ndash;DEM simulation</strong>, in which the
-          fluid and each individual ice floe are solved together, with model tests in
-          artificial ice. This work supports the development of Polar Class icebreakers
-          and eco-friendly icebreaking container ships for new Arctic shipping routes.
+          We address this with <strong>coupled CFD&ndash;DEM analysis</strong>, in which
+          the fluid and each individual ice floe are solved together. Through this work we
+          take part in national projects on the Northern Sea Route, including the
+          development of Polar Class icebreakers and eco-friendly icebreaking container
+          ships.
+        </p>
+        <p>
+          <strong>In 2026 we carried out ice resistance model tests on the icebreaking
+          research vessel Araon using synthetic ice, in collaboration with Newcastle
+          University.</strong>
         </p>
         <ul class="scope-keywords">
           <li>Ice resistance</li>
           <li>CFD&ndash;DEM coupling</li>
-          <li>Ice-tank testing</li>
+          <li>Synthetic ice testing</li>
           <li>Polar Class</li>
-          <li>Icebreaker design</li>
+          <li>Northern Sea Route</li>
         </ul>
       </div>
     </section>
 
-    <!-- ── 4. Marine Renewable Energy ─────────────────────────────────── -->
-    <section class="scope" id="renewable">
+    <!-- ── 5. Floating Offshore Wind Turbine ──────────────────────────── -->
+    <section class="scope" id="fowt">
       <div class="scope-media">
         <figure>
-          <video src="videos/s31-tidal-wave-c.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Tidal turbine under wave loading"></video>
-          <figcaption>Tidal current turbine under wave loading at varying submergence depth.</figcaption>
-        </figure>
-        <figure>
           <video src="videos/s27-fowt-line-failure-a.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Floating offshore wind turbine after mooring line failure"></video>
-          <figcaption>Floating offshore wind turbine drifting after a mooring line failure.</figcaption>
+          <figcaption>Platform drift following a mooring line failure.</figcaption>
         </figure>
         <figure>
-          <img src="images/research/s18-tidal-free-surface.jpg" alt="Free-surface exposure effect on tidal turbine performance" loading="lazy">
-          <figcaption>Free-surface exposure effect on tidal turbine performance.</figcaption>
+          <img src="images/research/fowt-velocity.jpg" alt="Velocity field around a floating offshore wind turbine in normal and feathered rotor states" loading="lazy">
+          <figcaption>
+            Velocity field around the turbine in normal operation and with the rotor
+            feathered.
+          </figcaption>
+        </figure>
+        <figure>
+          <video src="videos/s11-media6.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Floating offshore wind turbine simulation"></video>
+          <figcaption>Coupled response of the floating platform under wave loading.</figcaption>
         </figure>
       </div>
       <div class="scope-body">
-        <h2>Marine Renewable Energy</h2>
+        <h2>Floating Offshore Wind Turbine</h2>
         <p>
-          Tidal turbines and floating offshore wind turbines operate in exactly the
-          conditions our ship work addresses: rough surfaces, waves, and strongly coupled
-          motion. This is a major strand of the laboratory, not a side interest.
+          A floating wind turbine is an aerodynamic, hydrodynamic and structural problem
+          at once, and the three cannot be separated: rotor thrust drives platform motion,
+          platform motion changes the inflow seen by the rotor, and the mooring system
+          constrains both.
         </p>
         <p>
-          For <strong>tidal current turbines</strong> we study how performance and
-          structural loading change with submergence depth and wave conditions, how
-          free-surface exposure alters the flow, the scale effects between laboratory and
-          full-size rotors, and the penalty imposed by biofouling on the blades.
+          We developed a <strong>CFD&ndash;MoorDyn coupling</strong> that solves the flow
+          field together with mooring line dynamics. This lets us follow what happens
+          after a line fails — when the platform drifts and the turbine must survive
+          conditions it was not designed for.
         </p>
         <p>
-          For <strong>floating offshore wind</strong> we couple CFD with OpenFAST and
-          MoorDyn so that aerodynamic, hydrodynamic and mooring behaviour are captured
-          together — including what happens after a mooring line fails, when the platform
-          drifts and the turbine must survive.
+          We are now extending the method in two directions: an <strong>actuator line
+          method</strong> that represents the rotor without resolving the blade boundary
+          layer, and a <strong>coupling between CFD and AI surrogate models</strong> to
+          reach the long simulation times that design load cases demand.
         </p>
         <ul class="scope-keywords">
-          <li>Tidal current turbines</li>
-          <li>Floating offshore wind</li>
-          <li>OpenFAST coupling</li>
-          <li>MoorDyn</li>
+          <li>CFD&ndash;MoorDyn coupling</li>
           <li>Mooring line failure</li>
-          <li>Scale effects</li>
+          <li>Actuator line method</li>
+          <li>AI surrogate modelling</li>
+          <li>Aero-hydro coupling</li>
         </ul>
       </div>
     </section>
 
-    <!-- ── 5. Applied & Environmental Hydrodynamics ───────────────────── -->
+    <!-- ── 6. Tidal Turbine ───────────────────────────────────────────── -->
+    <section class="scope" id="tidal">
+      <div class="scope-media">
+        <figure>
+          <img src="images/research/tidal-bemt-rotor.jpg" alt="Three-blade tidal turbine rotor generated by our in-house BEMT design code">
+          <figcaption>
+            Rotor geometry generated by our in-house blade element momentum theory (BEMT)
+            design code.
+          </figcaption>
+        </figure>
+        <figure>
+          <video src="videos/s31-tidal-wave-a.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Tidal turbine under wave loading"></video>
+          <figcaption>Tidal turbine under wave loading at varying submergence depth.</figcaption>
+        </figure>
+        <figure>
+          <video src="videos/s11-media5.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Tidal turbine simulation"></video>
+          <figcaption>Wake structure behind the rotor.</figcaption>
+        </figure>
+      </div>
+      <div class="scope-body">
+        <h2>Tidal Turbine</h2>
+        <p>
+          Tidal energy has a narrower design margin than wind: the resource is predictable,
+          but the loads are severe and access for maintenance is limited. Getting the blade
+          right the first time matters more.
+        </p>
+        <p>
+          We maintain an <strong>in-house turbine design code based on blade element
+          momentum theory (BEMT)</strong> and use it as the starting point of a complete
+          design cycle — blade geometry from the code, verification in a circulating water
+          channel, and CFD for the flow detail that neither the code nor the tank can show.
+        </p>
+        <p>
+          With these tools we have examined how performance and structural loading change
+          with submergence depth and wave conditions, how free-surface exposure alters the
+          flow, the scale effects between laboratory and full-size rotors, and the penalty
+          imposed by biofouling on the blades. We also take part in a national project on
+          <strong>energy-self-sufficient marine bridges</strong>.
+        </p>
+        <ul class="scope-keywords">
+          <li>BEMT design code</li>
+          <li>Circulating water channel</li>
+          <li>Wave&ndash;turbine interaction</li>
+          <li>Scale effects</li>
+          <li>Energy-self-sufficient bridges</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ── 7. Applied & Environmental Hydrodynamics ───────────────────── -->
     <section class="scope" id="environmental">
       <div class="scope-media">
         <figure>
-          <video src="videos/s12-do-transport-a.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Dissolved oxygen transport simulation"></video>
-          <figcaption>Dissolved-oxygen transport from injected bubbles in a sea cage.</figcaption>
+          <video src="videos/do-transport-cage.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Dissolved oxygen transport in a sea cage"></video>
+          <figcaption>Dissolved-oxygen transport from injected bubbles in a marine cage.</figcaption>
         </figure>
         <figure>
-          <img src="images/research/s13-scour-simulation.jpg" alt="Scour simulation around a submerged structure" loading="lazy">
-          <figcaption>Scour around a submerged structure, computed with an erosion model coupled to mesh morphing.</figcaption>
+          <video src="videos/s12-do-transport-a.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Oxygen plume development"></video>
+          <figcaption>Oxygen plume development from the diffuser.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/research/scour-pier.jpg" alt="Scour around a bridge pier with streamlines and seabed contours" loading="lazy">
+          <figcaption>
+            Scour around a bridge pier: streamlines and the evolving seabed computed with
+            an erosion model coupled to mesh morphing.
+          </figcaption>
         </figure>
       </div>
       <div class="scope-body">

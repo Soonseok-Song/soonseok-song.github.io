@@ -317,11 +317,11 @@
           alumniBox.innerHTML =
             '<table class="alumni-table"><thead><tr>' +
             '<th><span class="sr-only">Photo</span></th>' +
-            '<th>Name</th><th>Graduated</th><th>Thesis</th><th>Current position</th>' +
+            '<th>Name</th><th>Graduated</th><th>Thesis</th><th>Current affiliation</th>' +
             '</tr></thead><tbody>' +
             al.map(function (a) {
               var img = a.photo
-                ? '<img src="images/people/' + esc(a.photo) + '" alt="' + esc(a.name_en) + '" width="56" height="75" loading="lazy">'
+                ? '<img src="images/people/' + esc(a.photo) + '" alt="' + esc(a.name_en) + '" width="84" height="112" loading="lazy">'
                 : '';
               return '<tr>' +
                      '<td class="alumni-photo">' + img + '</td>' +

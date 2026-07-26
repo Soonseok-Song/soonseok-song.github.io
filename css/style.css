@@ -507,8 +507,8 @@ a.card:hover {
 /* 학생 카드 */
 .people-grid {
   display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 170px), 1fr));
+  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 215px), 1fr));
 }
 .person { text-align: left; }
 .person-photo {
@@ -557,13 +557,13 @@ a.card:hover {
   border-bottom-color: var(--ink-faint);
 }
 
-/* 졸업생 표의 작은 사진 */
-.alumni-photo { width: 56px; padding-right: 0.9rem; }
+/* 졸업생 표의 사진 */
+.alumni-photo { width: 84px; padding-right: 1rem; }
 .alumni-photo img {
-  width: 56px;
-  height: 75px;
+  width: 84px;
+  height: 112px;
   object-fit: cover;
-  border-radius: 3px;
+  border-radius: var(--radius);
   background: var(--bg-inset);
 }
 
