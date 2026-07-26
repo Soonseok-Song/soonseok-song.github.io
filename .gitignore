@@ -1,0 +1,16 @@
+# Windows가 폴더마다 자동으로 만드는 파일들 — 커밋에 섞이면 지저분해집니다
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# macOS (다른 PC에서 작업할 경우)
+.DS_Store
+
+# 편집기 임시 파일
+*.swp
+*~
+~$*
+
+# 개인 메모나 작업용 파일을 올리고 싶지 않을 때 쓰는 폴더
+_local/
