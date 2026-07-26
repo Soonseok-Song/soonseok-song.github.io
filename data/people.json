@@ -7,7 +7,7 @@
     "department": "Department of Naval Architecture and Ocean Engineering",
     "university": "Inha University",
     "email": "s.song@inha.ac.kr",
-    "office": "Room 2N483",
+    "office": "2N483",
     "phone": "+82-32-860-7338",
     "photo": "song-soonseok.jpg",
     "interests": [
@@ -71,19 +71,19 @@
       "name_en": "Keounghyun Jung",
       "name_ko": "정경현",
       "photo": "jung-keounghyun.jpg",
-      "topic": "Resistance and self-propulsion testing"
+      "topic": "CFD model development for scour prediction"
     },
     {
       "name_en": "Mingi Kim",
       "name_ko": "김민기",
       "photo": "kim-mingi.jpg",
-      "topic": ""
+      "topic": "Floating offshore wind · actuator line method"
     },
     {
       "name_en": "Seunghee Song",
       "name_ko": "송승희",
       "photo": "song-seunghee.jpg",
-      "topic": "Ship resistance testing"
+      "topic": "Tidal turbine performance analysis"
     }
   ],
 

@@ -308,30 +308,27 @@
         }).join('');
       }
 
-      /* 졸업생 */
+      /* 졸업생 — 재학생과 같은 카드 형태로 (사진 크기를 맞추기 위해) */
       if (alumniBox) {
         var al = d.alumni || [];
         if (!al.length) {
           alumniBox.innerHTML = '<p class="loading">Alumni list will be added.</p>';
         } else {
-          alumniBox.innerHTML =
-            '<table class="alumni-table"><thead><tr>' +
-            '<th><span class="sr-only">Photo</span></th>' +
-            '<th>Name</th><th>Graduated</th><th>Thesis</th><th>Current affiliation</th>' +
-            '</tr></thead><tbody>' +
-            al.map(function (a) {
-              var img = a.photo
-                ? '<img src="images/people/' + esc(a.photo) + '" alt="' + esc(a.name_en) + '" width="84" height="112" loading="lazy">'
-                : '';
-              return '<tr>' +
-                     '<td class="alumni-photo">' + img + '</td>' +
-                     '<td>' + esc(a.name_en) + (a.name_ko ? ' <span class="person-name-ko">(' + esc(a.name_ko) + ')</span>' : '') + '</td>' +
-                     '<td>' + esc(a.graduated || '—') + '</td>' +
-                     '<td>' + esc(a.thesis || '—') + '</td>' +
-                     '<td>' + esc(a.position || '—') + '</td>' +
-                     '</tr>';
-            }).join('') +
-            '</tbody></table>';
+          alumniBox.innerHTML = '<div class="people-grid">' + al.map(function (a) {
+            var img = a.photo
+              ? '<img src="images/people/' + esc(a.photo) + '" alt="' + esc(a.name_en) + '" width="300" height="400" loading="lazy">'
+              : '';
+            var line = [];
+            if (a.graduated) line.push('Graduated ' + esc(a.graduated));
+            if (a.position)  line.push(esc(a.position));
+            return '<div class="person">' +
+                   '<div class="person-photo">' + img + '</div>' +
+                   '<p class="person-name">' + esc(a.name_en) +
+                   (a.name_ko ? ' <span class="person-name-ko">(' + esc(a.name_ko) + ')</span>' : '') + '</p>' +
+                   (line.length ? '<p class="person-topic">' + line.join(' &middot; ') + '</p>' : '') +
+                   (a.thesis ? '<p class="person-thesis">' + esc(a.thesis) + '</p>' : '') +
+                   '</div>';
+          }).join('') + '</div>';
         }
       }
     }).catch(function (e) {

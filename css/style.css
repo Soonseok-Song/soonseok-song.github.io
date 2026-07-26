@@ -535,40 +535,12 @@ a.card:hover {
   margin: 0;
 }
 
-/* 졸업생 표 */
-.alumni-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9375rem;
-}
-.alumni-table th,
-.alumni-table td {
-  text-align: left;
-  padding: 0.7rem 0.9rem 0.7rem 0;
-  border-bottom: 1px solid var(--rule);
-  vertical-align: top;
-}
-.alumni-table th {
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+/* 졸업생 카드에 붙는 학위논문 제목 */
+.person-thesis {
+  margin: 0.35rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
   color: var(--ink-faint);
-  font-weight: 600;
-  border-bottom-color: var(--ink-faint);
-}
-
-/* 졸업생 표의 사진 */
-.alumni-photo { width: 84px; padding-right: 1rem; }
-.alumni-photo img {
-  width: 84px;
-  height: 112px;
-  object-fit: cover;
-  border-radius: var(--radius);
-  background: var(--bg-inset);
-}
-
-@media (max-width: 620px) {
-  .alumni-photo, .alumni-table th:first-child { display: none; }
 }
 
 /* ── 10. 논문 목록 ──────────────────────────────────────────────────────── */
