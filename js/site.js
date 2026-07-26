@@ -316,10 +316,15 @@
         } else {
           alumniBox.innerHTML =
             '<table class="alumni-table"><thead><tr>' +
+            '<th><span class="sr-only">Photo</span></th>' +
             '<th>Name</th><th>Graduated</th><th>Thesis</th><th>Current position</th>' +
             '</tr></thead><tbody>' +
             al.map(function (a) {
+              var img = a.photo
+                ? '<img src="images/people/' + esc(a.photo) + '" alt="' + esc(a.name_en) + '" width="56" height="75" loading="lazy">'
+                : '';
               return '<tr>' +
+                     '<td class="alumni-photo">' + img + '</td>' +
                      '<td>' + esc(a.name_en) + (a.name_ko ? ' <span class="person-name-ko">(' + esc(a.name_ko) + ')</span>' : '') + '</td>' +
                      '<td>' + esc(a.graduated || '—') + '</td>' +
                      '<td>' + esc(a.thesis || '—') + '</td>' +
@@ -359,10 +364,70 @@
     }).catch(function (e) { showError(box, e); });
   }
 
+  /* ── 8. 영상 자동재생 ─────────────────────────────────────────────────── */
+
+  /**
+   * autoplay 속성이 붙은 영상을 화면에 들어올 때 재생하고, 벗어나면 멈춥니다.
+   *
+   * autoplay 속성만으로는 재생되지 않는 경우가 많습니다 — 브라우저의 자동재생
+   * 정책(데이터 절약 모드, 배터리 절약, 한 페이지의 동시 재생 개수 제한) 때문입니다.
+   * 그래서 muted 를 프로퍼티로 확실히 지정한 뒤 play() 를 직접 호출합니다.
+   * 화면 밖 영상은 정지시키므로 데이터와 배터리도 덜 씁니다.
+   */
+  function setupVideoAutoplay() {
+    var vids = $$('video[autoplay]');
+    if (!vids.length) return;
+
+    vids.forEach(function (v) {
+      // muted 는 속성뿐 아니라 프로퍼티로도 지정해야 재생이 허용됩니다
+      v.muted = true;
+      v.defaultMuted = true;
+      v.setAttribute('muted', '');
+      v.playsInline = true;
+      v.loop = true;
+    });
+
+    function tryPlay(v) {
+      var p = v.play();
+      if (p && typeof p.catch === 'function') {
+        p.catch(function () { /* 정책상 차단된 경우 — 조용히 넘어갑니다 */ });
+      }
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      vids.forEach(tryPlay);
+      return;
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting) {
+          if (v.readyState < 2) { try { v.load(); } catch (err) { /* 무시 */ } }
+          tryPlay(v);
+        } else if (!v.paused) {
+          v.pause();
+        }
+      });
+    }, { rootMargin: '300px 0px', threshold: 0.01 });
+
+    vids.forEach(function (v) { io.observe(v); });
+
+    // 탭을 다시 활성화했을 때 멈춰 있는 영상을 되살립니다
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState !== 'visible') return;
+      vids.forEach(function (v) {
+        var r = v.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < window.innerHeight) tryPlay(v);
+      });
+    });
+  }
+
   /* ── 실행 ─────────────────────────────────────────────────────────────── */
 
   function init() {
     markCurrentNav();
+    setupVideoAutoplay();
 
     var page = document.body.getAttribute('data-page');
 

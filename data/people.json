@@ -11,10 +11,10 @@
     "phone": "+82-32-860-7338",
     "photo": "song-soonseok.jpg",
     "interests": [
+      "Computational fluid dynamics (CFD)",
       "Ship resistance and hull roughness",
       "Marine biofouling and antifouling coatings",
-      "Computational fluid dynamics (CFD)",
-      "Experimental fluid dynamics (EFD)",
+      "Seakeeping and manoeuvring",
       "Marine renewable energy"
     ],
     "education": [
@@ -76,7 +76,7 @@
     {
       "name_en": "Mingi Kim",
       "name_ko": "김민기",
-      "photo": null,
+      "photo": "kim-mingi.jpg",
       "topic": ""
     },
     {
@@ -91,8 +91,9 @@
     {
       "name_en": "Wooseok Choi",
       "name_ko": "최우석",
-      "graduated": "",
-      "thesis": "",
+      "photo": "choi-wooseok.jpg",
+      "graduated": "2025",
+      "thesis": "Speed penalty of a naval ship due to biofouling",
       "position": "Hanwha Ocean"
     }
   ]

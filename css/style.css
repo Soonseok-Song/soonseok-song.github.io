@@ -547,6 +547,20 @@ a.card:hover {
   border-bottom-color: var(--ink-faint);
 }
 
+/* 졸업생 표의 작은 사진 */
+.alumni-photo { width: 56px; padding-right: 0.9rem; }
+.alumni-photo img {
+  width: 56px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 3px;
+  background: var(--bg-inset);
+}
+
+@media (max-width: 620px) {
+  .alumni-photo, .alumni-table th:first-child { display: none; }
+}
+
 /* ── 10. 논문 목록 ──────────────────────────────────────────────────────── */
 
 .pub-year {
