@@ -34,7 +34,13 @@
   <!-- ── 히어로 ─────────────────────────────────────────────────────────── -->
   <section class="hero">
     <div class="hero-media">
-      <img src="images/research/s24-ice-test-underwater.jpg" alt="A model icebreaker advancing through artificial ice floes, photographed from below the waterline">
+      <!-- 연구 장면 5개를 이어붙인 배경 루프. 장식용이라 스크린리더에서는 숨깁니다. -->
+      <video class="hero-video" poster="images/hero-poster.jpg"
+             autoplay muted loop playsinline preload="auto" aria-hidden="true">
+        <source src="videos/hero-montage.mp4" type="video/mp4">
+      </video>
+      <!-- 모션을 줄이도록 설정한 사용자에게 보이는 정지 화면 -->
+      <img class="hero-still" src="images/hero-poster.jpg" alt="">
     </div>
     <div class="hero-inner">
       <p class="hero-eyebrow">Inha University &middot; Naval Architecture and Ocean Engineering</p>
@@ -44,7 +50,6 @@
         combining high-fidelity CFD with towing-tank and flow-channel experiments.
       </p>
     </div>
-    <p class="hero-credit">Ice resistance model test</p>
   </section>
 
   <!-- ── 소개 ───────────────────────────────────────────────────────────── -->
