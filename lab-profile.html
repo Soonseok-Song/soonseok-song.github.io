@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>선박해양저항연구실 소개 — Resistance Hydrodynamics Laboratory</title>
+  <meta name="description" content="인하대학교 조선해양공학과 선박해양저항연구실 소개 자료 (3페이지).">
+  <meta name="robots" content="noindex">
+  <style>
+  /* ======================================================================
+     연구실 소개 3페이지 — 인쇄용
+     브라우저에서 Ctrl+P → 대상을 "PDF로 저장" → 여백 "없음" → 배경 그래픽 체크
+     ====================================================================== */
+
+  :root {
+    --ink:      #16181d;
+    --ink-soft: #4a5058;
+    --ink-faint:#878d96;
+    --accent:   #0d4d8c;
+    --accent-2: #1567b8;
+    --rule:     #d9dee4;
+    --bg-soft:  #f2f5f8;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #6b7280;
+    font-family: "Malgun Gothic", "맑은 고딕", -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── 페이지 ─────────────────────────────────────────────────────────── */
+  .page {
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    margin: 10mm auto;
+    padding: 14mm 15mm 12mm;
+    background: #fff;
+    box-shadow: 0 2px 14px rgba(0,0,0,.35);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── 머리글 ─────────────────────────────────────────────────────────── */
+  .head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 3mm;
+    border-bottom: 2.5pt solid var(--accent);
+    margin-bottom: 6mm;
+  }
+  .head h1 {
+    margin: 0;
+    font-size: 19pt;
+    font-weight: 800;
+    letter-spacing: -0.4pt;
+    color: var(--accent);
+    line-height: 1.15;
+  }
+  .head .en {
+    display: block;
+    margin-top: 1mm;
+    font-size: 9.5pt;
+    font-weight: 600;
+    letter-spacing: 0.3pt;
+    color: var(--ink-faint);
+  }
+  .head .affil {
+    text-align: right;
+    font-size: 8.5pt;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  .page-tag {
+    position: absolute;
+    right: 15mm;
+    bottom: 7mm;
+    font-size: 8pt;
+    color: var(--ink-faint);
+  }
+
+  /* ── 섹션 제목 ──────────────────────────────────────────────────────── */
+  .sec {
+    display: flex;
+    align-items: center;
+    gap: 2.5mm;
+    margin: 5mm 0 2.5mm;
+    font-size: 11pt;
+    font-weight: 800;
+    color: var(--accent);
+  }
+  .sec::before {
+    content: "";
+    width: 3.5mm; height: 3.5mm;
+    background: var(--accent);
+    border-radius: 0.7mm;
+    flex: none;
+  }
+  .sec:first-of-type { margin-top: 0; }
+
+  /* ── 1페이지: 프로필 ────────────────────────────────────────────────── */
+  .profile {
+    display: grid;
+    grid-template-columns: 32mm 1fr;
+    gap: 7mm;
+    align-items: start;
+    margin-bottom: 5mm;
+  }
+  .photo {
+    width: 32mm; height: 42mm;
+    object-fit: cover;
+    border-radius: 1.5mm;
+    border: 0.6pt solid var(--rule);
+    background: var(--bg-soft);
+  }
+  .who .name {
+    font-size: 17pt;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0 0 1mm;
+  }
+  .who .name small {
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--ink-faint);
+    margin-left: 2mm;
+  }
+  .who .role {
+    font-size: 10pt;
+    color: var(--accent-2);
+    font-weight: 700;
+    margin: 0 0 3mm;
+  }
+  .contact {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1mm 4mm;
+    font-size: 9pt;
+    color: var(--ink-soft);
+  }
+  .contact dt { color: var(--ink-faint); }
+  .contact dd { margin: 0; }
+
+  /* 지표 */
+  .metrics {
+    display: flex;
+    gap: 3mm;
+    margin: 4mm 0 0;
+  }
+  .metric {
+    flex: 1;
+    background: var(--bg-soft);
+    border-left: 2.5pt solid var(--accent);
+    padding: 2.5mm 3mm;
+    border-radius: 0 1mm 1mm 0;
+  }
+  .metric b {
+    display: block;
+    font-size: 15pt;
+    line-height: 1;
+    color: var(--accent);
+  }
+  .metric span {
+    font-size: 7.5pt;
+    color: var(--ink-faint);
+    letter-spacing: 0.2pt;
+  }
+
+  /* 표 */
+  table.rec {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.3pt;
+  }
+  table.rec td {
+    padding: 1.1mm 2mm 1.1mm 0;
+    border-bottom: 0.4pt solid var(--rule);
+    vertical-align: top;
+    line-height: 1.4;
+  }
+  table.rec tr:last-child td { border-bottom: 0; }
+  table.rec .yr {
+    width: 24mm;
+    color: var(--accent-2);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  table.rec .lv {
+    width: 17mm;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  table.rec .ag {
+    width: 26mm;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  /* ── 2페이지: 연구분야 ──────────────────────────────────────────────── */
+  .intro-box {
+    background: var(--bg-soft);
+    border-radius: 1.5mm;
+    padding: 3.2mm 4.5mm;
+    font-size: 8.4pt;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 4mm;
+  }
+  .intro-box strong { color: var(--ink); }
+
+  .scopes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    flex: 1;
+    align-content: start;
+  }
+  .scope-card {
+    border: 0.6pt solid var(--rule);
+    border-radius: 1.5mm;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+  }
+  .scope-card figure {
+    margin: 0;
+    height: 23mm;
+    background: var(--bg-soft);
+    overflow: hidden;
+  }
+  .scope-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .scope-card .body { padding: 2.5mm 3mm 3mm; }
+  .scope-card h3 {
+    margin: 0 0 1mm;
+    font-size: 9.5pt;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1.25;
+  }
+  .scope-card h3 em {
+    display: block;
+    font-style: normal;
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: var(--ink-faint);
+    margin-top: 0.5mm;
+  }
+  .scope-card p {
+    margin: 0;
+    font-size: 7.6pt;
+    line-height: 1.45;
+    color: var(--ink-soft);
+  }
+  .scope-card.wide { grid-column: 1 / -1; flex-direction: row; }
+  .scope-card.wide figure { width: 60mm; height: 28mm; flex: none; }
+  .scope-card.wide .body { flex: 1; padding: 3mm 4mm; }
+
+  /* ── 3페이지: 구성원 ────────────────────────────────────────────────── */
+  .members {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4mm;
+    margin-bottom: 5mm;
+  }
+  .member { text-align: center; }
+  .member img {
+    width: 100%;
+    max-width: 33mm;          /* 4열 2행이 한 페이지에 들어가도록 제한 */
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 1.2mm;
+    border: 0.5pt solid var(--rule);
+    background: var(--bg-soft);
+    display: block;
+    margin: 0 auto 1.5mm;
+  }
+  .member .nm {
+    font-size: 9pt;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .member .nm small {
+    display: block;
+    font-size: 7pt;
+    font-weight: 500;
+    color: var(--ink-faint);
+    margin-top: 0.3mm;
+  }
+  .member .tp {
+    font-size: 7.2pt;
+    line-height: 1.4;
+    color: var(--ink-soft);
+    margin-top: 1mm;
+  }
+  .member .pp {
+    font-size: 6.8pt;
+    color: var(--accent-2);
+    margin-top: 0.8mm;
+    font-weight: 600;
+  }
+
+  .alumni-row {
+    display: flex;
+    gap: 4mm;
+    align-items: center;
+    background: var(--bg-soft);
+    border-radius: 1.5mm;
+    padding: 3mm 4mm;
+  }
+  .alumni-row img {
+    width: 16mm;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 1mm;
+    flex: none;
+  }
+  .alumni-row .info { font-size: 8.5pt; line-height: 1.5; }
+  .alumni-row .info b { font-size: 9.5pt; }
+
+  /* 논문 목록 */
+  ol.pubs {
+    margin: 0;
+    padding-left: 5mm;
+    font-size: 7.1pt;
+    line-height: 1.45;
+    color: var(--ink-soft);
+  }
+  ol.pubs li { margin-bottom: 0.9mm; }
+  ol.pubs em { font-style: italic; color: var(--ink-faint); }
+
+  .note {
+    margin-top: auto;
+    padding-top: 3mm;
+    border-top: 0.5pt solid var(--rule);
+    font-size: 7.5pt;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    gap: 4mm;
+  }
+
+  /* ── 인쇄 ───────────────────────────────────────────────────────────── */
+  @page { size: A4; margin: 0; }
+
+  @media print {
+    html, body { background: #fff; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      page-break-after: always;
+      break-after: page;
+    }
+    .page:last-child { page-break-after: auto; break-after: auto; }
+    .screen-only { display: none !important; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  .screen-only {
+    max-width: 210mm;
+    margin: 8mm auto 0;
+    padding: 4mm 6mm;
+    background: #fff8dc;
+    border-left: 3pt solid #d59f00;
+    border-radius: 1mm;
+    font-size: 9.5pt;
+    line-height: 1.6;
+    color: #4a3d00;
+  }
+  .screen-only code {
+    background: rgba(0,0,0,.06);
+    padding: 0.3mm 1mm;
+    border-radius: 0.6mm;
+  }
+  </style>
+</head>
+<body>
+
+<div class="screen-only">
+  <strong>PDF로 저장하는 방법</strong> — <code>Ctrl + P</code> → 대상을 <b>PDF로 저장</b> →
+  용지 <b>A4</b>, 여백 <b>없음</b>, <b>배경 그래픽</b> 체크 → 저장.
+  이 안내 상자는 인쇄물에는 나오지 않습니다.
+</div>
+
+<!-- ══════════════ 1페이지 — 지도교수 ══════════════ -->
+<section class="page">
+  <div class="head">
+    <div>
+      <h1>선박해양저항연구실
+        <span class="en">Resistance Hydrodynamics Laboratory (RHL)</span>
+      </h1>
+    </div>
+    <div class="affil">
+      인하대학교 조선해양공학과<br>
+      Dept. of Naval Architecture and Ocean Engineering<br>
+      Inha University
+    </div>
+  </div>
+
+  <div class="sec">지도교수</div>
+
+  <div class="profile">
+    <img class="photo" src="images/people/song-soonseok.jpg" alt="송순석 교수">
+    <div class="who">
+      <p class="name">송순석 <small>Soonseok Song, Ph.D.</small></p>
+      <p class="role">인하대학교 조선해양공학과 학과장 · 조교수</p>
+      <dl class="contact">
+        <dt>연구실</dt><dd>2N483</dd>
+        <dt>전화번호</dt><dd>032-860-7338</dd>
+        <dt>Email</dt><dd>s.song@inha.ac.kr</dd>
+        <dt>연구분야</dt><dd>전산유체역학(CFD) · 실험유체역학(EFD) · 선박저항 및 유체성능 · 해양신재생에너지</dd>
+      </dl>
+      <div class="metrics">
+        <div class="metric"><b>46</b><span>SCIE 논문</span></div>
+        <div class="metric"><b>23</b><span>h-index</span></div>
+        <div class="metric"><b>32</b><span>i10-index</span></div>
+        <div class="metric"><b>1,667</b><span>피인용</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">학력사항</div>
+  <table class="rec">
+    <tr><td class="yr">2018 – 2020</td><td class="lv">박사</td><td>University of Strathclyde (영국)</td><td>조선해양공학</td></tr>
+    <tr><td class="yr">2015 – 2017</td><td class="lv">석사</td><td>인하대학교</td><td>조선해양공학</td></tr>
+    <tr><td class="yr">2015 – 2016</td><td class="lv">석사</td><td>Newcastle University (영국)</td><td>해양플랜트공학</td></tr>
+    <tr><td class="yr">2008 – 2015</td><td class="lv">학사</td><td>인하대학교</td><td>조선해양공학</td></tr>
+  </table>
+
+  <div class="sec">경력사항</div>
+  <table class="rec">
+    <tr><td class="yr">2025 – 현재</td><td class="lv">학과장</td><td colspan="2">인하대학교 조선해양공학과</td></tr>
+    <tr><td class="yr">2022 – 현재</td><td class="lv">조교수</td><td colspan="2">인하대학교 조선해양공학과</td></tr>
+    <tr><td class="yr">2019 – 2022</td><td class="lv">연구원</td><td colspan="2">University of Strathclyde (영국)</td></tr>
+  </table>
+
+  <div class="sec">수상 및 학술활동</div>
+  <table class="rec">
+    <tr><td class="yr">2026</td><td colspan="3"><b>신진교수상</b> — 인하대학교</td></tr>
+    <tr><td class="yr">2024</td><td colspan="3"><b>송암상</b> — 대한조선학회</td></tr>
+    <tr><td class="yr">2022</td><td colspan="3"><b>Honorable Mention</b>, Vice Admiral E. L. Cochrane Award — SNAME (미국 조선학회)</td></tr>
+    <tr><td class="yr">2026 – 현재</td><td colspan="3">대한조선학회 <b>편집이사</b></td></tr>
+    <tr><td class="yr">2025 – 현재</td><td colspan="3">대한조선학회 함정기술연구회 산학협력분과 간사</td></tr>
+    <tr><td class="yr">2024 – 현재</td><td colspan="3">중부지방해양경찰청 구조기술자문팀</td></tr>
+    <tr><td class="yr">2021 – 2022</td><td colspan="3">국제해사기구(IMO) GloFouling Partnerships — Consultant</td></tr>
+  </table>
+
+  <div class="sec">주요 연구과제</div>
+  <table class="rec">
+    <tr><td class="yr">2026 – 2028</td><td class="ag">한국산업기술기획평가원</td><td>한·미 공동연구를 통한 AI 기반 무인수상함 핵심솔루션 개발 및 실증</td></tr>
+    <tr><td class="yr">2026 – 2030</td><td class="ag">해양수산과학기술진흥원</td><td>북극 신항로 개척을 위한 친환경 쇄빙컨테이너선 개발</td></tr>
+    <tr><td class="yr">2025 – 2028</td><td class="ag">한국산업기술기획평가원</td><td>북극 고위도 연중 운항이 가능한 세계 최고 수준의 PC 2급 쇄빙선 개발</td></tr>
+    <tr><td class="yr">2024 – 2028</td><td class="ag">한국에너지기술평가원</td><td>15MW+급 부유식해상풍력 계류선 하중 모니터링 및 하중 저감장치 개발</td></tr>
+    <tr><td class="yr">2022 – 2025</td><td class="ag">한국연구재단</td><td>불균일한 선체 거칠기에 따른 선박 저항증가 예측기법 연구</td></tr>
+  </table>
+
+  <p class="page-tag">1 / 3</p>
+</section>
+
+<!-- ══════════════ 2페이지 — 연구분야 ══════════════ -->
+<section class="page">
+  <div class="head">
+    <div>
+      <h1>주요 연구분야
+        <span class="en">Research Scope</span>
+      </h1>
+    </div>
+    <div class="affil">
+      선박해양저항연구실<br>
+      Resistance Hydrodynamics Laboratory
+    </div>
+  </div>
+
+  <div class="intro-box">
+    본 연구실은 <strong>선박 유체역학</strong>을 중심으로 연구를 수행하며,
+    <strong>전산유체역학(CFD)</strong>을 주된 도구로 삼고 <strong>수조 실험</strong>을 통해 이를 검증합니다.
+    선체 거칠기와 오손에 따른 저항 증가, 파랑 중 조종 및 내항 성능, 극지 선박의 빙 저항을 다루며,
+    <strong>해양신재생에너지</strong>를 또 하나의 축으로 조류발전 터빈과 부유식 해상풍력을 연구합니다.
+    모형과 실선 사이의 축척 문제, 즉 실험실에서 잰 값이 실제 바다에서 어떻게 달라지는가에
+    연구의 상당 부분이 놓여 있습니다.
+  </div>
+
+  <div class="scopes">
+
+    <div class="scope-card wide">
+      <figure><img src="images/research/roughness-overview.jpg" alt="선체 거칠기 CFD 해석"></figure>
+      <div class="body">
+        <h3>선체 거칠기 및 저항 성능<em>Roughness Effect and Ship Hydrodynamics</em></h3>
+        <p>
+          해양생물 오손과 방오도료에 의한 선체 거칠기가 저항에 미치는 영향을 규명합니다.
+          거칠기는 모형과 실선 사이에서 축척할 수 없어 모형시험만으로는 답을 얻을 수 없으므로,
+          유동채널 실험으로 거칠기 함수를 구하고 상사법칙으로 실선에 확장하며
+          수정 벽함수 CFD로 3차원 유동장까지 다룹니다.
+          최근에는 산업계와 함께 <b>친환경 방오도료 및 그 성능평가 기법 개발</b>에 참여하고 있습니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="scope-card">
+      <figure><img src="images/research/card-manoeuvring.jpg" alt="6자유도 자유항주 시뮬레이션"></figure>
+      <div class="body">
+        <h3>6자유도 조종 시뮬레이션<em>6-DOF Manoeuvring Simulations</em></h3>
+        <p>
+          구속 없이 스스로 조타·가속·횡동요하는 자유항주 CFD로 악천후 중 침로유지,
+          추진·조타 실패 시 거동, 자율운항선박 경로추종을 해석합니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="scope-card">
+      <figure><img src="images/research/wasp-rotor-sail.jpg" alt="풍력보조추진 로터세일 해석"></figure>
+      <div class="body">
+        <h3>에너지 절감 장치<em>Energy Saving Devices</em></h3>
+        <p>
+          공기윤활 시스템과 풍력보조추진(WASP)을 다룹니다. 특히 WASP는 CFD뿐 아니라
+          <b>SIL(Software-in-the-Loop) 실험기법</b>으로 예인수조에서 직접 계측합니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="scope-card">
+      <figure><img src="images/research/card-arctic.jpg" alt="CFD-DEM 빙해 시뮬레이션"></figure>
+      <div class="body">
+        <h3>극지 선박<em>Arctic Ships</em></h3>
+        <p>
+          유체와 개별 빙편을 함께 푸는 <b>CFD&ndash;DEM 연성해석</b>으로 빙 저항을 예측하며,
+          2026년 Newcastle University와 협업하여 인공빙을 이용한 아라온호 빙중 저항시험을 수행하였습니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="scope-card">
+      <figure><img src="images/research/fowt-velocity.jpg" alt="부유식 해상풍력 속도장"></figure>
+      <div class="body">
+        <h3>부유식 해상풍력<em>Floating Offshore Wind Turbine</em></h3>
+        <p>
+          <b>CFD&ndash;MoorDyn 연성해석 기법</b>을 개발하여 계류선 파단 시 거동을 추적하며,
+          최근에는 Actuator Line Method와 AI 대리모델&ndash;CFD 연성기법으로 확장하고 있습니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="scope-card">
+      <figure><img src="images/research/tidal-bemt-rotor.jpg" alt="BEMT 기반 조류터빈 설계"></figure>
+      <div class="body">
+        <h3>조류발전<em>Tidal Turbine</em></h3>
+        <p>
+          <b>자체 개발한 BEMT 기반 터빈 설계 프로그램</b>으로 블레이드를 설계하고,
+          회류수조 시험과 CFD로 검증합니다. 에너지자립 해상교량 국책과제도 수행 중입니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="scope-card">
+      <figure><img src="images/research/scour-pier.jpg" alt="교각 주변 세굴 해석"></figure>
+      <div class="body">
+        <h3>응용 · 환경 유체역학<em>Applied &amp; Environmental Hydrodynamics</em></h3>
+        <p>
+          해상가두리 양식장의 용존산소 수송 모델링과 교각 주변 세굴 해석 등,
+          선박에서 개발한 해석 기법을 환경 문제로 확장합니다.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="page-tag">2 / 3</p>
+</section>
+
+<!-- ══════════════ 3페이지 — 구성원 ══════════════ -->
+<section class="page">
+  <div class="head">
+    <div>
+      <h1>연구실 구성원
+        <span class="en">Members &amp; Research Output</span>
+      </h1>
+    </div>
+    <div class="affil">
+      선박해양저항연구실<br>
+      Resistance Hydrodynamics Laboratory
+    </div>
+  </div>
+
+  <div class="sec">연구원</div>
+
+  <div class="members">
+    <div class="member">
+      <img src="images/people/min-gyeongseo.jpg" alt="민경서">
+      <p class="nm">민경서<small>Gyeongseo Min</small></p>
+      <p class="tp">선박 조종성 · 에너지 절감 장치 · 조류터빈</p>
+      <p class="pp">주저자 7 · 공저자 5</p>
+    </div>
+    <div class="member">
+      <img src="images/people/yun-haechan.jpg" alt="윤해찬">
+      <p class="nm">윤해찬<small>Haechan Yun</small></p>
+      <p class="tp">선체 거칠기 · 선박 조종성 · 빙 저항</p>
+      <p class="pp">주저자 1 · 공저자 8</p>
+    </div>
+    <div class="member">
+      <img src="images/people/do-younguk.jpg" alt="도영욱">
+      <p class="nm">도영욱<small>Younguk Do</small></p>
+      <p class="tp">부유식 해상풍력 · 로터세일 · 극지 선박</p>
+      <p class="pp">주저자 1 · 공저자 7</p>
+    </div>
+    <div class="member">
+      <img src="images/people/kim-kangmin.jpg" alt="김강민">
+      <p class="nm">김강민<small>Kangmin Kim</small></p>
+      <p class="tp">조류터빈 · 프로펠러 모델링</p>
+      <p class="pp">주저자 1 · 공저자 5</p>
+    </div>
+    <div class="member">
+      <img src="images/people/jung-keounghyun.jpg" alt="정경현">
+      <p class="nm">정경현<small>Keounghyun Jung</small></p>
+      <p class="tp">세굴 예측 CFD 모델 개발</p>
+      <p class="pp">공저자 3</p>
+    </div>
+    <div class="member">
+      <img src="images/people/kim-mingi.jpg" alt="김민기">
+      <p class="nm">김민기<small>Mingi Kim</small></p>
+      <p class="tp">부유식 해상풍력 · Actuator Line Method</p>
+    </div>
+    <div class="member">
+      <img src="images/people/song-seunghee.jpg" alt="송승희">
+      <p class="nm">송승희<small>Seunghee Song</small></p>
+      <p class="tp">조류터빈 성능 해석</p>
+    </div>
+    <div class="member" style="display:flex;flex-direction:column;justify-content:center;
+                               border:0.6pt dashed var(--rule);border-radius:1.2mm;padding:3mm">
+      <p class="nm" style="color:var(--accent)">연구원 모집</p>
+      <p class="tp" style="margin-top:2mm">
+        CFD와 수조실험에 관심 있는<br>대학원생·학부연구생을<br>상시 모집합니다
+      </p>
+      <p class="pp" style="margin-top:2mm">s.song@inha.ac.kr</p>
+    </div>
+  </div>
+
+  <div class="sec">졸업생</div>
+  <div class="alumni-row">
+    <img src="images/people/choi-wooseok.jpg" alt="최우석">
+    <div class="info">
+      <b>최우석 <span style="font-weight:500;color:var(--ink-faint)">Wooseok Choi</span></b> ·
+      2025년 졸업 · 現 한화오션<br>
+      학위논문 <em>Speed penalty of a naval ship due to biofouling</em> ·
+      주저자 2편 · 공저자 5편
+    </div>
+  </div>
+
+  <div class="sec">최근 주요 연구실적</div>
+  <ol class="pubs">
+    <li>Do, Y., <em>et al.</em> (2026). CFD&ndash;MoorDyn coupling analysis for mooring line failure events of parked floating offshore wind turbine. <em>Ocean Engineering</em>, 363, 126703.</li>
+    <li>Kim, K., <em>et al.</em> (2026). Wave-induced effects on tidal turbine performance and structural loading. <em>Ocean Engineering</em>, 362, 126189.</li>
+    <li>Min, G., <em>et al.</em> (2026). Seakeeping analysis of a damaged ship using CFD. <em>Ocean Engineering</em>, 362, 126200.</li>
+    <li>Min, G., <em>et al.</em> (2026). Experimental analysis of resistance reduction and heel motion characteristics of wind-assisted vessels using the SIL system. <em>Ocean Engineering</em>, 354, 124905.</li>
+    <li>Min, G., <em>et al.</em> (2026). Influence of CFD modelling parameters on air injection behaviour in ship air lubrication systems. <em>JMSE</em>, 14(2), 234.</li>
+    <li>Yun, H., <em>et al.</em> (2025). CFD analysis of container ship manoeuvring performance under different trim conditions. <em>Ocean Engineering</em>, 341, 122489.</li>
+    <li>Min, G., <em>et al.</em> (2025). Evaluation of push-pull manoeuvring mode for a naval ship using CFD. <em>Ocean Engineering</em>, 330, 121143.</li>
+    <li>Choi, W.-S., <em>et al.</em> (2024). Resistance and speed penalty of a naval ship with hull roughness. <em>Ocean Engineering</em>, 312, 119058.</li>
+    <li>Song, S., <em>et al.</em> (2024). Townsin's formula vs CFD: Evaluating hull roughness effect in ship resistance. <em>Ocean Engineering</em>, 303, 117754.</li>
+    <li>Song, S., <em>et al.</em> (2023). An advanced prediction method of ship resistance with heterogeneous hull roughness. <em>Ocean Engineering</em>, 279, 114602.</li>
+  </ol>
+
+  <div class="note">
+    <span>전체 논문 목록 및 연구 소개 &nbsp;·&nbsp; <b>soonseok-song.github.io</b></span>
+    <span>인하대학교 조선해양공학과 2N483 &nbsp;·&nbsp; 032-860-7338</span>
+  </div>
+
+  <p class="page-tag">3 / 3</p>
+</section>
+
+</body>
+</html>
