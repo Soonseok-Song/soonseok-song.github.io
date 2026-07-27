@@ -50,6 +50,22 @@
     console.error(err);
   }
 
+  /**
+   * 주저자·공저자 SCIE 논문 수를 한 줄로 만듭니다.
+   * 둘 다 0이거나 papers 항목이 없으면 아무것도 표시하지 않습니다.
+   */
+  function papersLine(p) {
+    if (!p || !p.papers) return '';
+    var f = p.papers.first || 0;
+    var c = p.papers.co || 0;
+    if (!f && !c) return '';
+    var parts = [];
+    if (f) parts.push(f + ' first-author');
+    if (c) parts.push(c + ' co-author');
+    return '<p class="person-papers">' + parts.join(' &middot; ') +
+           ' SCIE ' + ((f + c) === 1 ? 'paper' : 'papers') + '</p>';
+  }
+
   /* ── 1. 내비게이션 현재 페이지 표시 ──────────────────────────────────── */
 
   function markCurrentNav() {
@@ -304,6 +320,7 @@
                  '<p class="person-name">' + esc(p.name_en) +
                  (p.name_ko ? ' <span class="person-name-ko">(' + esc(p.name_ko) + ')</span>' : '') + '</p>' +
                  (p.topic ? '<p class="person-topic">' + esc(p.topic) + '</p>' : '') +
+                 papersLine(p) +
                  '</div>';
         }).join('');
       }
@@ -325,7 +342,9 @@
                    '<div class="person-photo">' + img + '</div>' +
                    '<p class="person-name">' + esc(a.name_en) +
                    (a.name_ko ? ' <span class="person-name-ko">(' + esc(a.name_ko) + ')</span>' : '') + '</p>' +
-                   (line.length ? '<p class="person-topic">' + line.join(' &middot; ') + '</p>' : '') +
+                   (a.topic ? '<p class="person-topic">' + esc(a.topic) + '</p>' : '') +
+                   (line.length ? '<p class="person-meta">' + line.join(' &middot; ') + '</p>' : '') +
+                   papersLine(a) +
                    (a.thesis ? '<p class="person-thesis">' + esc(a.thesis) + '</p>' : '') +
                    '</div>';
           }).join('') + '</div>';
@@ -337,6 +356,95 @@
   }
 
   /* ── 7. 갤러리 ────────────────────────────────────────────────────────── */
+
+  /**
+   * 사진 설명을 정합니다. 우선순위:
+   *   1) gallery.json 의 captions 에 파일명이 있으면 그 값
+   *   2) 파일명이 2026-07-27-towing-tank-test.jpg 형태면 자동 생성
+   *      → "Towing tank test"
+   *   3) 둘 다 아니면 설명 없음
+   * 덕분에 파일명만 잘 지으면 captions 를 손대지 않아도 됩니다.
+   */
+  function galleryCaption(file, caps) {
+    if (caps && caps[file]) return caps[file];
+    var m = file.match(/^\d{4}-\d{2}-\d{2}[-_](.+)\.[^.]+$/);
+    if (!m) return '';
+    var text = m[1].replace(/[-_]+/g, ' ').trim();
+    if (!text) return '';
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  }
+
+  /** 사진을 클릭하면 크게 보여주는 오버레이 */
+  function setupLightbox(container, items, captions) {
+    var lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-hidden', 'true');
+    lb.innerHTML =
+      '<button class="lb-close" type="button" aria-label="Close">&times;</button>' +
+      '<button class="lb-nav lb-prev" type="button" aria-label="Previous photo">&#8249;</button>' +
+      '<figure class="lb-figure"><img alt=""><figcaption></figcaption></figure>' +
+      '<button class="lb-nav lb-next" type="button" aria-label="Next photo">&#8250;</button>' +
+      '<p class="lb-count"></p>';
+    document.body.appendChild(lb);
+
+    var lbImg   = $('img', lb);
+    var lbCap   = $('figcaption', lb);
+    var lbCount = $('.lb-count', lb);
+    var idx = 0;
+    var lastFocus = null;
+
+    if (items.length < 2) {
+      $('.lb-prev', lb).style.display = 'none';
+      $('.lb-next', lb).style.display = 'none';
+    }
+
+    function show(i) {
+      idx = (i + items.length) % items.length;
+      lbImg.src = 'images/gallery/' + items[idx];
+      lbImg.alt = captions[idx] || 'Laboratory photo';
+      lbCap.textContent = captions[idx] || '';
+      lbCap.style.display = captions[idx] ? '' : 'none';
+      lbCount.textContent = items.length > 1 ? (idx + 1) + ' / ' + items.length : '';
+    }
+    function open(i) {
+      lastFocus = document.activeElement;
+      show(i);
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      $('.lb-close', lb).focus();
+    }
+    function close() {
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      lbImg.removeAttribute('src');
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    container.addEventListener('click', function (e) {
+      var btn = e.target.closest ? e.target.closest('.gallery-btn') : null;
+      if (!btn) return;
+      open(parseInt(btn.getAttribute('data-index'), 10) || 0);
+    });
+
+    lb.addEventListener('click', function (e) {
+      var t = e.target;
+      if (t.closest('.lb-close')) { close(); return; }
+      if (t.closest('.lb-prev'))  { show(idx - 1); return; }
+      if (t.closest('.lb-next'))  { show(idx + 1); return; }
+      if (!t.closest('.lb-figure')) close();     // 배경을 누르면 닫기
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape')     { close(); }
+      else if (e.key === 'ArrowLeft')  { show(idx - 1); }
+      else if (e.key === 'ArrowRight') { show(idx + 1); }
+    });
+  }
 
   function renderGallery() {
     var box = $('[data-gallery]');
@@ -352,12 +460,21 @@
           '</div>';
         return;
       }
-      box.innerHTML = '<div class="gallery-grid">' + items.map(function (f) {
-        var cap = caps[f] || '';
+
+      var captions = items.map(function (f) { return galleryCaption(f, caps); });
+
+      box.innerHTML = '<div class="gallery-grid">' + items.map(function (f, i) {
+        var cap = captions[i];
         return '<figure class="gallery-item">' +
+               '<button type="button" class="gallery-btn" data-index="' + i + '" aria-label="' +
+               esc(cap || 'Open photo') + '">' +
                '<img src="images/gallery/' + esc(f) + '" alt="' + esc(cap || 'Laboratory photo') + '" loading="lazy">' +
+               '</button>' +
+               (cap ? '<figcaption>' + esc(cap) + '</figcaption>' : '') +
                '</figure>';
       }).join('') + '</div>';
+
+      setupLightbox(box, items, captions);
     }).catch(function (e) { showError(box, e); });
   }
 

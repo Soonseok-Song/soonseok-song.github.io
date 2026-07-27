@@ -42,48 +42,57 @@
     ]
   },
 
+  "_papers_note": "papers.first = 주저자 SCIE 논문 수, papers.co = 공저자 논문 수. 둘 다 0이거나 papers 항목이 없으면 화면에 표시되지 않습니다.",
+
   "current": [
     {
       "name_en": "Gyeongseo Min",
       "name_ko": "민경서",
       "photo": "min-gyeongseo.jpg",
-      "topic": "Ship manoeuvring · energy-saving devices · tidal turbines"
+      "topic": "Ship manoeuvring; energy-saving devices; tidal turbines",
+      "papers": { "first": 7, "co": 5 }
     },
     {
       "name_en": "Haechan Yun",
       "name_ko": "윤해찬",
       "photo": "yun-haechan.jpg",
-      "topic": "Hull roughness · ship manoeuvring · ice resistance"
+      "topic": "Hull roughness; ship manoeuvring; ice resistance",
+      "papers": { "first": 1, "co": 8 }
     },
     {
       "name_en": "Younguk Do",
       "name_ko": "도영욱",
       "photo": "do-younguk.jpg",
-      "topic": "Floating offshore wind · rotor sails · ice-going ships"
+      "topic": "Floating offshore wind; rotor sails; ice-going ships",
+      "papers": { "first": 1, "co": 7 }
     },
     {
       "name_en": "Kangmin Kim",
       "name_ko": "김강민",
       "photo": "kim-kangmin.jpg",
-      "topic": "Tidal turbines · propeller modelling"
+      "topic": "Tidal turbines; propeller modelling",
+      "papers": { "first": 1, "co": 5 }
     },
     {
       "name_en": "Keounghyun Jung",
       "name_ko": "정경현",
       "photo": "jung-keounghyun.jpg",
-      "topic": "CFD model development for scour prediction"
+      "topic": "CFD model development for scour prediction",
+      "papers": { "first": 0, "co": 3 }
     },
     {
       "name_en": "Mingi Kim",
       "name_ko": "김민기",
       "photo": "kim-mingi.jpg",
-      "topic": "Floating offshore wind · actuator line method"
+      "topic": "Floating offshore wind; actuator line method",
+      "papers": { "first": 0, "co": 0 }
     },
     {
       "name_en": "Seunghee Song",
       "name_ko": "송승희",
       "photo": "song-seunghee.jpg",
-      "topic": "Tidal turbine performance analysis"
+      "topic": "Tidal turbine performance analysis",
+      "papers": { "first": 0, "co": 0 }
     }
   ],
 
@@ -92,9 +101,11 @@
       "name_en": "Wooseok Choi",
       "name_ko": "최우석",
       "photo": "choi-wooseok.jpg",
+      "topic": "Hull roughness; ship manoeuvring",
       "graduated": "2025",
       "thesis": "Speed penalty of a naval ship due to biofouling",
-      "position": "Hanwha Ocean"
+      "position": "Hanwha Ocean",
+      "papers": { "first": 2, "co": 0 }
     }
   ]
 }

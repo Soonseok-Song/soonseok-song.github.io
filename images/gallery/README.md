@@ -9,14 +9,18 @@
 3. 아래 초록 버튼 **`Commit changes`**
 4. 1~2분 뒤 https://soonseok-song.github.io/gallery.html 에서 확인
 
-## 파일 이름을 날짜로 시작하세요
+## 파일 이름을 `날짜-설명` 으로 지으세요
 
-그러면 최신 사진이 갤러리 맨 앞에 옵니다.
+두 가지가 한꺼번에 해결됩니다 — **최신 사진이 앞에 오고, 설명도 자동으로 붙습니다.**
 
 ```
-2026-07-26-isope-conference.jpg
-2026-06-14-towing-tank-test.jpg
+2026-07-26-isope-conference.jpg    →  갤러리에 "Isope conference" 라고 표시
+2026-06-14-towing-tank-test.jpg    →  "Towing tank test"
 ```
+
+하이픈이 공백으로 바뀌고 첫 글자가 대문자가 됩니다. 날짜 접두사가 없으면 설명 없이 사진만 나옵니다.
+
+대문자를 정확히 쓰고 싶거나(`ISOPE 2026, Seoul`) 파일명이 이미 `KakaoTalk_2026...` 처럼 되어 있으면, `data/gallery.json` 의 `captions` 에 직접 넣으면 됩니다. 자세한 건 [MAINTENANCE.md](../../MAINTENANCE.md) 참고.
 
 ## 지켜주세요
 

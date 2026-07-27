@@ -175,13 +175,33 @@ Google Scholar 프로필에서 숫자를 확인하고 `updated` 도 함께 바�
 2026-06-14-towing-tank-test.jpg
 ```
 
-사진에 설명을 붙이려면 `data/gallery.json` 의 `captions` 에 추가합니다:
+갤러리에서 **사진을 클릭하면 크게 보입니다.** 좌우 화살표 키나 버튼으로 넘길 수 있고, `Esc` 로 닫습니다.
+
+### 사진에 설명 붙이기
+
+**방법 1 — 파일명으로 (권장, 추가 작업 없음)**
+
+파일명을 `날짜-설명.jpg` 형태로 지으면 설명이 자동으로 붙습니다.
+
+```
+2026-07-27-towing-tank-test.jpg    →  "Towing tank test"
+2026-06-14-ice-tank-experiment.jpg →  "Ice tank experiment"
+```
+
+하이픈이 공백으로 바뀌고 첫 글자가 대문자가 됩니다. **날짜 접두사가 있어야 동작합니다** — 없으면 설명 없이 사진만 나옵니다.
+
+**방법 2 — 직접 써 넣기**
+
+대문자나 문장을 정확히 지정하고 싶을 때(`ISOPE 2026, Seoul` 처럼)는 `data/gallery.json` 의 `captions` 에 파일명을 키로 넣습니다. **이쪽이 방법 1보다 우선합니다.**
 
 ```json
   "captions": {
-    "2026-07-26-isope-conference.jpg": "ISOPE 2026, Seoul"
+    "KakaoTalk_20260727_085520601.jpg": "Towing tank test, July 2026",
+    "2026-06-14-isope-conference.jpg": "ISOPE 2026, Seoul"
   },
 ```
+
+휴대폰이나 카카오톡에서 받은 사진처럼 파일명이 의미 없을 때 쓰면 됩니다.
 
 **사진을 지우려면** 파일을 삭제하면 됩니다 (파일 클릭 → 휴지통 아이콘 → Commit). 목록도 자동으로 갱신됩니다.
 
