@@ -36,9 +36,33 @@ jobs:
               .filter(f => !f.startsWith('.'));
           }
 
-          // 파일명 내림차순 — 파일명을 2026-07-26-xxx.jpg 처럼 날짜로 시작하면
-          // 최신 사진이 갤러리 맨 앞에 옵니다.
-          files.sort((a, b) => b.localeCompare(a, 'en'));
+          // 파일명 안의 날짜를 읽어 최신순으로 놓습니다.
+          //   "Visit to Durham 2026 July.jpg"  → 2026-07
+          //   "2026-07-27-towing-tank-test.jpg" → 2026-07
+          // 날짜가 없는 파일은 뒤로 갑니다.
+          const MONTHS = { jan:1, feb:2, mar:3, apr:4, may:5, jun:6,
+                           jul:7, aug:8, sep:9, oct:10, nov:11, dec:12 };
+          function dateKey(name) {
+            const stem = name.replace(/\.[^.]+$/, '');
+            let y = 0, m = 0;
+            // "2026 July" 형태 — 앞쪽의 "2026 Tokyo" 같은 오검출을 피하려고 마지막 유효값을 씁니다
+            const re = /(\d{4})\s+([A-Za-z]{3,9})/g;
+            let hit;
+            while ((hit = re.exec(stem)) !== null) {
+              const k = hit[2].slice(0, 3).toLowerCase();
+              if (MONTHS[k]) { y = +hit[1]; m = MONTHS[k]; }
+            }
+            if (!y) {                                  // "2026-07-27" 형태
+              const iso = stem.match(/(\d{4})-(\d{2})-(\d{2})/);
+              if (iso) { y = +iso[1]; m = +iso[2]; }
+            }
+            return y * 100 + m;
+          }
+          // 날짜 최신순, 같은 날짜면 이름 오름차순 — (1 of 2) 가 (2 of 2) 보다 앞에 옵니다
+          files.sort((a, b) => {
+            const d = dateKey(b) - dateKey(a);
+            return d !== 0 ? d : a.localeCompare(b, 'en');
+          });
 
           // 기존 captions 는 보존합니다
           let data = { captions: {}, items: [] };

@@ -126,51 +126,67 @@
 
   /* ── 4. 논문 목록 ─────────────────────────────────────────────────────── */
 
+  /** 한 묶음(학술지 또는 학회)을 연도별로 그려줍니다. */
+  function renderPubGroup(list) {
+    list = list.slice().sort(function (a, b) { return (b.year || 0) - (a.year || 0); });
+
+    var order = [];
+    var byYear = {};
+    list.forEach(function (p) {
+      var y = p.year || '—';
+      if (!byYear[y]) { byYear[y] = []; order.push(y); }
+      byYear[y].push(p);
+    });
+
+    // 오래된 것이 1번이 되도록 매깁니다. 새 논문이 추가돼도 기존 번호가 그대로입니다.
+    var seq = list.length;
+    var html = '';
+    order.forEach(function (y) {
+      html += '<h3 class="pub-year">' + esc(y) + '</h3><ol class="pub-list">';
+      byYear[y].forEach(function (p) {
+        var venue = p.venue ? '<span class="pub-venue">' + esc(p.venue) + '</span>' : '';
+        var detail = p.detail ? ', ' + esc(p.detail) : '';
+        var doi = p.doi
+          ? ' <a class="pub-doi" href="https://doi.org/' + esc(p.doi) + '" rel="noopener">doi:' + esc(p.doi) + '</a>'
+          : '';
+        html += '<li class="pub-item">' +
+                '<span class="pub-num">' + seq-- + '</span>' +
+                '<span><span class="pub-authors">' + esc(p.authors) + '</span> ' +
+                '<span class="pub-title">' + esc(p.title) + '</span>. ' +
+                venue + detail + doi + '</span>' +
+                '</li>';
+      });
+      html += '</ol>';
+    });
+    return html;
+  }
+
   function renderPublications() {
     var box = $('[data-publications]');
     if (!box) return;
     loadJSON('data/publications.json').then(function (d) {
-      var list = (d.journal || []).slice();
-      if (!list.length) { box.innerHTML = '<p class="loading">No publications listed.</p>'; return; }
-
-      // 연도 내림차순 정렬 후 연도별로 묶기
-      list.sort(function (a, b) { return (b.year || 0) - (a.year || 0); });
-
-      var groups = [];
-      var byYear = {};
-      list.forEach(function (p) {
-        var y = p.year || '—';
-        if (!byYear[y]) { byYear[y] = []; groups.push(y); }
-        byYear[y].push(p);
-      });
-
-      // 전체 통번호 — 오래된 것이 1번이 되도록 매깁니다.
-      // 이렇게 하면 새 논문이 추가돼도 기존 번호가 바뀌지 않습니다.
-      var total = list.length;
-      var seq = total;
+      var journal = d.journal || [];
+      var conf    = d.conference || [];
+      if (!journal.length && !conf.length) {
+        box.innerHTML = '<p class="loading">No publications listed.</p>';
+        return;
+      }
 
       var html = '';
-      groups.forEach(function (y) {
-        html += '<h2 class="pub-year">' + esc(y) + '</h2><ol class="pub-list">';
-        byYear[y].forEach(function (p) {
-          var venue = p.venue ? '<span class="pub-venue">' + esc(p.venue) + '</span>' : '';
-          var detail = p.detail ? ' ' + esc(p.detail) : '';
-          var doi = p.doi
-            ? ' <a class="pub-doi" href="https://doi.org/' + esc(p.doi) + '" rel="noopener">doi:' + esc(p.doi) + '</a>'
-            : '';
-          html += '<li class="pub-item">' +
-                  '<span class="pub-num">' + seq-- + '</span>' +
-                  '<span><span class="pub-authors">' + esc(p.authors) + '</span> ' +
-                  '<span class="pub-title">' + esc(p.title) + '</span>. ' +
-                  venue + detail + doi + '</span>' +
-                  '</li>';
-        });
-        html += '</ol>';
-      });
+      if (journal.length) {
+        html += '<section class="pub-section"><h2>Journal articles</h2>' +
+                renderPubGroup(journal) + '</section>';
+      }
+      if (conf.length) {
+        html += '<section class="pub-section"><h2>Conference papers</h2>' +
+                renderPubGroup(conf) + '</section>';
+      }
       box.innerHTML = html;
 
       var count = $('[data-pub-count]');
-      if (count) count.textContent = total;
+      if (count) count.textContent = journal.length;
+      var ccount = $('[data-conf-count]');
+      if (ccount) ccount.textContent = conf.length;
     }).catch(function (e) { showError(box, e); });
   }
 
@@ -361,38 +377,31 @@
   var FILENAME_NOISE = /^(kakaotalk|kakao|img|image|dsc|dscn|dscf|pxl|photo|picture|screenshot|screen|shot|capture|untitled|new|copy|스크린샷|사진|캡처|이미지)$/i;
 
   /**
-   * 사진 설명을 정합니다. 우선순위:
+   * 사진 설명을 정합니다.
    *   1) gallery.json 의 captions 에 파일명이 있으면 그 값
-   *   2) 없으면 파일명에서 만들어 씁니다
-   *        2026-07-27-towing-tank-test.jpg  →  "Towing tank test"
-   *        towing-tank-test.jpg             →  "Towing tank test"
-   *        ISOPE-2026-Seoul.jpg             →  "ISOPE 2026 Seoul"
-   *   3) 파일명이 KakaoTalk_20260727_085520601.jpg, IMG_1234.jpg 처럼
+   *   2) 없으면 확장자만 떼고 파일명을 그대로 씁니다
+   *        Visit to Durham 2026 July (1 of 2).jpg
+   *          → "Visit to Durham 2026 July (1 of 2)"
+   *   3) 단, KakaoTalk_20260727_085520601.jpg, IMG_1234.jpg 처럼
    *      기계가 붙인 이름뿐이면 설명 없이 사진만 보여줍니다.
-   *
-   * 덕분에 파일명만 알아보게 지으면 captions 를 손댈 일이 없습니다.
    */
   function galleryCaption(file, caps) {
     if (caps && caps[file]) return caps[file];
 
-    var base = file.replace(/\.[^.]+$/, '');            // 확장자 제거
-    base = base.replace(/^\d{4}[-_.]?\d{2}[-_.]?\d{2}[-_.\s]*/, '');  // 앞의 날짜 제거
-    var text = base.replace(/[-_.]+/g, ' ').replace(/\s+/g, ' ').trim();
-    if (!text) return '';
+    var base = file.replace(/\.[^.]+$/, '').trim();   // 확장자만 제거
+    if (!base) return '';
 
-    var words = text.split(' ').filter(function (w) {
+    // 사람이 지은 이름인지 확인 — 의미 있는 낱말이 하나라도 있어야 설명으로 씁니다
+    var meaningful = base.replace(/[-_.]+/g, ' ').split(/\s+/).filter(function (w) {
       if (!w) return false;
-      // 숫자만인 조각은 버리되, 네 자리는 연도일 수 있으니 남깁니다 (ISOPE 2026 …)
-      if (/^\d+$/.test(w) && w.length !== 4) return false;
-      if (FILENAME_NOISE.test(w)) return false;              // IMG, KakaoTalk 같은 조각
+      if (/^\d+$/.test(w)) return false;                            // 숫자뿐인 조각
+      if (FILENAME_NOISE.test(w)) return false;                     // IMG, KakaoTalk 등
       if (/^(img|dsc|dscn|dscf|pxl|p)\d+$/i.test(w)) return false;  // IMG1234, DSC00123
       return true;
     });
-    // 숫자만 남았다면 설명이라 할 수 없습니다
-    if (!words.length || words.every(function (w) { return /^\d+$/.test(w); })) return '';
+    if (!meaningful.length) return '';
 
-    var out = words.join(' ');
-    return out.charAt(0).toUpperCase() + out.slice(1);
+    return base;   // 사람이 지은 이름은 손대지 않고 그대로
   }
 
   /** 사진을 클릭하면 크게 보여주는 오버레이 */

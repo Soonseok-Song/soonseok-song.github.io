@@ -9,14 +9,22 @@
 3. 아래 초록 버튼 **`Commit changes`**
 4. 1~2분 뒤 https://soonseok-song.github.io/gallery.html 에서 확인
 
-## 파일 이름을 `날짜-설명` 으로 지으세요
+## 파일 이름이 그대로 설명이 됩니다
 
-두 가지가 한꺼번에 해결됩니다 — **최신 사진이 앞에 오고, 파일 이름이 그대로 설명이 됩니다.**
+확장자만 떼고 파일 이름을 그대로 갤러리에 보여줍니다. **이름에 연월을 넣으면 최신 사진이 앞에 옵니다.**
 
 ```
-2026-07-26-towing-tank-test.jpg    →  갤러리에 "Towing tank test" 라고 표시
-2026-06-14-ISOPE-Seoul.jpg         →  "ISOPE Seoul"
-연구실 회식.jpg                      →  "연구실 회식"   (한글도 됩니다)
+Visit to Newcastle 2026 July.jpg         →  "Visit to Newcastle 2026 July"
+2026 KAOSTS 공동학술대회 ICC Jeju 2026 May.jpg  →  그대로 (한글도 됩니다)
+```
+
+연월은 이름 어디에 있어도 찾아냅니다. `2026-07-27-무엇.jpg` 형식도 됩니다. 연월이 없으면 맨 뒤로 갑니다.
+
+**같은 행사 사진이 여러 장이면** 이렇게 번호를 붙이세요:
+
+```
+조선해양공학과 축구대회 우승 2026 April (1 of 2).jpg
+조선해양공학과 축구대회 우승 2026 April (2 of 2).jpg
 ```
 
 **휴대폰·카카오톡이 붙인 이름 그대로 올리면 설명이 안 붙습니다.**
@@ -28,7 +36,7 @@ IMG_1234.jpg                        →  설명 없이 사진만
 
 이름만 바꿔 올리면 되니 어렵지 않습니다. 이미 올린 사진도 **파일을 열고 연필 아이콘을 눌러 이름을 바꿀 수 있습니다.**
 
-대소문자를 정확히 쓰고 싶으면(`ISOPE 2026, Seoul`) `data/gallery.json` 의 `captions` 에 직접 넣으면 됩니다. 자세한 건 [MAINTENANCE.md](../../MAINTENANCE.md) 참고.
+문장으로 따로 쓰고 싶으면 `data/gallery.json` 의 `captions` 에 직접 넣으면 됩니다. 자세한 건 [MAINTENANCE.md](../../MAINTENANCE.md) 참고.
 
 ## 지켜주세요
 
