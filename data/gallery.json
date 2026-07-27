@@ -1,8 +1,22 @@
 {
-  "_comment": "이 파일은 GitHub Actions가 images/gallery/ 폴더를 읽어 자동으로 갱신합니다. 직접 편집하지 않아도 됩니다. 사진에 설명을 붙이려면 captions에 파일명을 키로 추가하세요.",
-  "captions": {},
-  "items": [
-    "KakaoTalk_20260727_085542318.jpg",
-    "KakaoTalk_20260727_085520601.jpg"
-  ]
+    "_comment":  "이 파일은 GitHub Actions가 images/gallery/ 폴더를 읽어 자동으로 갱신합니다. 직접 편집하지 않아도 됩니다. 사진에 설명을 붙이려면 captions에 파일명을 키로 추가하세요.",
+    "captions":  {
+
+                 },
+    "items":  [
+                  "2026-07-27-Visit to Newcastle.jpg",
+                  "2026-07-27-Visit to Newcastle Emersion Cavitation Tunnel.jpg",
+                  "2026-07-27-Visit to Newcastle 2.jpg",
+                  "2026-07-01-Visit to Durham.jpg",
+                  "2026-07-01-Visit to Durham Castle.jpg",
+                  "2026-07-01-Visit to Durham 3.jpg",
+                  "2026-06-08-OMAE 2026 Tokyo.jpg",
+                  "2026-05-29-2026 KAOSTS 공동학술대회 ICC Jeju.jpg",
+                  "2026-04-03-조선해양공학과 축구대회 우승.jpg",
+                  "2026-04-03-조선해양공학과 축구대회 우승 2.jpg",
+                  "2025-07-01-Visit to Strathclyde KHL.jpg",
+                  "2025-07-01-Visit to Isle of Skye.jpg",
+                  "2025-02-11-Lab seminar at Gapyeong.jpg",
+                  "2024-11-01-2024 대한조선학회 추계 학술대회.jpg"
+              ]
 }
