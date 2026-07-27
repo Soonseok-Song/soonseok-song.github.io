@@ -1,20 +1,22 @@
 {
-  "_comment": "이 파일은 GitHub Actions가 images/gallery/ 폴더를 읽어 자동으로 갱신합니다. 직접 편집하지 않아도 됩니다. 사진에 설명을 붙이려면 captions에 파일명을 키로 추가하세요.",
-  "captions": {},
-  "items": [
-    "Visit to Durham 2026 July (1 of 2).jpg",
-    "Visit to Durham 2026 July (2 of 2).jpg",
-    "Visit to Durham Castle 2026 July.jpg",
-    "Visit to Newcastle 2026 July (1 of 2).jpg",
-    "Visit to Newcastle 2026 July (2 of 2).jpg",
-    "Visit to Newcastle Emersion Cavitation Tunnel 2026 July.jpg",
-    "OMAE 2026 Tokyo 2026 June.jpg",
-    "2026 KAOSTS 공동학술대회 ICC Jeju 2026 May.jpg",
-    "조선해양공학과 축구대회 우승 2026 April (1 of 2).jpg",
-    "조선해양공학과 축구대회 우승 2026 April (2 of 2).jpg",
-    "Visit to Isle of Skye 2025 July.jpg",
-    "Visit to Strathclyde KHL 2025 July.jpg",
-    "Lab seminar at Gapyeong 2025 Feb.jpg",
-    "2024 대한조선학회 추계 학술대회 2024 November.jpg"
-  ]
+    "_comment":  "이 파일은 GitHub Actions가 images/gallery/ 폴더를 읽어 자동으로 갱신합니다. 직접 편집하지 않아도 됩니다. 사진에 설명을 붙이려면 captions에 파일명을 키로 추가하세요.",
+    "captions":  {
+
+                 },
+    "items":  [
+                  "(2026.07) Visit to Durham (1 of 2).jpg",
+                  "(2026.07) Visit to Durham (2 of 2).jpg",
+                  "(2026.07) Visit to Durham Castle.jpg",
+                  "(2026.07) Visit to Newcastle (1 of 2).jpg",
+                  "(2026.07) Visit to Newcastle (2 of 2).jpg",
+                  "(2026.07) Visit to Newcastle Emersion Cavitation Tunnel.jpg",
+                  "(2026.06) OMAE 2026 Tokyo.jpg",
+                  "(2026.05) 2026 KAOSTS 공동학술대회 ICC Jeju.jpg",
+                  "(2026.04) 조선해양공학과 축구대회 우승 (1 of 2).jpg",
+                  "(2026.04) 조선해양공학과 축구대회 우승 (2 of 2).jpg",
+                  "(2025.07) Visit to Isle of Skye.jpg",
+                  "(2025.07) Visit to Strathclyde KHL.jpg",
+                  "(2025.02) Lab seminar at Gapyeong.jpg",
+                  "(2024.11) 2024 대한조선학회 추계 학술대회.jpg"
+              ]
 }

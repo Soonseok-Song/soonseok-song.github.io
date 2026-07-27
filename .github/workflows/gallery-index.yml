@@ -44,6 +44,10 @@ jobs:
                            jul:7, aug:8, sep:9, oct:10, nov:11, dec:12 };
           function dateKey(name) {
             const stem = name.replace(/\.[^.]+$/, '');
+            // 권장 형식 — "(2026.07) Visit to Durham"
+            const head = stem.match(/^\((\d{4})\.(\d{1,2})\)/);
+            if (head) return +head[1] * 100 + +head[2];
+
             let y = 0, m = 0;
             // "2026 July" 형태 — 앞쪽의 "2026 Tokyo" 같은 오검출을 피하려고 마지막 유효값을 씁니다
             const re = /(\d{4})\s+([A-Za-z]{3,9})/g;
