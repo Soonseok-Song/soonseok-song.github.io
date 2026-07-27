@@ -194,7 +194,7 @@ code {
 .brand-sub {
   font-size: 0.8125rem;
   font-weight: 500;
-  color: var(--ink-faint);
+  color: var(--ink-soft);
   padding-left: 0.65rem;
   border-left: 1px solid var(--rule);
 }
@@ -226,10 +226,23 @@ code {
 
 @media (max-width: 720px) {
   .site-head-inner { padding-block: 0.4rem; }
-  .brand-sub { display: none; }
+  .brand { gap: 0.5rem; }
   .brand-logo { height: 24px; }
+  /* 좁은 화면에서도 연구실 이름을 보여줍니다.
+     자리가 모자라면 nowrap 을 풀어 두 줄로 접히게 둡니다. */
+  .brand-sub {
+    font-size: 0.75rem;
+    padding-left: 0.5rem;
+    white-space: normal;
+    line-height: 1.3;
+  }
   .site-nav { gap: 0; }
   .site-nav a { padding: 0.4rem 0.55rem; font-size: 0.875rem; }
+}
+
+/* 아주 좁은 화면(구형 소형 단말)에서는 한 단계 더 줄입니다 */
+@media (max-width: 360px) {
+  .brand-sub { font-size: 0.7rem; }
 }
 
 /* ── 5. 히어로 ──────────────────────────────────────────────────────────── */
