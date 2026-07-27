@@ -357,21 +357,42 @@
 
   /* ── 7. 갤러리 ────────────────────────────────────────────────────────── */
 
+  /* 카메라·메신저가 자동으로 붙이는 이름 조각. 설명이 되지 못하므로 걸러냅니다. */
+  var FILENAME_NOISE = /^(kakaotalk|kakao|img|image|dsc|dscn|dscf|pxl|photo|picture|screenshot|screen|shot|capture|untitled|new|copy|스크린샷|사진|캡처|이미지)$/i;
+
   /**
    * 사진 설명을 정합니다. 우선순위:
    *   1) gallery.json 의 captions 에 파일명이 있으면 그 값
-   *   2) 파일명이 2026-07-27-towing-tank-test.jpg 형태면 자동 생성
-   *      → "Towing tank test"
-   *   3) 둘 다 아니면 설명 없음
-   * 덕분에 파일명만 잘 지으면 captions 를 손대지 않아도 됩니다.
+   *   2) 없으면 파일명에서 만들어 씁니다
+   *        2026-07-27-towing-tank-test.jpg  →  "Towing tank test"
+   *        towing-tank-test.jpg             →  "Towing tank test"
+   *        ISOPE-2026-Seoul.jpg             →  "ISOPE 2026 Seoul"
+   *   3) 파일명이 KakaoTalk_20260727_085520601.jpg, IMG_1234.jpg 처럼
+   *      기계가 붙인 이름뿐이면 설명 없이 사진만 보여줍니다.
+   *
+   * 덕분에 파일명만 알아보게 지으면 captions 를 손댈 일이 없습니다.
    */
   function galleryCaption(file, caps) {
     if (caps && caps[file]) return caps[file];
-    var m = file.match(/^\d{4}-\d{2}-\d{2}[-_](.+)\.[^.]+$/);
-    if (!m) return '';
-    var text = m[1].replace(/[-_]+/g, ' ').trim();
+
+    var base = file.replace(/\.[^.]+$/, '');            // 확장자 제거
+    base = base.replace(/^\d{4}[-_.]?\d{2}[-_.]?\d{2}[-_.\s]*/, '');  // 앞의 날짜 제거
+    var text = base.replace(/[-_.]+/g, ' ').replace(/\s+/g, ' ').trim();
     if (!text) return '';
-    return text.charAt(0).toUpperCase() + text.slice(1);
+
+    var words = text.split(' ').filter(function (w) {
+      if (!w) return false;
+      // 숫자만인 조각은 버리되, 네 자리는 연도일 수 있으니 남깁니다 (ISOPE 2026 …)
+      if (/^\d+$/.test(w) && w.length !== 4) return false;
+      if (FILENAME_NOISE.test(w)) return false;              // IMG, KakaoTalk 같은 조각
+      if (/^(img|dsc|dscn|dscf|pxl|p)\d+$/i.test(w)) return false;  // IMG1234, DSC00123
+      return true;
+    });
+    // 숫자만 남았다면 설명이라 할 수 없습니다
+    if (!words.length || words.every(function (w) { return /^\d+$/.test(w); })) return '';
+
+    var out = words.join(' ');
+    return out.charAt(0).toUpperCase() + out.slice(1);
   }
 
   /** 사진을 클릭하면 크게 보여주는 오버레이 */

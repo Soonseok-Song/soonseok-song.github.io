@@ -11,16 +11,24 @@
 
 ## 파일 이름을 `날짜-설명` 으로 지으세요
 
-두 가지가 한꺼번에 해결됩니다 — **최신 사진이 앞에 오고, 설명도 자동으로 붙습니다.**
+두 가지가 한꺼번에 해결됩니다 — **최신 사진이 앞에 오고, 파일 이름이 그대로 설명이 됩니다.**
 
 ```
-2026-07-26-isope-conference.jpg    →  갤러리에 "Isope conference" 라고 표시
-2026-06-14-towing-tank-test.jpg    →  "Towing tank test"
+2026-07-26-towing-tank-test.jpg    →  갤러리에 "Towing tank test" 라고 표시
+2026-06-14-ISOPE-Seoul.jpg         →  "ISOPE Seoul"
+연구실 회식.jpg                      →  "연구실 회식"   (한글도 됩니다)
 ```
 
-하이픈이 공백으로 바뀌고 첫 글자가 대문자가 됩니다. 날짜 접두사가 없으면 설명 없이 사진만 나옵니다.
+**휴대폰·카카오톡이 붙인 이름 그대로 올리면 설명이 안 붙습니다.**
 
-대문자를 정확히 쓰고 싶거나(`ISOPE 2026, Seoul`) 파일명이 이미 `KakaoTalk_2026...` 처럼 되어 있으면, `data/gallery.json` 의 `captions` 에 직접 넣으면 됩니다. 자세한 건 [MAINTENANCE.md](../../MAINTENANCE.md) 참고.
+```
+KakaoTalk_20260727_085520601.jpg   →  설명 없이 사진만
+IMG_1234.jpg                        →  설명 없이 사진만
+```
+
+이름만 바꿔 올리면 되니 어렵지 않습니다. 이미 올린 사진도 **파일을 열고 연필 아이콘을 눌러 이름을 바꿀 수 있습니다.**
+
+대소문자를 정확히 쓰고 싶으면(`ISOPE 2026, Seoul`) `data/gallery.json` 의 `captions` 에 직접 넣으면 됩니다. 자세한 건 [MAINTENANCE.md](../../MAINTENANCE.md) 참고.
 
 ## 지켜주세요
 
