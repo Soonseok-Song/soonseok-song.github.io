@@ -349,7 +349,7 @@ Claude Code 같은 도구에 이 저장소 폴더를 열어주고 *"MAINTENANCE.
 
 ```
 soonseok-song.github.io/
-├─ index.html            Home — 소개, 연구 분야 5개, 소식
+├─ index.html            Home — 소개, 연구 분야 7개, 소식
 ├─ research.html         연구 분야 상세 (그림·영상)
 ├─ projects.html         연구과제 (분야 필터)
 ├─ publications.html     논문 목록
@@ -369,6 +369,10 @@ soonseok-song.github.io/
 │   └─ gallery.json      갤러리 목록 (자동 생성)
 │
 ├─ images/
+│   ├─ rhl-logo.svg      연구실 로고 — 상단 메뉴와 푸터에 표시
+│   ├─ favicon.svg       브라우저 탭 아이콘
+│   ├─ favicon-32.png    구형 브라우저용 탭 아이콘
+│   ├─ apple-touch-icon.png  iPhone·iPad 홈 화면 아이콘
 │   ├─ people/           인물 사진
 │   ├─ research/         연구 그림 (파일명 s08~s36은 원본 슬라이드 번호)
 │   └─ gallery/          갤러리 사진 ← 학생이 업로드하는 곳
@@ -378,6 +382,21 @@ soonseok-song.github.io/
 ├─ .nojekyll             GitHub의 Jekyll 처리를 끄는 빈 파일 — 지우지 마세요
 └─ MAINTENANCE.md        이 문서
 ```
+
+### 로고를 바꿀 때
+
+로고는 두 곳에 쓰입니다.
+
+| 파일 | 쓰이는 곳 | 파일 안의 색 |
+|---|---|---|
+| `images/rhl-logo.svg` | 상단 메뉴, 푸터 | **무시됩니다** |
+| `images/favicon.svg` | 브라우저 탭, 즐겨찾기 | 그대로 나옵니다 |
+
+`rhl-logo.svg`는 그림이 아니라 **모양 틀**로 쓰입니다. CSS가 이 모양대로 색을 칠하기 때문에, 파일 안의 색을 무엇으로 두든 화면에서는 밝은 배경에서 남색, 어두운 배경에서 하늘색, 푸터에서 회색으로 알아서 나옵니다. 로고를 바꾸실 때는 **색은 신경 쓰지 말고 모양만** 맞추시면 됩니다.
+
+새 로고의 가로세로 비율이 지금과 다르면 `css/style.css`에서 `aspect-ratio: 1656 / 762`를 두 곳(`.brand-logo`, `.foot-logo`) 고쳐야 찌그러지지 않습니다. 숫자는 SVG 파일 첫 줄 `viewBox`의 셋째·넷째 값입니다.
+
+탭 아이콘을 바꾸시려면 `favicon.svg`를 고친 뒤 **`favicon-32.png`와 `apple-touch-icon.png`도 같은 그림으로 다시 만들어야** 합니다(SVG를 지원하지 않는 브라우저와 iPhone이 이 둘을 봅니다). 이 변환은 AI에게 맡기시는 편이 빠릅니다.
 
 ### 내비게이션(상단 메뉴)을 고칠 때
 

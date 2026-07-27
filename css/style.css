@@ -167,8 +167,8 @@ code {
 
 .brand {
   display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 0.65rem;
   font-weight: 700;
   color: var(--ink);
   text-decoration: none;
@@ -176,15 +176,27 @@ code {
   white-space: nowrap;
 }
 .brand:hover { color: var(--ink); }
-.brand-mark {
-  font-size: 1.15rem;
-  letter-spacing: 0.02em;
-  color: var(--accent);
+
+/* 연구실 로고. SVG 를 마스크로 쓰기 때문에 배경색만 바꾸면 색이 달라지고,
+   밝은 화면과 어두운 화면에서 각각 알맞은 색을 따라갑니다. */
+.brand-logo {
+  display: block;
+  flex: none;
+  height: 27px;
+  aspect-ratio: 1656 / 762;
+  background-color: var(--accent);
+  -webkit-mask: url(../images/rhl-logo.svg) center / contain no-repeat;
+          mask: url(../images/rhl-logo.svg) center / contain no-repeat;
+  transition: background-color .15s;
 }
+.brand:hover .brand-logo { background-color: var(--accent-alt); }
+
 .brand-sub {
   font-size: 0.8125rem;
   font-weight: 500;
   color: var(--ink-faint);
+  padding-left: 0.65rem;
+  border-left: 1px solid var(--rule);
 }
 
 .site-nav {
@@ -215,6 +227,7 @@ code {
 @media (max-width: 720px) {
   .site-head-inner { padding-block: 0.4rem; }
   .brand-sub { display: none; }
+  .brand-logo { height: 24px; }
   .site-nav { gap: 0; }
   .site-nav a { padding: 0.4rem 0.55rem; font-size: 0.875rem; }
 }
@@ -889,6 +902,17 @@ video[controls] { background: #000; }
 }
 .site-foot p { margin: 0 0 0.3rem; }
 .site-foot strong { color: var(--ink); }
+
+/* 푸터 로고 — 헤더보다 조금 크고, 색은 눈에 띄지 않게 */
+.foot-logo {
+  display: block;
+  height: 34px;
+  aspect-ratio: 1656 / 762;
+  margin-bottom: 0.9rem;
+  background-color: var(--ink-faint);
+  -webkit-mask: url(../images/rhl-logo.svg) left / contain no-repeat;
+          mask: url(../images/rhl-logo.svg) left / contain no-repeat;
+}
 .foot-links { display: flex; gap: 1rem; flex-wrap: wrap; }
 
 /* ── 16. 유틸리티 ───────────────────────────────────────────────────────── */
