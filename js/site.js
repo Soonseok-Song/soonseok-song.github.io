@@ -341,6 +341,20 @@
         }).join('');
       }
 
+      /* 졸업생 취업처 — 사람 카드보다 먼저 나옵니다 */
+      var destBox = $('[data-destinations]');
+      if (destBox) {
+        var dest = d.alumni_destinations || [];
+        destBox.innerHTML = dest.length
+          ? '<p class="section-label">Career destinations</p>' +
+            '<ul class="destinations">' + dest.map(function (o) {
+              return '<li>' + esc(o.name_en) +
+                     (o.name_ko ? ' <span class="person-name-ko">(' + esc(o.name_ko) + ')</span>' : '') +
+                     '</li>';
+            }).join('') + '</ul>'
+          : '';
+      }
+
       /* 졸업생 — 재학생과 같은 카드 형태로 (사진 크기를 맞추기 위해) */
       if (alumniBox) {
         var al = d.alumni || [];

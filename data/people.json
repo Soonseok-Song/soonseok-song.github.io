@@ -70,7 +70,7 @@
       "name_en": "Kangmin Kim",
       "name_ko": "김강민",
       "photo": "kim-kangmin.jpg",
-      "topic": "Tidal turbines; propeller modelling",
+      "topic": "Tidal turbines; propeller modelling; second-generation intact stability",
       "papers": { "first": 1, "co": 5 }
     },
     {
@@ -94,6 +94,13 @@
       "topic": "Tidal turbine performance analysis",
       "papers": { "first": 0, "co": 0 }
     }
+  ],
+
+  "_destinations_note": "졸업생이 간 곳. Alumni 제목 바로 아래, 사람 카드보다 먼저 나옵니다. 새로 추가하려면 아래 형식대로 한 줄 넣으면 됩니다.",
+
+  "alumni_destinations": [
+    { "name_en": "KRISO", "name_ko": "선박해양플랜트연구소" },
+    { "name_en": "Hanwha Ocean", "name_ko": "한화오션" }
   ],
 
   "alumni": [

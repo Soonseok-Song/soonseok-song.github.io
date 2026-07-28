@@ -581,6 +581,25 @@ a.card:hover {
   color: var(--ink-soft);
 }
 
+/* 졸업생 취업처 — Alumni 제목 바로 아래 */
+.destinations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.6rem;
+  margin: 0 0 2.25rem;
+  padding: 0;
+  list-style: none;
+}
+.destinations li {
+  margin: 0;
+  padding: 0.45rem 0.9rem;
+  background: var(--bg-soft);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
 /* 졸업생 카드에 붙는 학위논문 제목 */
 .person-thesis {
   margin: 0.35rem 0 0;

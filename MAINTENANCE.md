@@ -123,7 +123,7 @@ RHL 연구실 홈페이지를 고치는 방법입니다. **터미널이나 Git �
       "name_en": "Gildong Hong",
       "name_ko": "홍길동",
       "photo": "hong-gildong.jpg",
-      "topic": "Tidal turbines · propeller modelling"
+      "topic": "Tidal turbines; propeller modelling"
     },
 ```
 
@@ -142,6 +142,14 @@ RHL 연구실 홈페이지를 고치는 방법입니다. **터미널이나 Git �
 ```
 
 > **졸업생의 회사 이메일이나 개인 연락처는 넣지 마세요.** 현재 직장을 적을 때도 본인 동의를 받는 것이 좋습니다.
+
+**졸업생 취업처** — People 페이지의 Alumni 제목 바로 아래, 사람 사진보다 먼저 나오는 목록입니다. 같은 파일의 `"alumni_destinations": [` 안에 한 줄 추가하면 됩니다:
+
+```json
+    { "name_en": "Hyundai Heavy Industries", "name_ko": "현대중공업" },
+```
+
+기관 이름만 적는 자리라 개인 정보가 들어가지 않습니다. 한 사람이 어디로 갔는지는 위의 졸업생 카드에 `"position"` 으로 적습니다.
 
 ## 5. h-index 갱신
 
