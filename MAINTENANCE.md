@@ -13,6 +13,8 @@ RHL 연구실 홈페이지를 고치는 방법입니다. **터미널이나 Git �
 
 **② 내용은 대부분 `data/` 폴더의 JSON 파일에 있습니다.** HTML을 건드릴 일은 거의 없습니다.
 
+> HTML 파일 안에서 `<!-- BEGIN:... -->` 과 `<!-- END:... -->` 사이는 **자동으로 채워지는 구역**입니다. 직접 고쳐도 다음 갱신 때 지워지니, 그 안의 내용을 바꾸시려면 `data/` 의 JSON을 고치세요.
+
 ---
 
 ## 브라우저에서 파일 고치는 방법 (공통)
@@ -300,32 +302,37 @@ GitHub Pages 사이트는 **1GB**까지입니다. 현재 약 30MB를 쓰고 있�
 
 ---
 
-## 로컬에서 미리 보기 (선택)
+## 로컬에서 미리 보기
 
-HTML 파일을 브라우저로 그냥 열면 **논문·구성원 목록이 비어 보입니다.** 브라우저 보안 정책(`file://`)이 JSON 읽기를 막기 때문입니다. 게시된 사이트에서는 정상 동작하니 문제는 아니지만, 로컬에서 확인하려면:
-
-**방법 1 — VSCode Live Server 확장** (가장 쉬움)
-확장 검색에서 `Live Server` 설치 → `index.html` 우클릭 → `Open with Live Server`
-
-**방법 2 — 터미널**
-```
-cd D:\repos\soonseok-song.github.io
-python -m http.server 8000
-```
-브라우저에서 `http://localhost:8000` 접속
+HTML 파일을 **더블클릭해서 브라우저로 열면 그대로 보입니다.** 논문 목록도 구성원도 다 나옵니다. 별도 프로그램이 필요 없습니다.
 
 ---
 
 ## 자동으로 돌아가는 것들
 
-`.github/workflows/` 에 두 개가 있습니다. 손댈 필요 없습니다.
+`.github/workflows/` 에 세 개가 있습니다. 손댈 필요 없습니다.
 
 | 워크플로 | 언제 | 무엇을 |
 |---|---|---|
-| `gallery-index.yml` | `images/gallery/` 변경 시 | 갤러리 목록 자동 갱신 |
+| `build-html.yml` | `data/*.json` 변경 시 | **목록을 HTML 안에 다시 써 넣습니다** |
+| `gallery-index.yml` | `images/gallery/` 변경 시 | 갤러리 목록 갱신 + HTML 갱신 |
 | `validate-json.yml` | `data/*.json` 변경 시 | JSON 문법 검사 + 사진 파일 존재 확인 |
 
 **JSON 문법이 틀리면 GitHub이 이메일로 알려줍니다.** 사이트가 조용히 깨지는 걸 막기 위한 것입니다. 실행 결과는 저장소 상단 **Actions** 탭에서 볼 수 있습니다.
+
+### 목록이 HTML 안에 들어 있는 이유
+
+논문·구성원·연구과제·갤러리·소식 목록은 `scripts/build-html.js` 가 JSON을 읽어 **HTML 파일 안에 직접 써 둡니다.** 예전에는 방문자의 브라우저가 페이지를 연 뒤에 목록을 그렸는데, 그러면 검색엔진이 받아가는 파일에는 논문도 학생 이름도 들어 있지 않았습니다. 구글은 나중에 JavaScript를 실행해 보기라도 하지만 **네이버와 다음은 그러지 않습니다.**
+
+관리하는 방법은 예전과 같습니다 — `data/*.json` 만 고치시면 됩니다. 커밋하면 1~2분 뒤 HTML이 자동으로 갱신됩니다.
+
+HTML 파일 안에 이런 표시가 보이면 그 사이는 자동으로 채워지는 구역입니다. **직접 고쳐도 다음 갱신 때 지워집니다.**
+
+```html
+<!-- BEGIN:publications -->  ... 자동 생성 ...  <!-- END:publications -->
+```
+
+바깥쪽은 마음대로 고치셔도 됩니다.
 
 ---
 
@@ -366,7 +373,12 @@ soonseok-song.github.io/
 ├─ contact.html          연락처, 대학원 모집
 │
 ├─ css/style.css         전체 디자인. 색을 바꾸려면 파일 맨 위 변수만 수정
-├─ js/site.js            JSON을 읽어 목록을 그리는 스크립트
+├─ js/site.js            사진 확대·과제 필터·영상 재생 (목록은 여기서 안 만듭니다)
+├─ scripts/
+│   └─ build-html.js     JSON을 읽어 HTML 안에 목록을 써 넣습니다 (Actions가 실행)
+├─ robots.txt            검색엔진 안내
+├─ sitemap.xml           검색엔진용 페이지 목록. 페이지를 추가하면 여기도 추가
+├─ googlecf60e...html    구글 소유 확인 파일 — 지우면 확인이 풀립니다
 │
 ├─ data/                 ← 평소 고치는 것은 거의 다 여기
 │   ├─ publications.json 논문

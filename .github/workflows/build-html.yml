@@ -1,0 +1,45 @@
+name: Build page content
+
+# data/*.json 이 바뀌면 논문·구성원·연구과제·갤러리·소식 목록을 HTML 안에
+# 다시 써 넣습니다.
+#
+# 왜 필요한가
+#   예전에는 브라우저가 페이지를 연 뒤 JavaScript 로 목록을 그렸습니다. 그래서
+#   검색엔진이 받아가는 파일에는 논문도 학생 이름도 들어 있지 않았습니다.
+#   구글은 나중에 JavaScript 를 실행해 보기라도 하지만 네이버·다음은 그러지
+#   않습니다. 이제 목록이 HTML 안에 들어 있습니다.
+#
+# 관리하는 쪽에서는 예전과 똑같이 data/*.json 만 고치면 됩니다.
+# 다만 반영까지 1~2분 걸립니다.
+
+on:
+  push:
+    paths:
+      - 'data/**'
+      - 'scripts/build-html.js'
+      - '*.html'                # 마커를 새로 넣거나 페이지를 손봤을 때
+  workflow_dispatch:            # Actions 탭에서 손으로 실행할 수도 있습니다
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write the lists into the HTML
+        run: node scripts/build-html.js
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "변경 없음 — 커밋하지 않습니다."
+          else
+            git commit -m "chore: rebuild page content [skip ci]"
+            git push
+          fi
