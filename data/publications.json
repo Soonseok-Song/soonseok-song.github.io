@@ -377,56 +377,5 @@
       "detail": "142: 616–624",
       "doi": "10.1016/j.oceaneng.2017.07.040"
     }
-  ],
-
-  "conference": [
-    {
-      "year": 2021,
-      "authors": "Song, S., Muscat-Fenech, C. D. M., & Demirel, Y. K.",
-      "title": "Economic and environmental impacts of antifouling strategies for fishing boats in Turkey",
-      "venue": "2nd International Congress on Ship and Marine Technology (GMO-SHIPMAR 2021)",
-      "detail": "Istanbul, Türkiye",
-      "doi": ""
-    },
-    {
-      "year": 2021,
-      "authors": "Ravenna, R., Song, S., Shi, W., Sant, T., Muscat-Fenech, C. D. M., & Demirel, Y. K.",
-      "title": "CFD analysis of the effect of heterogeneous hull roughness on ship resistance",
-      "venue": "2nd International Congress on Ship and Marine Technology (GMO-SHIPMAR 2021)",
-      "detail": "Istanbul, Türkiye",
-      "doi": ""
-    },
-    {
-      "year": 2019,
-      "authors": "Song, S., Demirel, Y. K., & Atlar, M.",
-      "title": "An investigation into the effect of biofouling on full-scale propeller performance using CFD",
-      "venue": "ASME 2019 38th International Conference on Ocean, Offshore and Arctic Engineering (OMAE 2019)",
-      "detail": "Glasgow, UK",
-      "doi": "10.1115/OMAE2019-95315"
-    },
-    {
-      "year": 2019,
-      "authors": "Song, S., Demirel, Y. K., Atlar, M., Dai, S., Day, S., & Turan, O.",
-      "title": "Validation of the CFD approach for modelling roughness effect on ship resistance",
-      "venue": "6th International Conference on Advanced Model Measurement Technology for the Maritime Industry (AMT'19)",
-      "detail": "Rome, Italy",
-      "doi": ""
-    },
-    {
-      "year": 2019,
-      "authors": "Ravenna, R., Marino, A., Song, S., Demirel, Y. K., Atlar, M., & Turan, O.",
-      "title": "Experimental investigation on the effect of biomimetic tubercles on the hydrodynamics of a flat plate",
-      "venue": "6th International Conference on Advanced Model Measurement Technology for the Maritime Industry (AMT'19)",
-      "detail": "Rome, Italy",
-      "doi": ""
-    },
-    {
-      "year": 2019,
-      "authors": "Marino, A., Ilter, Y. K., Song, S., Shi, W., Atlar, M., & Demirel, Y. K.",
-      "title": "Design specification, commission and calibration of the University of Strathclyde's Fully Turbulent Flow Channel (FTFC) facility",
-      "venue": "6th International Conference on Advanced Model Measurement Technology for the Maritime Industry (AMT'19)",
-      "detail": "Rome, Italy",
-      "doi": ""
-    }
   ]
 }

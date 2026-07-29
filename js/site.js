@@ -166,27 +166,16 @@
     if (!box) return;
     loadJSON('data/publications.json').then(function (d) {
       var journal = d.journal || [];
-      var conf    = d.conference || [];
-      if (!journal.length && !conf.length) {
+      if (!journal.length) {
         box.innerHTML = '<p class="loading">No publications listed.</p>';
         return;
       }
 
-      var html = '';
-      if (journal.length) {
-        html += '<section class="pub-section"><h2>Journal articles</h2>' +
-                renderPubGroup(journal) + '</section>';
-      }
-      if (conf.length) {
-        html += '<section class="pub-section"><h2>Conference papers</h2>' +
-                renderPubGroup(conf) + '</section>';
-      }
-      box.innerHTML = html;
+      box.innerHTML = '<section class="pub-section">' +
+                      renderPubGroup(journal) + '</section>';
 
       var count = $('[data-pub-count]');
       if (count) count.textContent = journal.length;
-      var ccount = $('[data-conf-count]');
-      if (ccount) ccount.textContent = conf.length;
     }).catch(function (e) { showError(box, e); });
   }
 
