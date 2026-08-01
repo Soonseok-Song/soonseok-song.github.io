@@ -119,20 +119,21 @@ function buildPublications(journal) {
 /* ── 연구 소개 페이지의 관련 논문 ─────────────────────────────────────── */
 
 /**
- * 한 연구분야의 논문 편수와 목록으로 가는 링크 한 줄.
+ * 논문 목록으로 가는 링크 한 줄.
  *
  * 처음에는 논문 제목까지 늘어놓았는데, 그러면 분야 하나가 화면을 다 채워
- * 아래에 내용이 더 있다는 걸 알기 어려웠습니다. 편수만 알리고 나머지는
- * Publications 페이지에 맡깁니다.
+ * 아래에 내용이 더 있다는 걸 알기 어려웠습니다. 목록은 Publications 페이지에
+ * 맡기고 여기서는 길만 냅니다.
  *
- * 아직 논문이 없는 분야(극지·환경)는 아무것도 내놓지 않습니다.
+ * 그 분야에 논문이 하나라도 있어야 링크가 나옵니다. 아직 게재 논문이 없는
+ * 분야(극지·환경)는 아무것도 내놓지 않습니다.
  */
 function buildScopePapers(journal, scope) {
-  const n = journal.filter(p => p.scope === scope).length;
-  if (!n) return '';
+  const has = journal.some(p => p.scope === scope);
+  if (!has) return '';
 
-  return '<p class="scope-papers"><a href="publications.html">' +
-         n + ' paper' + (n === 1 ? '' : 's') + ' in this area &rarr;</a></p>';
+  return '<p class="scope-papers">' +
+         '<a href="publications.html">See papers in this area &rarr;</a></p>';
 }
 
 /* ── 연구과제 ─────────────────────────────────────────────────────────── */

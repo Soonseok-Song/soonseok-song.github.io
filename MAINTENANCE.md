@@ -76,7 +76,7 @@ RHL 연구실 홈페이지를 고치는 방법입니다. **터미널이나 Git �
   | `tidal` | Tidal Turbine |
   | `environmental` | Applied & Environmental Hydrodynamics |
 
-  Research 페이지에는 **편수와 링크 한 줄**만 나옵니다 — "21 papers in this area →". 논문 제목까지 늘어놓으면 분야 하나가 화면을 다 채워서, 아래에 내용이 더 있다는 걸 알기 어려웠습니다.
+  Research 페이지에는 **링크 한 줄**만 나옵니다 — "See papers in this area →". 논문 제목까지 늘어놓으면 분야 하나가 화면을 다 채워서, 아래에 내용이 더 있다는 걸 알기 어려웠습니다. 그 분야에 논문이 한 편이라도 있어야 링크가 나옵니다.
 
 - **마지막 항목 뒤에는 쉼표를 붙이지 않습니다**
 
