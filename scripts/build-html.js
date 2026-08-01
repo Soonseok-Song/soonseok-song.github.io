@@ -119,39 +119,20 @@ function buildPublications(journal) {
 /* ── 연구 소개 페이지의 관련 논문 ─────────────────────────────────────── */
 
 /**
- * 한 연구분야에 해당하는 논문을 최신순으로 추립니다.
- * publications.json 의 scope 값이 research.html 의 섹션 id 와 같으면 묶입니다.
- * 아직 논문이 없는 분야(극지·환경)는 아무것도 내놓지 않습니다 — 빈 제목만
- * 남기느니 그 자리를 비우는 편이 정직합니다.
+ * 한 연구분야의 논문 편수와 목록으로 가는 링크 한 줄.
+ *
+ * 처음에는 논문 제목까지 늘어놓았는데, 그러면 분야 하나가 화면을 다 채워
+ * 아래에 내용이 더 있다는 걸 알기 어려웠습니다. 편수만 알리고 나머지는
+ * Publications 페이지에 맡깁니다.
+ *
+ * 아직 논문이 없는 분야(극지·환경)는 아무것도 내놓지 않습니다.
  */
-function buildScopePapers(journal, scope, limit) {
-  const mine = journal
-    .filter(p => p.scope === scope)
-    .sort((a, b) => (b.year || 0) - (a.year || 0));
+function buildScopePapers(journal, scope) {
+  const n = journal.filter(p => p.scope === scope).length;
+  if (!n) return '';
 
-  if (!mine.length) return '';
-
-  const shown = mine.slice(0, limit);
-  const rest  = mine.length - shown.length;
-
-  const list = shown.map(p => {
-    const title = esc(p.title);
-    const link = p.doi
-      ? '<a href="https://doi.org/' + esc(p.doi) + '" rel="noopener">' + title + '</a>'
-      : title;
-    const meta = [p.venue, p.year].filter(Boolean).map(esc).join(', ');
-    return '<li>' + link + (meta ? ' <span class="scope-paper-meta">' + meta + '</span>' : '') + '</li>';
-  }).join('');
-
-  const more = rest > 0
-    ? '<p class="scope-papers-more"><a href="publications.html">' + rest +
-      ' more in Publications &rarr;</a></p>'
-    : '';
-
-  return '<div class="scope-papers">' +
-         '<p class="scope-papers-label">Selected publications</p>' +
-         '<ul>' + list + '</ul>' + more +
-         '</div>';
+  return '<p class="scope-papers"><a href="publications.html">' +
+         n + ' paper' + (n === 1 ? '' : 's') + ' in this area &rarr;</a></p>';
 }
 
 /* ── 연구과제 ─────────────────────────────────────────────────────────── */
@@ -401,9 +382,9 @@ function main() {
   inject('publications.html', 'publications', buildPublications(journal));
   inject('publications.html', 'pub-count', String(journal.length));
 
-  // 연구 소개 — 분야마다 관련 논문 최대 5편
+  // 연구 소개 — 분야마다 논문 편수와 목록 링크
   ['roughness', 'manoeuvring', 'energy', 'arctic', 'fowt', 'tidal', 'environmental']
-    .forEach(s => inject('research.html', 'papers-' + s, buildScopePapers(journal, s, 5)));
+    .forEach(s => inject('research.html', 'papers-' + s, buildScopePapers(journal, s)));
 
   // 연구과제
   inject('projects.html', 'project-filters', buildProjectFilters(projects));
