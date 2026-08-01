@@ -58,25 +58,13 @@ RHL 연구실 홈페이지를 고치는 방법입니다. **터미널이나 Git �
       "venue": "Ocean Engineering",
       "detail": "370: 128000",
       "doi": "10.1016/j.oceaneng.2027.128000",
-      "scope": "roughness"
+      "scopes": ["roughness"]
     },
 ```
 
 - `detail` — 권(호): 페이지 또는 논문번호. 없으면 `""`
 - `doi` — 없으면 `""` 로 두세요. 넣으면 제목 뒤에 링크가 생깁니다 (`10.` 으로 시작하는 부분만, `https://doi.org/` 는 빼고)
-- `scope` — **연구 분야.** Research 페이지의 해당 분야 아래에 이 논문이 함께 나옵니다. 아래 일곱 중 하나를 쓰세요:
-
-  | 값 | Research 페이지의 분야 |
-  |---|---|
-  | `roughness` | Roughness Effect and Ship Hydrodynamics |
-  | `manoeuvring` | 6-DOF Ship Manoeuvring Simulations |
-  | `energy` | Energy Saving Devices |
-  | `arctic` | Arctic Ships |
-  | `fowt` | Floating Offshore Wind Turbine |
-  | `tidal` | Tidal Turbine |
-  | `environmental` | Applied & Environmental Hydrodynamics |
-
-  Research 페이지에는 **링크 한 줄**만 나옵니다 — "See papers in this area →". 논문 제목까지 늘어놓으면 분야 하나가 화면을 다 채워서, 아래에 내용이 더 있다는 걸 알기 어려웠습니다. 그 분야에 논문이 한 편이라도 있어야 링크가 나옵니다.
+- `scopes` — **연구 분야. 대괄호 안에 넣습니다.** 아래 「연구 분야 값」 표를 보세요
 
 - **마지막 항목 뒤에는 쉼표를 붙이지 않습니다**
 
@@ -95,24 +83,44 @@ RHL 연구실 홈페이지를 고치는 방법입니다. **터미널이나 Git �
       "agency_en": "Korea Research Institute of Ships and Ocean Engineering (KRISO)",
       "agency_ko": "선박해양플랜트연구소",
       "period": "2027–2029",
-      "scope": "hydrodynamics"
+      "scopes": ["manoeuvring"]
     },
 ```
 
-`scope` 는 아래 여섯 개 중 하나입니다. Projects 페이지의 필터 버튼과 연결됩니다.
-
-| scope 값 | 버튼 이름 |
-|---|---|
-| `resistance` | Ship Resistance |
-| `hydrodynamics` | Ship Hydrodynamics |
-| `polar` | Polar & Ice |
-| `renewable` | Renewable Energy |
-| `environmental` | Environmental |
-| `other` | Other |
+`scopes` 는 아래 「연구 분야 값」 표를 보세요. 논문과 같은 값을 씁니다.
 
 > `period` 의 가운데 기호는 en dash(`–`)입니다. 보통 하이픈(`-`)을 써도 표시에는 문제없습니다.
 
 > **예산 금액이나 미공개 산업체 과제 내용은 넣지 마세요.**
+
+## 연구 분야 값 (`scopes`)
+
+논문과 연구과제 모두 같은 값을 씁니다. **Research 페이지의 일곱 분야와 짝을 이룹니다.**
+
+| 값 | Research 페이지의 분야 | 필터 버튼 |
+|---|---|---|
+| `roughness` | Roughness Effect and Ship Hydrodynamics | Roughness & Hydrodynamics |
+| `manoeuvring` | 6-DOF Ship Manoeuvring Simulations | Manoeuvring |
+| `energy` | Energy Saving Devices | Energy Saving |
+| `arctic` | Arctic Ships | Arctic Ships |
+| `fowt` | Floating Offshore Wind Turbine | Offshore Wind |
+| `tidal` | Tidal Turbine | Tidal Turbine |
+| `environmental` | Applied & Environmental Hydrodynamics | Environmental |
+| `other` | (해당 분야 없음 — 인력양성 과제 등) | Other |
+
+**여러 분야에 걸쳐도 됩니다.** 그럴 때는 쉼표로 나열하세요. 어느 쪽 버튼을 눌러도 나옵니다.
+
+```json
+      "scopes": ["tidal", "roughness"]
+```
+
+이 값이 세 곳에서 쓰입니다.
+
+1. **Publications·Projects 페이지의 필터 버튼** — 분야를 누르면 그것만 걸러 보입니다
+2. **Research 페이지의 링크** — "See papers in this area →" 를 누르면 그 분야만 걸러진 목록이 열립니다
+3. 그 분야에 하나도 없으면 링크 자체가 나오지 않습니다
+
+> 버튼의 숫자를 다 더하면 전체보다 큽니다. 한 항목이 여러 분야에 들어가기 때문이라 정상입니다.
 
 ## 3. 소식 추가
 

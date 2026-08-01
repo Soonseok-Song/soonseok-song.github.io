@@ -124,38 +124,62 @@
     });
   }
 
-  /* ── 3. 연구과제 분야 거르기 ──────────────────────────────────────────── */
+  /* ── 3. 연구분야로 거르기 (논문·연구과제 공용) ────────────────────────── */
 
   /**
-   * 과제 목록은 이미 HTML 에 전부 들어 있습니다. 버튼은 목록을 다시 그리지 않고
-   * 해당하지 않는 항목을 숨기기만 합니다.
+   * 목록은 이미 HTML 에 전부 들어 있습니다. 버튼은 목록을 다시 그리지 않고
+   * 해당하지 않는 항목을 숨기기만 하므로, JavaScript 가 없어도 전체가 보입니다.
+   *
+   * 항목 하나가 여러 분야에 걸칠 수 있어 data-scopes 에 공백으로 나열합니다.
+   *
+   * 주소 끝에 #분야 가 붙어 있으면 그 분야로 시작합니다 — Research 페이지의
+   * "See papers in this area" 링크가 이것을 씁니다.
    */
-  function setupProjectFilter() {
-    var filterBox = $('[data-project-filters]');
-    var box       = $('[data-projects]');
-    if (!filterBox || !box) return;
+  function setupFilter(filterSel, listSel) {
+    var filterBox = $(filterSel);
+    var listBox   = $(listSel);
+    if (!filterBox || !listBox) return;
 
-    var items = $$('.project-item', box);
-    var empty = $('.project-empty', box);
+    var items = $$('[data-scopes]', listBox);
     if (!items.length) return;
+
+    var groups = $$('.pub-year-group', listBox);   // 논문은 연도로 묶여 있습니다
+    var empty  = $('.filter-empty', listBox);
+
+    function apply(scope) {
+      var shown = 0;
+      items.forEach(function (el) {
+        var mine  = (el.getAttribute('data-scopes') || '').split(/\s+/);
+        var match = (scope === 'all') || mine.indexOf(scope) !== -1;
+        el.hidden = !match;
+        if (match) shown++;
+      });
+
+      // 남은 논문이 없는 해는 연도 제목까지 숨깁니다
+      groups.forEach(function (g) {
+        g.hidden = !$$('[data-scopes]', g).some(function (el) { return !el.hidden; });
+      });
+
+      if (empty) empty.hidden = shown > 0;
+
+      $$('.filter-btn', filterBox).forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.getAttribute('data-scope') === scope));
+      });
+    }
 
     filterBox.addEventListener('click', function (ev) {
       var btn = ev.target.closest ? ev.target.closest('.filter-btn') : null;
       if (!btn) return;
-
       var scope = btn.getAttribute('data-scope');
-      $$('.filter-btn', filterBox).forEach(function (b) {
-        b.setAttribute('aria-pressed', String(b === btn));
-      });
-
-      var shown = 0;
-      items.forEach(function (li) {
-        var match = (scope === 'all') || (li.getAttribute('data-scope') === scope);
-        li.hidden = !match;
-        if (match) shown++;
-      });
-      if (empty) empty.hidden = shown > 0;
+      apply(scope);
+      // 주소에 남겨 두면 새로고침하거나 링크를 보내도 같은 화면이 열립니다
+      if (history.replaceState) {
+        history.replaceState(null, '', scope === 'all' ? location.pathname : '#' + scope);
+      }
     });
+
+    var hash = (location.hash || '').slice(1);
+    if (hash && $('.filter-btn[data-scope="' + hash + '"]', filterBox)) apply(hash);
   }
 
   /* ── 4. 영상 자동재생 ─────────────────────────────────────────────────── */
@@ -222,7 +246,8 @@
   function init() {
     markCurrentNav();
     setupLightbox();
-    setupProjectFilter();
+    setupFilter('[data-project-filters]', '[data-projects]');
+    setupFilter('[data-pub-filters]',     '[data-publications]');
     setupVideoAutoplay();
   }
 

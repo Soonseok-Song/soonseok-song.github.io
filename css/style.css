@@ -89,6 +89,10 @@ body {
 
 img, video { max-width: 100%; height: auto; display: block; }
 
+/* hidden 속성을 붙인 요소는 무슨 display 값을 갖고 있든 감춥니다.
+   분야로 거를 때 목록 항목을 이 속성으로 숨깁니다. */
+[hidden] { display: none !important; }
+
 a {
   color: var(--accent);
   text-decoration-thickness: 1px;
@@ -456,8 +460,11 @@ a.card:hover {
   background: var(--bg-soft);
 }
 
-/* 연구분야마다 붙는 논문 목록 링크 한 줄 */
+/* 연구분야마다 붙는 논문·연구과제 링크 */
 .scope-papers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.5rem;
   margin: 1.1rem 0 0;
   font-size: 0.875rem;
   font-weight: 500;
@@ -731,7 +738,8 @@ a.card:hover {
   color: var(--ink-soft);
   margin: 0;
 }
-.project-empty {
+/* 분야로 걸렀는데 남는 것이 없을 때 (논문·과제 공용) */
+.filter-empty {
   padding: 2rem 0;
   color: var(--ink-faint);
   text-align: center;

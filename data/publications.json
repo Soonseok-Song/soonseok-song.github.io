@@ -8,7 +8,9 @@
       "venue": "Ocean Engineering",
       "detail": "363: 126703",
       "doi": "10.1016/j.oceaneng.2026.126703",
-      "scope": "fowt"
+      "scopes": [
+        "fowt"
+      ]
     },
     {
       "year": 2026,
@@ -17,7 +19,10 @@
       "venue": "Ocean Engineering",
       "detail": "363: 126418",
       "doi": "10.1016/j.oceaneng.2026.126418",
-      "scope": "tidal"
+      "scopes": [
+        "tidal",
+        "roughness"
+      ]
     },
     {
       "year": 2026,
@@ -26,7 +31,9 @@
       "venue": "Journal of Modern Mechanical Engineering and Technology",
       "detail": "13: 20–34",
       "doi": "10.31875/2409-9848.2026.13.03",
-      "scope": "manoeuvring"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "year": 2026,
@@ -35,7 +42,9 @@
       "venue": "Ocean Engineering",
       "detail": "362: 126189",
       "doi": "10.1016/j.oceaneng.2026.126189",
-      "scope": "tidal"
+      "scopes": [
+        "tidal"
+      ]
     },
     {
       "year": 2026,
@@ -44,7 +53,9 @@
       "venue": "Journal of Marine Science and Engineering",
       "detail": "14(10): 893",
       "doi": "10.3390/jmse14100893",
-      "scope": "tidal"
+      "scopes": [
+        "tidal"
+      ]
     },
     {
       "year": 2026,
@@ -53,7 +64,9 @@
       "venue": "Ocean Engineering",
       "detail": "362: 126200",
       "doi": "10.1016/j.oceaneng.2026.126200",
-      "scope": "manoeuvring"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "year": 2026,
@@ -62,7 +75,10 @@
       "venue": "Ocean Engineering",
       "detail": "354: 124905",
       "doi": "10.1016/j.oceaneng.2026.124905",
-      "scope": "energy"
+      "scopes": [
+        "energy",
+        "roughness"
+      ]
     },
     {
       "year": 2026,
@@ -71,7 +87,9 @@
       "venue": "Journal of Marine Science and Engineering",
       "detail": "14(2): 234",
       "doi": "10.3390/jmse14020234",
-      "scope": "energy"
+      "scopes": [
+        "energy"
+      ]
     },
     {
       "year": 2025,
@@ -80,7 +98,9 @@
       "venue": "Ocean Engineering",
       "detail": "342: 122836",
       "doi": "10.1016/j.oceaneng.2025.122836",
-      "scope": "manoeuvring"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "year": 2025,
@@ -89,7 +109,9 @@
       "venue": "Ocean Engineering",
       "detail": "341: 122489",
       "doi": "10.1016/j.oceaneng.2025.122489",
-      "scope": "manoeuvring"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "year": 2025,
@@ -98,7 +120,9 @@
       "venue": "Ocean Engineering",
       "detail": "330: 121143",
       "doi": "10.1016/j.oceaneng.2025.121143",
-      "scope": "manoeuvring"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "year": 2025,
@@ -107,7 +131,9 @@
       "venue": "Journal of Marine Science and Engineering",
       "detail": "13(8): 1589",
       "doi": "10.3390/jmse13081589",
-      "scope": "tidal"
+      "scopes": [
+        "tidal"
+      ]
     },
     {
       "year": 2025,
@@ -116,7 +142,9 @@
       "venue": "Journal of Marine Science and Engineering",
       "detail": "13(7): 1203",
       "doi": "10.3390/jmse13071203",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2025,
@@ -125,7 +153,9 @@
       "venue": "Journal of Marine Science and Engineering",
       "detail": "13(2): 228",
       "doi": "10.3390/jmse13020228",
-      "scope": "manoeuvring"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "year": 2025,
@@ -134,7 +164,9 @@
       "venue": "Ocean Engineering",
       "detail": "325: 120826",
       "doi": "10.1016/j.oceaneng.2025.120826",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2024,
@@ -143,7 +175,9 @@
       "venue": "Ocean Engineering",
       "detail": "291: 116472",
       "doi": "10.1016/j.oceaneng.2023.116472",
-      "scope": "manoeuvring"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "year": 2024,
@@ -152,7 +186,9 @@
       "venue": "Ocean Engineering",
       "detail": "303: 117754",
       "doi": "10.1016/j.oceaneng.2024.117754",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2024,
@@ -161,7 +197,9 @@
       "venue": "Ocean Engineering",
       "detail": "311: 119022",
       "doi": "10.1016/j.oceaneng.2024.119022",
-      "scope": "manoeuvring"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "year": 2024,
@@ -170,7 +208,9 @@
       "venue": "Ocean Engineering",
       "detail": "312: 119058",
       "doi": "10.1016/j.oceaneng.2024.119058",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2023,
@@ -179,7 +219,9 @@
       "venue": "Ocean Engineering",
       "detail": "270: 113643",
       "doi": "10.1016/j.oceaneng.2023.113643",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2023,
@@ -188,7 +230,9 @@
       "venue": "Ocean Engineering",
       "detail": "279: 114602",
       "doi": "10.1016/j.oceaneng.2023.114602",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2023,
@@ -197,7 +241,9 @@
       "venue": "Ocean Engineering",
       "detail": "287: 115860",
       "doi": "10.1016/j.oceaneng.2023.115860",
-      "scope": "manoeuvring"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "year": 2023,
@@ -206,7 +252,9 @@
       "venue": "Ocean Engineering",
       "detail": "270: 113681",
       "doi": "10.1016/j.oceaneng.2023.113681",
-      "scope": "manoeuvring"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "year": 2022,
@@ -215,7 +263,9 @@
       "venue": "Ocean Engineering",
       "detail": "258: 111733",
       "doi": "10.1016/j.oceaneng.2022.111733",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2022,
@@ -224,7 +274,9 @@
       "venue": "Ocean Engineering",
       "detail": "255: 111445",
       "doi": "10.1016/j.oceaneng.2022.111445",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2022,
@@ -233,7 +285,9 @@
       "venue": "Journal of Marine Science and Engineering",
       "detail": "10(12): 1863",
       "doi": "10.3390/jmse10121863",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2022,
@@ -242,7 +296,9 @@
       "venue": "Ocean Engineering",
       "detail": "263: 112364",
       "doi": "10.1016/j.oceaneng.2022.112364",
-      "scope": "manoeuvring"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "year": 2022,
@@ -251,7 +307,9 @@
       "venue": "International Journal of Naval Architecture and Ocean Engineering",
       "detail": "14: 100425",
       "doi": "10.1016/j.ijnaoe.2021.11.008",
-      "scope": "manoeuvring"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "year": 2021,
@@ -260,7 +318,9 @@
       "venue": "Ocean Engineering",
       "detail": "223: 108590",
       "doi": "10.1016/j.oceaneng.2021.108590",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2021,
@@ -269,7 +329,9 @@
       "venue": "Journal of Marine Science and Engineering",
       "detail": "9(2): 202",
       "doi": "10.3390/jmse9020202",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2021,
@@ -278,7 +340,9 @@
       "venue": "Journal of Ship Research",
       "detail": "65(1): 62–71",
       "doi": "10.5957/JOSR.07190040",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2021,
@@ -287,7 +351,9 @@
       "venue": "Ocean Engineering",
       "detail": "240: 109931",
       "doi": "10.1016/j.oceaneng.2021.109931",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2021,
@@ -296,7 +362,9 @@
       "venue": "Ocean Engineering",
       "detail": "236: 109567",
       "doi": "10.1016/j.oceaneng.2021.109567",
-      "scope": "manoeuvring"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "year": 2021,
@@ -305,7 +373,9 @@
       "venue": "Applied Ocean Research",
       "detail": "117: 102940",
       "doi": "10.1016/j.apor.2021.102940",
-      "scope": "manoeuvring"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "year": 2021,
@@ -314,7 +384,9 @@
       "venue": "Ocean Engineering",
       "detail": "237: 109615",
       "doi": "10.1016/j.oceaneng.2021.109615",
-      "scope": "manoeuvring"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "year": 2020,
@@ -323,7 +395,9 @@
       "venue": "Ocean Engineering",
       "detail": "216: 107736",
       "doi": "10.1016/j.oceaneng.2020.107736",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2020,
@@ -332,7 +406,10 @@
       "venue": "Applied Energy",
       "detail": "276: 115498",
       "doi": "10.1016/j.apenergy.2020.115498",
-      "scope": "tidal"
+      "scopes": [
+        "tidal",
+        "roughness"
+      ]
     },
     {
       "year": 2020,
@@ -341,7 +418,9 @@
       "venue": "Ocean Engineering",
       "detail": "200: 107029",
       "doi": "10.1016/j.oceaneng.2020.107029",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2020,
@@ -350,7 +429,9 @@
       "venue": "Journal of Offshore Mechanics and Arctic Engineering",
       "detail": "142(6): 061901",
       "doi": "10.1115/1.4047201",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2020,
@@ -359,7 +440,9 @@
       "venue": "Applied Ocean Research",
       "detail": "94: 102006",
       "doi": "10.1016/j.apor.2019.102006",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2020,
@@ -368,7 +451,9 @@
       "venue": "Ocean Engineering",
       "detail": "199: 107033",
       "doi": "10.1016/j.oceaneng.2020.107033",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2020,
@@ -377,7 +462,9 @@
       "venue": "Ocean Engineering",
       "detail": "209: 107428",
       "doi": "10.1016/j.oceaneng.2020.107428",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2019,
@@ -386,7 +473,9 @@
       "venue": "Brodogradnja",
       "detail": "70(4): 17–33",
       "doi": "10.21278/brod70402",
-      "scope": "manoeuvring"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "year": 2019,
@@ -395,7 +484,9 @@
       "venue": "Ocean Engineering",
       "detail": "175: 122–137",
       "doi": "10.1016/j.oceaneng.2019.01.056",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2019,
@@ -404,7 +495,9 @@
       "venue": "Ocean Engineering",
       "detail": "186: 106112",
       "doi": "10.1016/j.oceaneng.2019.106112",
-      "scope": "roughness"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "year": 2017,
@@ -413,8 +506,10 @@
       "venue": "Ocean Engineering",
       "detail": "142: 616–624",
       "doi": "10.1016/j.oceaneng.2017.07.040",
-      "scope": "manoeuvring"
+      "scopes": [
+        "manoeuvring"
+      ]
     }
   ],
-  "_scope_note": "scope 는 research.html 의 연구분야 id 와 같습니다: roughness, manoeuvring, energy, arctic, fowt, tidal, environmental. 연구 소개 페이지에 관련 논문을 모아 보여줄 때 씁니다."
+  "_scope_note": "scopes 는 research.html 의 연구분야 id 목록입니다: roughness, manoeuvring, energy, arctic, fowt, tidal, environmental, other. 여러 분야에 걸치면 둘 이상 적습니다."
 }

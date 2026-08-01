@@ -1,5 +1,5 @@
 {
-  "_comment": "새 과제는 이 배열의 맨 위에 추가하세요. scope 값은 resistance / hydrodynamics / polar / renewable / environmental / other 중 하나입니다 (Research 페이지의 연구 분야와 연결됩니다).",
+  "_comment": "연구과제 목록. scopes 는 research.html 의 연구분야 id 입니다: roughness, manoeuvring, energy, arctic, fowt, tidal, environmental, other. 여러 분야에 걸치면 둘 이상 적습니다.",
   "projects": [
     {
       "title_en": "Korea–U.S. Collaborative Development and Demonstration of AI-Based Core Solutions for Unmanned Surface Vessels",
@@ -7,7 +7,9 @@
       "agency_en": "Korea Evaluation Institute of Industrial Technology (KEIT)",
       "agency_ko": "한국산업기술기획평가원",
       "period": "2026–2028",
-      "scope": "hydrodynamics"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "title_en": "Development of an Eco-Friendly Icebreaking Container Ship to Navigate a New Arctic Shipping Route",
@@ -15,7 +17,9 @@
       "agency_en": "Korea Institute of Marine Science & Technology Promotion (KIMST)",
       "agency_ko": "해양수산과학기술진흥원",
       "period": "2026–2030",
-      "scope": "polar"
+      "scopes": [
+        "arctic"
+      ]
     },
     {
       "title_en": "Development of an Analytical Model for Underwater Dissolved Oxygen Supply in Marine Cage Fish Farms",
@@ -23,7 +27,9 @@
       "agency_en": "National Institute of Fisheries Science (NIFS)",
       "agency_ko": "국립수산과학원",
       "period": "2026",
-      "scope": "environmental"
+      "scopes": [
+        "environmental"
+      ]
     },
     {
       "title_en": "Analysis of Roll Reduction Performance during High-Speed Manoeuvring",
@@ -31,7 +37,9 @@
       "agency_en": "Korea Research Institute of Ships and Ocean Engineering (KRISO)",
       "agency_ko": "선박해양플랜트연구소",
       "period": "2026",
-      "scope": "hydrodynamics"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "title_en": "Performance Analysis and Extrapolation of Polar Vessels via Ice–Ship Collision Tank Model Tests",
@@ -39,7 +47,9 @@
       "agency_en": "Korea Institute of Human Resources Development in Science and Technology (KIRD)",
       "agency_ko": "국가과학기술인력개발원",
       "period": "2026",
-      "scope": "polar"
+      "scopes": [
+        "arctic"
+      ]
     },
     {
       "title_en": "Development of CFD Simulation Techniques for Scour Phenomena around Bridge Piers",
@@ -47,7 +57,9 @@
       "agency_en": "Inha University",
       "agency_ko": "인하대학교",
       "period": "2026–2027",
-      "scope": "environmental"
+      "scopes": [
+        "environmental"
+      ]
     },
     {
       "title_en": "Digital Shipyard Workforce Development",
@@ -55,7 +67,9 @@
       "agency_en": "Korea Institute for Advancement of Technology (KIAT)",
       "agency_ko": "한국산업기술진흥원",
       "period": "2026–2030",
-      "scope": "other"
+      "scopes": [
+        "other"
+      ]
     },
     {
       "title_en": "Study on Wave Resistance Measurement Techniques for Rotor Sail Vessels",
@@ -63,7 +77,10 @@
       "agency_en": "Korea Institute of Human Resources Development in Science and Technology (KIRD)",
       "agency_ko": "국가과학기술인력개발원",
       "period": "2026",
-      "scope": "hydrodynamics"
+      "scopes": [
+        "energy",
+        "roughness"
+      ]
     },
     {
       "title_en": "Development of a PC2-Class Icebreaking Ship for Year-Round Operation in High-Latitude Arctic Regions",
@@ -71,7 +88,9 @@
       "agency_en": "Korea Evaluation Institute of Industrial Technology (KEIT)",
       "agency_ko": "한국산업기술기획평가원",
       "period": "2025–2028",
-      "scope": "polar"
+      "scopes": [
+        "arctic"
+      ]
     },
     {
       "title_en": "Development of a Full-Scale Ship Resistance Prediction Model Based on Flat Plate Frictional Resistance for Antifouling Coating Performance Evaluation",
@@ -79,7 +98,9 @@
       "agency_en": "Hanwha Ocean",
       "agency_ko": "한화오션",
       "period": "2025",
-      "scope": "resistance"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "title_en": "Study on Standard Manoeuvrability Prediction under High-Speed Operating Conditions",
@@ -87,7 +108,9 @@
       "agency_en": "Korea Research Institute of Ships and Ocean Engineering (KRISO)",
       "agency_ko": "선박해양플랜트연구소",
       "period": "2025",
-      "scope": "hydrodynamics"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "title_en": "Study on the Effects of Marine Biofouling on Naval Vessel Performance",
@@ -95,7 +118,9 @@
       "agency_en": "Ministry of National Defense",
       "agency_ko": "국방부",
       "period": "2025",
-      "scope": "resistance"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "title_en": "Next-Generation Core Researcher Joint Research Programme",
@@ -103,7 +128,9 @@
       "agency_en": "Inha University",
       "agency_ko": "인하대학교",
       "period": "2025–2026",
-      "scope": "other"
+      "scopes": [
+        "other"
+      ]
     },
     {
       "title_en": "Development of Thrust Control Techniques for Improved Manoeuvrability of Twin-Screw Vessels",
@@ -111,7 +138,9 @@
       "agency_en": "Inha University",
       "agency_ko": "인하대학교",
       "period": "2025–2026",
-      "scope": "hydrodynamics"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "title_en": "Ship Design and Shipbuilding Technology Development of a Liquid Hydrogen Test Carrier (2K Class)",
@@ -119,7 +148,9 @@
       "agency_en": "Korea Evaluation Institute of Industrial Technology (KEIT)",
       "agency_ko": "한국산업기술기획평가원",
       "period": "2024–2028",
-      "scope": "other"
+      "scopes": [
+        "other"
+      ]
     },
     {
       "title_en": "Development of Mooring Line Load Monitoring and Load Reduction Devices for 15 MW+ Floating Offshore Wind Turbines",
@@ -127,7 +158,9 @@
       "agency_en": "Korea Institute of Energy Technology Evaluation and Planning (KETEP)",
       "agency_ko": "한국에너지기술평가원",
       "period": "2024–2028",
-      "scope": "renewable"
+      "scopes": [
+        "fowt"
+      ]
     },
     {
       "title_en": "Development of CFD-Based Manoeuvrability and Roll Motion Prediction Techniques for SMR-Powered Container Ships under High-Speed Conditions",
@@ -135,7 +168,9 @@
       "agency_en": "Korea Research Institute of Ships and Ocean Engineering (KRISO)",
       "agency_ko": "선박해양플랜트연구소",
       "period": "2024",
-      "scope": "hydrodynamics"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "title_en": "Green Marine Bridge Technology Development",
@@ -143,7 +178,9 @@
       "agency_en": "Korea Agency for Infrastructure Technology Advancement (KAIA)",
       "agency_ko": "국토교통과학기술진흥원",
       "period": "2024–2028",
-      "scope": "environmental"
+      "scopes": [
+        "environmental"
+      ]
     },
     {
       "title_en": "Development and Application of a CFD Simulation Model for Tidal Current Turbine Performance Evaluation",
@@ -151,7 +188,9 @@
       "agency_en": "Inha University",
       "agency_ko": "인하대학교",
       "period": "2024–2025",
-      "scope": "renewable"
+      "scopes": [
+        "tidal"
+      ]
     },
     {
       "title_en": "Global Advanced Workforce Development for Future Ocean Plant Industries",
@@ -159,7 +198,9 @@
       "agency_en": "Korea Institute for Advancement of Technology (KIAT)",
       "agency_ko": "한국산업기술진흥원",
       "period": "2022–2025",
-      "scope": "other"
+      "scopes": [
+        "other"
+      ]
     },
     {
       "title_en": "CFD-Based Capsizing Scenario Modelling for Small Fishing Vessels",
@@ -167,7 +208,9 @@
       "agency_en": "Korea Maritime Safety Tribunal (KOMSA)",
       "agency_ko": "한국해양교통안전공단",
       "period": "2023",
-      "scope": "hydrodynamics"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "title_en": "CFD-Based Prediction of Ship Hydrodynamic Performance in Waves",
@@ -175,7 +218,10 @@
       "agency_en": "Inha University",
       "agency_ko": "인하대학교",
       "period": "2023–2024",
-      "scope": "hydrodynamics"
+      "scopes": [
+        "manoeuvring",
+        "roughness"
+      ]
     },
     {
       "title_en": "Enhancement of Real-Sea Performance Evaluation through Quantification of Hull Roughness Effects",
@@ -183,7 +229,9 @@
       "agency_en": "Hanwha Ocean",
       "agency_ko": "한화오션",
       "period": "2023",
-      "scope": "resistance"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "title_en": "Development of Autonomous Ship Technologies",
@@ -191,7 +239,9 @@
       "agency_en": "Korea Institute of Marine Science & Technology Promotion (KIMST)",
       "agency_ko": "해양수산과학기술진흥원",
       "period": "2022–2025",
-      "scope": "hydrodynamics"
+      "scopes": [
+        "manoeuvring"
+      ]
     },
     {
       "title_en": "Study on Prediction Methods for Ship Resistance Increase due to Non-Uniform Hull Roughness",
@@ -199,7 +249,9 @@
       "agency_en": "National Research Foundation of Korea (NRF)",
       "agency_ko": "한국연구재단",
       "period": "2022–2025",
-      "scope": "resistance"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "title_en": "Evaluation of Ship Hydrodynamic Performance and Operational Efficiency Using CFD",
@@ -207,7 +259,9 @@
       "agency_en": "Inha University",
       "agency_ko": "인하대학교",
       "period": "2022–2023",
-      "scope": "resistance"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "title_en": "Virtual and Physical Experimental Towing Centre for the Design of Energy Efficient Sea-Faring Vessels",
@@ -215,7 +269,10 @@
       "agency_en": "European Union",
       "agency_ko": "유럽연합",
       "period": "2020–2022",
-      "scope": "resistance"
+      "scopes": [
+        "roughness",
+        "energy"
+      ]
     },
     {
       "title_en": "Development of Smart Antifouling Strategies towards Energy-Efficient Fishing Boats in Turkey",
@@ -223,7 +280,9 @@
       "agency_en": "Scottish Funding Council",
       "agency_ko": "스코틀랜드 재정위원회",
       "period": "2020–2021",
-      "scope": "resistance"
+      "scopes": [
+        "roughness"
+      ]
     },
     {
       "title_en": "Assessment of the Current Practices and Local Needs for Developing Smart Antifouling Strategies towards Energy-Efficient Fishing Boats in Turkey",
@@ -231,7 +290,9 @@
       "agency_en": "Scottish Funding Council",
       "agency_ko": "스코틀랜드 재정위원회",
       "period": "2019–2020",
-      "scope": "resistance"
+      "scopes": [
+        "roughness"
+      ]
     }
   ]
 }

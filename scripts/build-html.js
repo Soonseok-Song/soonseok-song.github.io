@@ -78,6 +78,42 @@ function buildMetrics(m) {
   return html + '<p class="metric-source">' + src + '</p></div>';
 }
 
+/* ── 연구분야 ─────────────────────────────────────────────────────────── */
+
+/* research.html 의 섹션 id 와 짝을 이룹니다. 필터 버튼에 들어갈 짧은 이름입니다. */
+const SCOPE_LABELS = {
+  roughness:     'Roughness & Hydrodynamics',
+  manoeuvring:   'Manoeuvring',
+  energy:        'Energy Saving',
+  arctic:        'Arctic Ships',
+  fowt:          'Offshore Wind',
+  tidal:         'Tidal Turbine',
+  environmental: 'Environmental',
+  other:         'Other'
+};
+
+const scopesOf = x => (x.scopes || []).filter(Boolean);
+const inScope  = (x, s) => scopesOf(x).indexOf(s) !== -1;
+
+/**
+ * 분야 필터 버튼. 데이터에 실제로 있는 분야만 만듭니다.
+ * 항목 하나가 여러 분야에 걸칠 수 있으므로 각 버튼의 숫자를 더해도 전체와 다릅니다.
+ */
+function buildFilters(items) {
+  const present = [];
+  items.forEach(x => scopesOf(x).forEach(s => { if (present.indexOf(s) === -1) present.push(s); }));
+  const order = Object.keys(SCOPE_LABELS);
+  present.sort((a, b) => order.indexOf(a) - order.indexOf(b));
+
+  return '<button class="filter-btn" type="button" data-scope="all" aria-pressed="true">' +
+         'All <span class="meta">(' + items.length + ')</span></button>' +
+         present.map(s => {
+           const n = items.filter(x => inScope(x, s)).length;
+           return '<button class="filter-btn" type="button" data-scope="' + esc(s) + '" aria-pressed="false">' +
+                  esc(SCOPE_LABELS[s] || s) + ' <span class="meta">(' + n + ')</span></button>';
+         }).join('');
+}
+
 /* ── 논문 ─────────────────────────────────────────────────────────────── */
 
 function buildPublications(journal) {
@@ -94,73 +130,57 @@ function buildPublications(journal) {
   });
 
   // 오래된 것이 1번. 새 논문을 넣어도 기존 번호가 바뀌지 않습니다.
+  // 분야로 걸러도 번호는 그대로여서 목록 어디에서나 같은 논문을 가리킵니다.
   let seq = list.length;
   let html = '<section class="pub-section">';
   order.forEach(y => {
-    html += '<h3 class="pub-year">' + esc(y) + '</h3><ol class="pub-list">';
+    // 연도 묶음을 감싸 둡니다. 걸러낸 결과 그 해에 남는 논문이 없으면 통째로 숨깁니다.
+    html += '<div class="pub-year-group"><h3 class="pub-year">' + esc(y) + '</h3><ol class="pub-list">';
     byYear[y].forEach(p => {
       const venue  = p.venue ? '<span class="pub-venue">' + esc(p.venue) + '</span>' : '';
       const detail = p.detail ? ', ' + esc(p.detail) : '';
       const doi = p.doi
         ? ' <a class="pub-doi" href="https://doi.org/' + esc(p.doi) + '" rel="noopener">doi:' + esc(p.doi) + '</a>'
         : '';
-      html += '<li class="pub-item">' +
+      html += '<li class="pub-item" data-scopes="' + esc(scopesOf(p).join(' ')) + '">' +
               '<span class="pub-num">' + (seq--) + '</span>' +
               '<span><span class="pub-authors">' + esc(p.authors) + '</span> ' +
               '<span class="pub-title">' + esc(p.title) + '</span>. ' +
               venue + detail + doi + '</span>' +
               '</li>';
     });
-    html += '</ol>';
+    html += '</ol></div>';
   });
-  return html + '</section>';
+  return html + '</section>' +
+         '<p class="filter-empty" hidden>No publications in this area.</p>';
 }
 
 /* ── 연구 소개 페이지의 관련 논문 ─────────────────────────────────────── */
 
 /**
- * 논문 목록으로 가는 링크 한 줄.
+ * 논문·연구과제 목록으로 가는 링크.
  *
  * 처음에는 논문 제목까지 늘어놓았는데, 그러면 분야 하나가 화면을 다 채워
- * 아래에 내용이 더 있다는 걸 알기 어려웠습니다. 목록은 Publications 페이지에
- * 맡기고 여기서는 길만 냅니다.
+ * 아래에 내용이 더 있다는 걸 알기 어려웠습니다. 목록은 각 페이지에 맡기고
+ * 여기서는 길만 냅니다.
  *
- * 그 분야에 논문이 하나라도 있어야 링크가 나옵니다. 아직 게재 논문이 없는
- * 분야(극지·환경)는 아무것도 내놓지 않습니다.
+ * 주소 끝의 #분야 를 붙여 두면 그 페이지가 열리면서 해당 분야만 걸러 보여줍니다.
+ * 해당하는 것이 없는 분야에는 링크를 만들지 않습니다.
  */
-function buildScopePapers(journal, scope) {
-  const has = journal.some(p => p.scope === scope);
-  if (!has) return '';
+function buildScopeLinks(journal, projects, scope) {
+  const links = [];
+  if (journal.some(p => inScope(p, scope))) {
+    links.push('<a href="publications.html#' + esc(scope) + '">See papers in this area &rarr;</a>');
+  }
+  if (projects.some(p => inScope(p, scope))) {
+    links.push('<a href="projects.html#' + esc(scope) + '">See projects in this area &rarr;</a>');
+  }
+  if (!links.length) return '';
 
-  return '<p class="scope-papers">' +
-         '<a href="publications.html">See papers in this area &rarr;</a></p>';
+  return '<p class="scope-papers">' + links.join('') + '</p>';
 }
 
 /* ── 연구과제 ─────────────────────────────────────────────────────────── */
-
-const SCOPE_LABELS = {
-  resistance:    'Ship Resistance',
-  hydrodynamics: 'Ship Hydrodynamics',
-  polar:         'Polar & Ice',
-  renewable:     'Renewable Energy',
-  environmental: 'Environmental',
-  other:         'Other'
-};
-
-function buildProjectFilters(all) {
-  const present = [];
-  all.forEach(p => { if (p.scope && present.indexOf(p.scope) === -1) present.push(p.scope); });
-  const order = Object.keys(SCOPE_LABELS);
-  present.sort((a, b) => order.indexOf(a) - order.indexOf(b));
-
-  return '<button class="filter-btn" type="button" data-scope="all" aria-pressed="true">' +
-         'All <span class="meta">(' + all.length + ')</span></button>' +
-         present.map(s => {
-           const n = all.filter(p => p.scope === s).length;
-           return '<button class="filter-btn" type="button" data-scope="' + esc(s) + '" aria-pressed="false">' +
-                  esc(SCOPE_LABELS[s] || s) + ' <span class="meta">(' + n + ')</span></button>';
-         }).join('');
-}
 
 /**
  * 과제 전체를 한 번에 써 둡니다. 분야 버튼은 목록을 다시 그리지 않고
@@ -175,7 +195,7 @@ function buildProjects(all) {
       ? '<span class="project-agency">' + esc(p.agency_en) +
         (p.agency_ko ? ' &middot; ' + esc(p.agency_ko) : '') + '</span>'
       : '';
-    return '<li class="project-item" data-scope="' + esc(p.scope || 'other') + '">' +
+    return '<li class="project-item" data-scopes="' + esc(scopesOf(p).join(' ')) + '">' +
            '<div class="project-meta">' +
            '<span class="project-period">' + esc(p.period) + '</span>' +
            agency +
@@ -183,7 +203,7 @@ function buildProjects(all) {
            '<p class="project-title-en">' + esc(p.title_en) + '</p>' + ko +
            '</li>';
   }).join('') + '</ul>' +
-  '<p class="project-empty" hidden>No projects in this area.</p>';
+  '<p class="filter-empty" hidden>No projects in this area.</p>';
 }
 
 /* ── 구성원 ───────────────────────────────────────────────────────────── */
@@ -380,15 +400,16 @@ function main() {
 
   // 논문
   inject('publications.html', 'metrics', buildMetrics(metrics));
+  inject('publications.html', 'pub-filters', buildFilters(journal));
   inject('publications.html', 'publications', buildPublications(journal));
   inject('publications.html', 'pub-count', String(journal.length));
 
-  // 연구 소개 — 분야마다 논문 편수와 목록 링크
+  // 연구 소개 — 분야마다 논문·과제 목록으로 가는 링크
   ['roughness', 'manoeuvring', 'energy', 'arctic', 'fowt', 'tidal', 'environmental']
-    .forEach(s => inject('research.html', 'papers-' + s, buildScopePapers(journal, s)));
+    .forEach(s => inject('research.html', 'papers-' + s, buildScopeLinks(journal, projects, s)));
 
   // 연구과제
-  inject('projects.html', 'project-filters', buildProjectFilters(projects));
+  inject('projects.html', 'project-filters', buildFilters(projects));
   inject('projects.html', 'projects', buildProjects(projects));
 
   // 구성원
