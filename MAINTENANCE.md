@@ -57,12 +57,27 @@ RHL 연구실 홈페이지를 고치는 방법입니다. **터미널이나 Git �
       "title": "여기에 논문 제목",
       "venue": "Ocean Engineering",
       "detail": "370: 128000",
-      "doi": "10.1016/j.oceaneng.2027.128000"
+      "doi": "10.1016/j.oceaneng.2027.128000",
+      "scope": "roughness"
     },
 ```
 
 - `detail` — 권(호): 페이지 또는 논문번호. 없으면 `""`
 - `doi` — 없으면 `""` 로 두세요. 넣으면 제목 뒤에 링크가 생깁니다 (`10.` 으로 시작하는 부분만, `https://doi.org/` 는 빼고)
+- `scope` — **연구 분야.** Research 페이지의 해당 분야 아래에 이 논문이 함께 나옵니다. 아래 일곱 중 하나를 쓰세요:
+
+  | 값 | Research 페이지의 분야 |
+  |---|---|
+  | `roughness` | Roughness Effect and Ship Hydrodynamics |
+  | `manoeuvring` | 6-DOF Ship Manoeuvring Simulations |
+  | `energy` | Energy Saving Devices |
+  | `arctic` | Arctic Ships |
+  | `fowt` | Floating Offshore Wind Turbine |
+  | `tidal` | Tidal Turbine |
+  | `environmental` | Applied & Environmental Hydrodynamics |
+
+  분야마다 **최신 5편**까지 보이고, 그보다 많으면 "N more in Publications →" 링크가 붙습니다.
+
 - **마지막 항목 뒤에는 쉼표를 붙이지 않습니다**
 
 논문 번호는 자동으로 매겨집니다. 오래된 논문이 1번이라 새 논문을 추가해도 기존 번호가 바뀌지 않습니다.

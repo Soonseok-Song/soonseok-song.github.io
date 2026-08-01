@@ -7,7 +7,8 @@
       "title": "CFD–MoorDyn coupling analysis for mooring line failure events of parked floating offshore wind turbine (FOWT)",
       "venue": "Ocean Engineering",
       "detail": "363: 126703",
-      "doi": "10.1016/j.oceaneng.2026.126703"
+      "doi": "10.1016/j.oceaneng.2026.126703",
+      "scope": "fowt"
     },
     {
       "year": 2026,
@@ -15,7 +16,8 @@
       "title": "Prediction of the performance reduction on the Darrieus vertical-axis tidal-current turbine due to surface roughness when operating in tropical seawater environments",
       "venue": "Ocean Engineering",
       "detail": "363: 126418",
-      "doi": "10.1016/j.oceaneng.2026.126418"
+      "doi": "10.1016/j.oceaneng.2026.126418",
+      "scope": "tidal"
     },
     {
       "year": 2026,
@@ -23,7 +25,8 @@
       "title": "CFD analysis on the dynamic behaviour of pivot point for a KCS during ship turning manoeuvre in waves",
       "venue": "Journal of Modern Mechanical Engineering and Technology",
       "detail": "13: 20–34",
-      "doi": "10.31875/2409-9848.2026.13.03"
+      "doi": "10.31875/2409-9848.2026.13.03",
+      "scope": "manoeuvring"
     },
     {
       "year": 2026,
@@ -31,7 +34,8 @@
       "title": "Wave-induced effects on tidal turbine performance and structural loading: A CFD study across varying submergence depths",
       "venue": "Ocean Engineering",
       "detail": "362: 126189",
-      "doi": "10.1016/j.oceaneng.2026.126189"
+      "doi": "10.1016/j.oceaneng.2026.126189",
+      "scope": "tidal"
     },
     {
       "year": 2026,
@@ -39,7 +43,8 @@
       "title": "Prediction of scale effects on tidal turbines with the Reynolds scaling method",
       "venue": "Journal of Marine Science and Engineering",
       "detail": "14(10): 893",
-      "doi": "10.3390/jmse14100893"
+      "doi": "10.3390/jmse14100893",
+      "scope": "tidal"
     },
     {
       "year": 2026,
@@ -47,7 +52,8 @@
       "title": "Seakeeping analysis of a damaged ship using CFD",
       "venue": "Ocean Engineering",
       "detail": "362: 126200",
-      "doi": "10.1016/j.oceaneng.2026.126200"
+      "doi": "10.1016/j.oceaneng.2026.126200",
+      "scope": "manoeuvring"
     },
     {
       "year": 2026,
@@ -55,7 +61,8 @@
       "title": "Experimental analysis of resistance reduction and heel motion characteristics of wind-assisted vessels using the SIL system",
       "venue": "Ocean Engineering",
       "detail": "354: 124905",
-      "doi": "10.1016/j.oceaneng.2026.124905"
+      "doi": "10.1016/j.oceaneng.2026.124905",
+      "scope": "energy"
     },
     {
       "year": 2026,
@@ -63,16 +70,17 @@
       "title": "Influence of CFD modelling parameters on air injection behaviour in ship air lubrication systems",
       "venue": "Journal of Marine Science and Engineering",
       "detail": "14(2): 234",
-      "doi": "10.3390/jmse14020234"
+      "doi": "10.3390/jmse14020234",
+      "scope": "energy"
     },
-
     {
       "year": 2025,
       "authors": "Min, G., Choi, W., Dai, S., Tezdogan, T., Kim, D., & Song, S.",
       "title": "A CFD study on the assessment of a naval ship manoeuvrability in steering and engine failure situations",
       "venue": "Ocean Engineering",
       "detail": "342: 122836",
-      "doi": "10.1016/j.oceaneng.2025.122836"
+      "doi": "10.1016/j.oceaneng.2025.122836",
+      "scope": "manoeuvring"
     },
     {
       "year": 2025,
@@ -80,7 +88,8 @@
       "title": "CFD analysis of container ship manoeuvring performance under different trim conditions",
       "venue": "Ocean Engineering",
       "detail": "341: 122489",
-      "doi": "10.1016/j.oceaneng.2025.122489"
+      "doi": "10.1016/j.oceaneng.2025.122489",
+      "scope": "manoeuvring"
     },
     {
       "year": 2025,
@@ -88,7 +97,8 @@
       "title": "Evaluation of push-pull manoeuvring mode for a naval ship using CFD",
       "venue": "Ocean Engineering",
       "detail": "330: 121143",
-      "doi": "10.1016/j.oceaneng.2025.121143"
+      "doi": "10.1016/j.oceaneng.2025.121143",
+      "scope": "manoeuvring"
     },
     {
       "year": 2025,
@@ -96,7 +106,8 @@
       "title": "Evaluation of free-surface exposure effects on tidal turbine performance using CFD",
       "venue": "Journal of Marine Science and Engineering",
       "detail": "13(8): 1589",
-      "doi": "10.3390/jmse13081589"
+      "doi": "10.3390/jmse13081589",
+      "scope": "tidal"
     },
     {
       "year": 2025,
@@ -104,7 +115,8 @@
       "title": "Temperature-induced errors in ITTC model–ship extrapolation",
       "venue": "Journal of Marine Science and Engineering",
       "detail": "13(7): 1203",
-      "doi": "10.3390/jmse13071203"
+      "doi": "10.3390/jmse13071203",
+      "scope": "roughness"
     },
     {
       "year": 2025,
@@ -112,7 +124,8 @@
       "title": "Numerical analysis on the scale effect of a free-running ship's manoeuvring characteristics",
       "venue": "Journal of Marine Science and Engineering",
       "detail": "13(2): 228",
-      "doi": "10.3390/jmse13020228"
+      "doi": "10.3390/jmse13020228",
+      "scope": "manoeuvring"
     },
     {
       "year": 2025,
@@ -120,16 +133,17 @@
       "title": "Investigating the impact of inhomogeneous roughness on the drag of a planing craft assisted by numerical simulation",
       "venue": "Ocean Engineering",
       "detail": "325: 120826",
-      "doi": "10.1016/j.oceaneng.2025.120826"
+      "doi": "10.1016/j.oceaneng.2025.120826",
+      "scope": "roughness"
     },
-
     {
       "year": 2024,
       "authors": "Song, S., Kim, D., & Dai, S.",
       "title": "CFD investigation into the effect of GM variations on ship manoeuvring characteristics",
       "venue": "Ocean Engineering",
       "detail": "291: 116472",
-      "doi": "10.1016/j.oceaneng.2023.116472"
+      "doi": "10.1016/j.oceaneng.2023.116472",
+      "scope": "manoeuvring"
     },
     {
       "year": 2024,
@@ -137,7 +151,8 @@
       "title": "Townsin's formula vs CFD: Evaluating hull roughness effect in ship resistance",
       "venue": "Ocean Engineering",
       "detail": "303: 117754",
-      "doi": "10.1016/j.oceaneng.2024.117754"
+      "doi": "10.1016/j.oceaneng.2024.117754",
+      "scope": "roughness"
     },
     {
       "year": 2024,
@@ -145,7 +160,8 @@
       "title": "Assessing the influence of sudden propulsion loss on a ship's manoeuvrability in various wave heights utilizing CFD",
       "venue": "Ocean Engineering",
       "detail": "311: 119022",
-      "doi": "10.1016/j.oceaneng.2024.119022"
+      "doi": "10.1016/j.oceaneng.2024.119022",
+      "scope": "manoeuvring"
     },
     {
       "year": 2024,
@@ -153,16 +169,17 @@
       "title": "Resistance and speed penalty of a naval ship with hull roughness",
       "venue": "Ocean Engineering",
       "detail": "312: 119058",
-      "doi": "10.1016/j.oceaneng.2024.119058"
+      "doi": "10.1016/j.oceaneng.2024.119058",
+      "scope": "roughness"
     },
-
     {
       "year": 2023,
       "authors": "Song, S., Terziev, M., Tezdogan, T., Demirel, Y. K., De Marco Muscat-Fenech, C., & Incecik, A.",
       "title": "Investigating roughness effects on ship resistance in shallow waters",
       "venue": "Ocean Engineering",
       "detail": "270: 113643",
-      "doi": "10.1016/j.oceaneng.2023.113643"
+      "doi": "10.1016/j.oceaneng.2023.113643",
+      "scope": "roughness"
     },
     {
       "year": 2023,
@@ -170,7 +187,8 @@
       "title": "An advanced prediction method of ship resistance with heterogeneous hull roughness",
       "venue": "Ocean Engineering",
       "detail": "279: 114602",
-      "doi": "10.1016/j.oceaneng.2023.114602"
+      "doi": "10.1016/j.oceaneng.2023.114602",
+      "scope": "roughness"
     },
     {
       "year": 2023,
@@ -178,7 +196,8 @@
       "title": "Path-following control problem for maritime autonomous surface ships (MASS) in adverse weather conditions at low speeds",
       "venue": "Ocean Engineering",
       "detail": "287: 115860",
-      "doi": "10.1016/j.oceaneng.2023.115860"
+      "doi": "10.1016/j.oceaneng.2023.115860",
+      "scope": "manoeuvring"
     },
     {
       "year": 2023,
@@ -186,16 +205,17 @@
       "title": "Nonlinear URANS model for path-following control problem towards autonomous marine navigation under wave conditions",
       "venue": "Ocean Engineering",
       "detail": "270: 113681",
-      "doi": "10.1016/j.oceaneng.2023.113681"
+      "doi": "10.1016/j.oceaneng.2023.113681",
+      "scope": "manoeuvring"
     },
-
     {
       "year": 2022,
       "authors": "Ravenna, R., Song, S., Shi, W., Sant, T., De Marco Muscat-Fenech, C., Tezdogan, T., & Demirel, Y. K.",
       "title": "CFD analysis of the effect of heterogeneous hull roughness on ship resistance",
       "venue": "Ocean Engineering",
       "detail": "258: 111733",
-      "doi": "10.1016/j.oceaneng.2022.111733"
+      "doi": "10.1016/j.oceaneng.2022.111733",
+      "scope": "roughness"
     },
     {
       "year": 2022,
@@ -203,7 +223,8 @@
       "title": "Experimental study on the effect of biomimetic tubercles on the drag of a flat plate",
       "venue": "Ocean Engineering",
       "detail": "255: 111445",
-      "doi": "10.1016/j.oceaneng.2022.111445"
+      "doi": "10.1016/j.oceaneng.2022.111445",
+      "scope": "roughness"
     },
     {
       "year": 2022,
@@ -211,7 +232,8 @@
       "title": "Predicting the effect of hull roughness on ship resistance using a fully turbulent flow channel",
       "venue": "Journal of Marine Science and Engineering",
       "detail": "10(12): 1863",
-      "doi": "10.3390/jmse10121863"
+      "doi": "10.3390/jmse10121863",
+      "scope": "roughness"
     },
     {
       "year": 2022,
@@ -219,7 +241,8 @@
       "title": "A systematic investigation on the manoeuvring performance of a ship performing low-speed manoeuvres in adverse weather conditions using CFD",
       "venue": "Ocean Engineering",
       "detail": "263: 112364",
-      "doi": "10.1016/j.oceaneng.2022.112364"
+      "doi": "10.1016/j.oceaneng.2022.112364",
+      "scope": "manoeuvring"
     },
     {
       "year": 2022,
@@ -227,16 +250,17 @@
       "title": "Nonlinear URANS model for evaluating course keeping and turning capabilities of a vessel with propulsion system failure in waves",
       "venue": "International Journal of Naval Architecture and Ocean Engineering",
       "detail": "14: 100425",
-      "doi": "10.1016/j.ijnaoe.2021.11.008"
+      "doi": "10.1016/j.ijnaoe.2021.11.008",
+      "scope": "manoeuvring"
     },
-
     {
       "year": 2021,
       "authors": "Song, S., Ravenna, R., Dai, S., De Marco Muscat-Fenech, C., Tani, G., Demirel, Y. K., Atlar, M., Day, S., & Incecik, A.",
       "title": "Experimental investigation on the effect of heterogeneous hull roughness on ship resistance",
       "venue": "Ocean Engineering",
       "detail": "223: 108590",
-      "doi": "10.1016/j.oceaneng.2021.108590"
+      "doi": "10.1016/j.oceaneng.2021.108590",
+      "scope": "roughness"
     },
     {
       "year": 2021,
@@ -244,7 +268,8 @@
       "title": "Investigating the effect of heterogeneous hull roughness on ship resistance using CFD",
       "venue": "Journal of Marine Science and Engineering",
       "detail": "9(2): 202",
-      "doi": "10.3390/jmse9020202"
+      "doi": "10.3390/jmse9020202",
+      "scope": "roughness"
     },
     {
       "year": 2021,
@@ -252,7 +277,8 @@
       "title": "Experimental and theoretical study of the effect of hull roughness on ship resistance",
       "venue": "Journal of Ship Research",
       "detail": "65(1): 62–71",
-      "doi": "10.5957/JOSR.07190040"
+      "doi": "10.5957/JOSR.07190040",
+      "scope": "roughness"
     },
     {
       "year": 2021,
@@ -260,7 +286,8 @@
       "title": "A study on the efficient numerical analysis for the prediction of full-scale propeller performance using CFD",
       "venue": "Ocean Engineering",
       "detail": "240: 109931",
-      "doi": "10.1016/j.oceaneng.2021.109931"
+      "doi": "10.1016/j.oceaneng.2021.109931",
+      "scope": "roughness"
     },
     {
       "year": 2021,
@@ -268,7 +295,8 @@
       "title": "Free running CFD simulations to investigate ship manoeuvrability in waves",
       "venue": "Ocean Engineering",
       "detail": "236: 109567",
-      "doi": "10.1016/j.oceaneng.2021.109567"
+      "doi": "10.1016/j.oceaneng.2021.109567",
+      "scope": "manoeuvring"
     },
     {
       "year": 2021,
@@ -276,7 +304,8 @@
       "title": "Unsteady RANS CFD simulations of ship manoeuvrability and course keeping control under various wave height conditions",
       "venue": "Applied Ocean Research",
       "detail": "117: 102940",
-      "doi": "10.1016/j.apor.2021.102940"
+      "doi": "10.1016/j.apor.2021.102940",
+      "scope": "manoeuvring"
     },
     {
       "year": 2021,
@@ -284,16 +313,17 @@
       "title": "Numerical evaluation of a ship's manoeuvrability and course keeping control under various wave conditions using CFD",
       "venue": "Ocean Engineering",
       "detail": "237: 109615",
-      "doi": "10.1016/j.oceaneng.2021.109615"
+      "doi": "10.1016/j.oceaneng.2021.109615",
+      "scope": "manoeuvring"
     },
-
     {
       "year": 2020,
       "authors": "Song, S., Demirel, Y. K., De Marco Muscat-Fenech, C., Tezdogan, T., & Atlar, M.",
       "title": "Fouling effect on the resistance of different ship types",
       "venue": "Ocean Engineering",
       "detail": "216: 107736",
-      "doi": "10.1016/j.oceaneng.2020.107736"
+      "doi": "10.1016/j.oceaneng.2020.107736",
+      "scope": "roughness"
     },
     {
       "year": 2020,
@@ -301,7 +331,8 @@
       "title": "Prediction of the fouling penalty on the tidal turbine performance and development of its mitigation measures",
       "venue": "Applied Energy",
       "detail": "276: 115498",
-      "doi": "10.1016/j.apenergy.2020.115498"
+      "doi": "10.1016/j.apenergy.2020.115498",
+      "scope": "tidal"
     },
     {
       "year": 2020,
@@ -309,7 +340,8 @@
       "title": "Validation of the CFD approach for modelling roughness effect on ship resistance",
       "venue": "Ocean Engineering",
       "detail": "200: 107029",
-      "doi": "10.1016/j.oceaneng.2020.107029"
+      "doi": "10.1016/j.oceaneng.2020.107029",
+      "scope": "roughness"
     },
     {
       "year": 2020,
@@ -317,7 +349,8 @@
       "title": "Propeller performance penalty of biofouling: Computational fluid dynamics prediction",
       "venue": "Journal of Offshore Mechanics and Arctic Engineering",
       "detail": "142(6): 061901",
-      "doi": "10.1115/1.4047201"
+      "doi": "10.1115/1.4047201",
+      "scope": "roughness"
     },
     {
       "year": 2020,
@@ -325,7 +358,8 @@
       "title": "Penalty of hull and propeller fouling on ship self-propulsion performance",
       "venue": "Applied Ocean Research",
       "detail": "94: 102006",
-      "doi": "10.1016/j.apor.2019.102006"
+      "doi": "10.1016/j.apor.2019.102006",
+      "scope": "roughness"
     },
     {
       "year": 2020,
@@ -333,7 +367,8 @@
       "title": "Impact of biofilm on the ship propulsion characteristics and the speed reduction",
       "venue": "Ocean Engineering",
       "detail": "199: 107033",
-      "doi": "10.1016/j.oceaneng.2020.107033"
+      "doi": "10.1016/j.oceaneng.2020.107033",
+      "scope": "roughness"
     },
     {
       "year": 2020,
@@ -341,16 +376,17 @@
       "title": "Scale effect on ship resistance components and form factor",
       "venue": "Ocean Engineering",
       "detail": "209: 107428",
-      "doi": "10.1016/j.oceaneng.2020.107428"
+      "doi": "10.1016/j.oceaneng.2020.107428",
+      "scope": "roughness"
     },
-
     {
       "year": 2019,
       "authors": "Song, S., Kim, S.-H., & Paik, K.-J.",
       "title": "Determination of linear and nonlinear roll damping coefficients of a ship section using CFD",
       "venue": "Brodogradnja",
       "detail": "70(4): 17–33",
-      "doi": "10.21278/brod70402"
+      "doi": "10.21278/brod70402",
+      "scope": "manoeuvring"
     },
     {
       "year": 2019,
@@ -358,7 +394,8 @@
       "title": "An investigation into the effect of biofouling on the ship hydrodynamic characteristics using CFD",
       "venue": "Ocean Engineering",
       "detail": "175: 122–137",
-      "doi": "10.1016/j.oceaneng.2019.01.056"
+      "doi": "10.1016/j.oceaneng.2019.01.056",
+      "scope": "roughness"
     },
     {
       "year": 2019,
@@ -366,16 +403,18 @@
       "title": "Practical added resistance diagrams to predict fouling impact on ship performance",
       "venue": "Ocean Engineering",
       "detail": "186: 106112",
-      "doi": "10.1016/j.oceaneng.2019.106112"
+      "doi": "10.1016/j.oceaneng.2019.106112",
+      "scope": "roughness"
     },
-
     {
       "year": 2017,
       "authors": "Kim, H., Kim, S.-H., Jeon, M., Kim, J., Song, S., & Paik, K.-J.",
       "title": "A study on path optimization method of an unmanned surface vehicle under environmental loads using genetic algorithm",
       "venue": "Ocean Engineering",
       "detail": "142: 616–624",
-      "doi": "10.1016/j.oceaneng.2017.07.040"
+      "doi": "10.1016/j.oceaneng.2017.07.040",
+      "scope": "manoeuvring"
     }
-  ]
+  ],
+  "_scope_note": "scope 는 research.html 의 연구분야 id 와 같습니다: roughness, manoeuvring, energy, arctic, fowt, tidal, environmental. 연구 소개 페이지에 관련 논문을 모아 보여줄 때 씁니다."
 }
