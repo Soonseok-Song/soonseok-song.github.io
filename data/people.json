@@ -93,6 +93,13 @@
       "photo": "song-seunghee.jpg",
       "topic": "Tidal turbine performance analysis",
       "papers": { "first": 0, "co": 0 }
+    },
+    {
+      "name_en": "See Young Lee",
+      "name_ko": "이시영",
+      "photo": null,
+      "topic": "Ship resistance",
+      "papers": { "first": 0, "co": 0 }
     }
   ],
 

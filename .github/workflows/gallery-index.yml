@@ -18,6 +18,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # 휴대폰 사진은 4000px 넘는 원본이 그대로 올라오기 쉽습니다. 한 장이 5MB 면
+      # 갤러리를 여는 사람마다 그걸 다 내려받게 되므로 여기서 줄입니다.
+      # 올리는 쪽에서는 크기를 신경 쓰지 않아도 됩니다.
+      - name: Shrink oversized photographs
+        run: |
+          command -v mogrify >/dev/null || { sudo apt-get update -qq; sudo apt-get install -y -qq imagemagick; }
+
+          shopt -s nullglob nocaseglob
+          for f in images/gallery/*.jpg images/gallery/*.jpeg images/gallery/*.png; do
+            before=$(stat -c%s "$f")
+            [ "$before" -gt 700000 ] || continue
+
+            # -auto-orient : EXIF 회전 지시를 픽셀에 반영합니다. 태그만 남기면
+            #                이를 무시하는 프로그램에서 사진이 눕습니다.
+            # 1600x1600>   : 긴 변이 1600 을 넘을 때만 줄입니다. 작은 사진은 그대로.
+            # -strip       : 위치정보를 비롯한 촬영 메타데이터를 지웁니다.
+            mogrify -auto-orient -resize '1600x1600>' -quality 82 -strip "$f"
+
+            after=$(stat -c%s "$f")
+            echo "  $(basename "$f")  $((before/1024))KB -> $((after/1024))KB"
+          done
+
       - name: Rebuild data/gallery.json
         run: |
           node <<'SCRIPT'
