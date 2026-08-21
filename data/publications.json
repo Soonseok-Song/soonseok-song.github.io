@@ -3,6 +3,17 @@
   "journal": [
     {
       "year": 2026,
+      "authors": "Kim, D., Park, C., Kim, S.-J., Kim, H., Im, J.-H., Lee, S.-D., Kwon, S., Choi, Y., Hong, C., Kang, M., Song, S., & Tezdogan, T.",
+      "title": "Quantifying wave-induced fuel consumption and CO2 emissions: a high-fidelity free-running CFD approach",
+      "venue": "Ocean Engineering",
+      "detail": "366: 127571",
+      "doi": "10.1016/j.oceaneng.2026.127571",
+      "scopes": [
+        "manoeuvring"
+      ]
+    },
+    {
+      "year": 2026,
       "authors": "Do, Y., Min, G., Yun, H., Kim, K., Jung, K., Dai, S., Kim, D., Choung, J., & Song, S.",
       "title": "CFD–MoorDyn coupling analysis for mooring line failure events of parked floating offshore wind turbine (FOWT)",
       "venue": "Ocean Engineering",
