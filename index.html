@@ -11,11 +11,57 @@
   <meta property="og:type" content="website">
   <!-- 네이버 웹마스터도구 소유 확인. 지우면 확인이 풀립니다. -->
   <meta name="naver-site-verification" content="64fe5da9eab8a8ca3eeadd46d032b913bb8140ff">
+  <link rel="canonical" href="https://soonseok-song.github.io/">
+  <meta property="og:url" content="https://soonseok-song.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#0d4d8c">
+  <!-- 검색엔진용 구조화 데이터: 이 사이트가 어떤 기관·사람의 것인지 알려줍니다 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ResearchOrganization",
+        "@id": "https://soonseok-song.github.io/#org",
+        "name": "Resistance Hydrodynamics Laboratory",
+        "alternateName": ["RHL", "선박해양저항연구실"],
+        "url": "https://soonseok-song.github.io/",
+        "logo": "https://soonseok-song.github.io/images/apple-touch-icon.png",
+        "parentOrganization": {
+          "@type": "CollegeOrUniversity",
+          "name": "Inha University",
+          "department": "Department of Naval Architecture and Ocean Engineering"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2N483, 100 Inha-ro, Michuhol-gu",
+          "addressLocality": "Incheon",
+          "postalCode": "22212",
+          "addressCountry": "KR"
+        },
+        "sameAs": ["http://rhl.inha.ac.kr/"]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://soonseok-song.github.io/#pi",
+        "name": "Soonseok Song",
+        "alternateName": "송순석",
+        "jobTitle": "Assistant Professor & Department Chair",
+        "worksFor": { "@id": "https://soonseok-song.github.io/#org" },
+        "email": "s.song@inha.ac.kr",
+        "sameAs": [
+          "https://scholar.google.com/citations?user=Z9rNtg8AAAAJ",
+          "https://orcid.org/0000-0002-7685-1026",
+          "https://www.scopus.com/authid/detail.uri?authorId=57205880533"
+        ]
+      }
+    ]
+  }
+  </script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body data-page="home">
@@ -43,7 +89,7 @@
     <div class="hero-media">
       <!-- 연구 장면 5개를 이어붙인 배경 루프. 장식용이라 스크린리더에서는 숨깁니다. -->
       <video class="hero-video" poster="images/hero-poster.jpg"
-             autoplay muted loop playsinline preload="auto" aria-hidden="true">
+             autoplay muted loop playsinline preload="metadata" aria-hidden="true">
         <source src="videos/hero-montage.mp4" type="video/mp4">
       </video>
       <!-- 모션을 줄이도록 설정한 사용자에게 보이는 정지 화면 -->

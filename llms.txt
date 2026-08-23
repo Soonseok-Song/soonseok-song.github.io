@@ -1,0 +1,34 @@
+# Resistance Hydrodynamics Laboratory (RHL), Inha University
+
+> Ship hydrodynamics research group at Inha University, Incheon, Korea, led by
+> Prof. Soonseok Song. Computational fluid dynamics (CFD) is our primary tool;
+> towing-tank and flow-channel experiments validate it. Marine renewable energy
+> is a second major strand.
+
+Note: http://rhl.inha.ac.kr forwards here via a meta refresh. This site
+(https://soonseok-song.github.io) is the canonical, crawlable address.
+
+## Research areas
+- Roughness effect & ship hydrodynamics: biofouling, antifouling coatings, roughness functions, similarity-law scaling, modified wall-function CFD at full scale
+- 6-DOF ship manoeuvring: free-running CFD in waves, steering and engine failure, trim effects, fin-stabiliser control
+- Energy saving devices: air lubrication systems, wind-assisted propulsion, rotor sails, software-in-the-loop towing-tank tests
+- Arctic ships: coupled CFD-DEM ice-floe simulation, ice tank model tests
+- Floating offshore wind turbines: CFD-MoorDyn coupling, mooring-line failure, actuator line method for rotor wakes, AI-CFD coupling
+- Tidal turbines: performance, scale effects, wave-induced loading
+- Applied & environmental hydrodynamics: dissolved-oxygen transport in aquaculture, scour around marine structures
+
+## Pages
+- [Home](https://soonseok-song.github.io/): laboratory overview
+- [Research](https://soonseok-song.github.io/research.html): the seven areas in detail, with figures and simulations
+- [Publications](https://soonseok-song.github.io/publications.html): 47 SCIE journal papers with DOIs
+- [Projects](https://soonseok-song.github.io/projects.html): 29 funded research projects
+- [People](https://soonseok-song.github.io/people.html): principal investigator and researchers
+- [Contact](https://soonseok-song.github.io/contact.html): location and graduate admissions
+
+## Principal investigator
+Soonseok Song (송순석), Assistant Professor and Department Chair, Department of
+Naval Architecture and Ocean Engineering, Inha University. PhD, University of
+Strathclyde (2020). s.song@inha.ac.kr
+- Google Scholar: https://scholar.google.com/citations?user=Z9rNtg8AAAAJ
+- ORCID: https://orcid.org/0000-0002-7685-1026
+- Scopus: https://www.scopus.com/authid/detail.uri?authorId=57205880533
