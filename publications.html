@@ -17,6 +17,10 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#0d4d8c">
+  <script>
+    /* 저장해 둔 테마 선택을 화면이 그려지기 전에 적용합니다 (깜빡임 방지) */
+    try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") { document.documentElement.setAttribute("data-theme", t); } } catch (e) {}
+  </script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body data-page="publications">
@@ -35,6 +39,16 @@
         <a href="people.html">People</a>
         <a href="gallery.html">Gallery</a>
         <a href="contact.html">Contact</a>
+        <div class="theme-menu" data-theme-menu>
+          <button type="button" class="theme-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Colour theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"/></svg>
+          </button>
+          <div class="theme-list" role="menu" aria-label="Colour theme">
+            <button type="button" role="menuitemradio" data-set-theme="system" aria-checked="true">System</button>
+            <button type="button" role="menuitemradio" data-set-theme="light" aria-checked="false">Light</button>
+            <button type="button" role="menuitemradio" data-set-theme="dark" aria-checked="false">Dark</button>
+          </div>
+        </div>
       </nav>
     </div>
   </header>

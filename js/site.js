@@ -182,7 +182,63 @@
     if (hash && $('.filter-btn[data-scope="' + hash + '"]', filterBox)) apply(hash);
   }
 
-  /* ── 4. 영상 자동재생 ─────────────────────────────────────────────────── */
+  /* ── 4. 테마 선택 메뉴 ────────────────────────────────────────────────── */
+
+  /**
+   * 헤더의 테마 버튼. System / Light / Dark 셋 중 하나를 고릅니다.
+   *   System — 선택을 지우고 컴퓨터 설정을 따라갑니다 (기본)
+   *   Light/Dark — <html data-theme="..."> 로 고정하고 localStorage 에 기억
+   * 페이지가 그려지기 전의 적용은 각 HTML <head> 의 인라인 스크립트가 맡습니다.
+   */
+  function setupThemeMenu() {
+    var box = $('[data-theme-menu]');
+    if (!box) return;
+    var btn  = $('.theme-btn', box);
+    var list = $('.theme-list', box);
+    if (!btn || !list) return;
+
+    function current() {
+      try {
+        var t = localStorage.getItem('theme');
+        return (t === 'light' || t === 'dark') ? t : 'system';
+      } catch (e) { return 'system'; }
+    }
+    function apply(mode) {
+      if (mode === 'light' || mode === 'dark') {
+        document.documentElement.setAttribute('data-theme', mode);
+        try { localStorage.setItem('theme', mode); } catch (e) { /* 시크릿 모드 등 */ }
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        try { localStorage.removeItem('theme'); } catch (e) { /* 무시 */ }
+      }
+      $$('[data-set-theme]', list).forEach(function (b) {
+        b.setAttribute('aria-checked', String(b.getAttribute('data-set-theme') === mode));
+      });
+    }
+    function close() { list.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+
+    apply(current());   // 체크 표시 초기화
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = list.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    list.addEventListener('click', function (e) {
+      var b = e.target.closest ? e.target.closest('[data-set-theme]') : null;
+      if (!b) return;
+      apply(b.getAttribute('data-set-theme'));
+      close();
+    });
+    document.addEventListener('click', function (e) {
+      if (!box.contains(e.target)) close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') close();
+    });
+  }
+
+  /* ── 5. 영상 자동재생 ─────────────────────────────────────────────────── */
 
   /**
    * autoplay 속성이 붙은 영상을 화면에 들어올 때 재생하고, 벗어나면 멈춥니다.
@@ -245,6 +301,7 @@
 
   function init() {
     markCurrentNav();
+    setupThemeMenu();
     setupLightbox();
     setupFilter('[data-project-filters]', '[data-projects]');
     setupFilter('[data-pub-filters]',     '[data-publications]');

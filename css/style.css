@@ -54,8 +54,12 @@
   --shadow:     0 1px 3px rgba(0,0,0,.07), 0 8px 24px rgba(0,0,0,.05);
 }
 
+/* 어두운 팔레트.
+   ① 시스템이 다크이고 사용자가 라이트를 고르지 않았을 때 (자동)
+   ② 사용자가 다크를 직접 골랐을 때 (헤더의 테마 메뉴)
+   두 블록에 같은 값이 들어가므로 색을 고칠 때는 반드시 함께 고치세요. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --ink:        #e6e8ec;
     --ink-soft:   #a3a9b5;
     --ink-faint:  #757c88;
@@ -68,6 +72,20 @@
     --shadow:     0 1px 3px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
   }
 }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink:        #e6e8ec;
+  --ink-soft:   #a3a9b5;
+  --ink-faint:  #757c88;
+  --accent:     #6faae2;
+  --accent-alt: #8dc0ee;
+  --bg:         #14161a;
+  --bg-soft:    #1b1e23;
+  --bg-inset:   #22262d;
+  --rule:       #2c313a;
+  --shadow:     0 1px 3px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+}
+:root[data-theme="light"] { color-scheme: light; }
 
 /* ── 2. 리셋 · 기본 타이포그래피 ──────────────────────────────────────────── */
 
@@ -232,6 +250,34 @@ code {
   color: var(--accent);
   font-weight: 650;
 }
+
+/* ── 테마 선택 메뉴 (헤더 오른쪽 끝) ────────────────────────────────────── */
+
+.theme-menu { position: relative; }
+.theme-btn {
+  display: flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; padding: 0; margin-left: 0.25rem;
+  border: 0; border-radius: var(--radius);
+  background: none; color: var(--ink-soft); cursor: pointer;
+}
+.theme-btn:hover { color: var(--ink); background: var(--bg-soft); }
+.theme-btn svg { width: 18px; height: 18px; }
+.theme-list {
+  position: absolute; right: 0; top: calc(100% + 6px);
+  min-width: 8.5rem; padding: 0.25rem;
+  background: var(--bg); border: 1px solid var(--rule); border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: none; z-index: 200;
+}
+.theme-list.open { display: block; }
+.theme-list button {
+  display: block; width: 100%; padding: 0.45rem 0.7rem;
+  border: 0; border-radius: var(--radius); background: none;
+  font: inherit; font-size: 0.875rem; text-align: left;
+  color: var(--ink-soft); cursor: pointer;
+}
+.theme-list button:hover { color: var(--ink); background: var(--bg-soft); }
+.theme-list button[aria-checked="true"] { color: var(--accent); font-weight: 650; }
 
 @media (max-width: 720px) {
   .site-head-inner { padding-block: 0.4rem; }
