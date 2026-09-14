@@ -3,6 +3,17 @@
   "journal": [
     {
       "year": 2026,
+      "authors": "Min, G., Atlar, M., Dai, S., Kim, D., & Song, S.",
+      "title": "ALS-induced propeller air ingestion and its effects on ship propulsive performance",
+      "venue": "Ocean Engineering",
+      "detail": "367: 128079",
+      "doi": "10.1016/j.oceaneng.2026.128079",
+      "scopes": [
+        "energy"
+      ]
+    },
+    {
+      "year": 2026,
       "authors": "Hwang, J., Kwon, S., Kim, M., Choi, J., Baek, J.-Y., Kim, J., Kong, G.-Y., Song, S., & Kim, D.",
       "title": "예선 가압위치에 따른 선박 조종 특성에 관한 연구 (A study on ship manoeuvring characteristics according to tugboat pushing position)",
       "venue": "Journal of Navigation and Port Research",
