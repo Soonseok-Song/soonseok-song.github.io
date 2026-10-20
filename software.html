@@ -174,10 +174,10 @@
     <section class="scope" id="alm">
       <div class="scope-media">
         <figure>
-          <img src="images/software/alm-actuator-points.png" alt="Actuator points distributed along three blade lines on the CFD grid" loading="lazy">
+          <img src="images/software/alm-actuator-points.png" alt="Actuator points distributed along three blade lines on the CFD grid, with the Gaussian projection radius around each point" loading="lazy">
         </figure>
         <figure>
-          <img src="images/research/fowt-alm-wake.jpg" alt="Helical tip-vortex wake behind a wind turbine rotor computed with RHL-ALM" loading="lazy">
+          <img src="images/software/alm-validation.jpg" alt="RHL-ALM results: rotor wake vortical structures, blade load distribution against a reference solution, and rotor-plane velocity contours" loading="lazy">
         </figure>
       </div>
       <div class="scope-body">
@@ -232,6 +232,40 @@
       </div>
     </section>
 
+    <!-- ── RHL-SGISC ──────────────────────────────────────────────────────── -->
+    <section class="scope" id="sgisc">
+      <div class="scope-media">
+        <figure>
+          <img src="images/software/sgisc-ui.png" alt="RHL-SGISC assessment program: hull particulars and body plan of the loaded ship, with the five second-generation failure modes selected for Level 1 and 2 checks" loading="lazy">
+        </figure>
+      </div>
+      <div class="scope-body">
+        <h2>RHL-SGISC</h2>
+        <p class="scope-sub">IMO second-generation intact stability assessment</p>
+        <p>
+          The IMO second-generation intact stability criteria judge a ship not by a
+          single righting-arm curve but by five dynamic failure modes — dead ship
+          condition, excessive acceleration, pure loss of stability, parametric
+          rolling, and surf-riding/broaching. RHL-SGISC runs the complete Level 1
+          and Level 2 vulnerability assessment for all five from a ship's basic
+          data: it reads the particulars and hull offsets, computes the
+          hydrostatics, and returns a mode-by-mode verdict with a generated report.
+        </p>
+        <p>
+          A ship database keeps assessed designs side by side. The program anchors
+          our work on the operational safety of autonomous ships, where the
+          second-generation criteria become constraints on routing and heading
+          decisions in heavy weather.
+        </p>
+        <ul class="scope-keywords">
+          <li>Five failure modes</li>
+          <li>Level 1 / Level 2</li>
+          <li>Hydrostatics from offsets</li>
+          <li>Report generation</li>
+        </ul>
+      </div>
+    </section>
+
     <hr>
 
     <!-- ── 기타 ───────────────────────────────────────────────────────────── -->
@@ -244,7 +278,6 @@
       <ul>
         <li><strong>6-DOF free-running manoeuvring</strong> — rudder and propulsion control coupled into the CFD ship model, automating standard manoeuvring tests in calm water and in waves.</li>
         <li><strong>Fin-stabiliser control coupling</strong> — a stabiliser controller running in closed loop with the CFD solution for roll-reduction studies.</li>
-        <li><strong>Second-generation intact stability assessment</strong> — vulnerability checks against the IMO second-generation criteria, feeding our work on the operational safety of autonomous ships.</li>
       </ul>
       <p class="meta">
         These tools are research codes. For collaboration or access enquiries,

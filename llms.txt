@@ -21,7 +21,7 @@ Note: http://rhl.inha.ac.kr forwards here via a meta refresh. This site
 - [Home](https://soonseok-song.github.io/): laboratory overview
 - [Research](https://soonseok-song.github.io/research.html): the seven areas in detail, with figures and simulations
 - [Publications](https://soonseok-song.github.io/publications.html): 50 peer-reviewed journal articles with DOIs
-- [Software](https://soonseok-song.github.io/software.html): in-house research codes (scour morphodynamics, ship-ice MBD, tidal turbine design, actuator line module, dissolved-oxygen transport)
+- [Software](https://soonseok-song.github.io/software.html): in-house research codes (scour morphodynamics, ship-ice MBD, tidal turbine design, actuator line module, dissolved-oxygen transport, IMO second-generation intact stability assessment)
 - [Projects](https://soonseok-song.github.io/projects.html): 29 funded research projects
 - [People](https://soonseok-song.github.io/people.html): principal investigator and researchers
 - [Contact](https://soonseok-song.github.io/contact.html): location and graduate admissions
