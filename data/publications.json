@@ -3,6 +3,17 @@
   "journal": [
     {
       "year": 2026,
+      "authors": "Yun, H., Kim, D., Dai, S., Atlar, M., Tezdogan, T., Demirel, Y. K., & Song, S.",
+      "title": "Numerical investigation into the effect of biofouling-induced roughness on waterjet propulsor performance and ship powering penalties",
+      "venue": "Ocean Engineering",
+      "detail": "369: 128792",
+      "doi": "10.1016/j.oceaneng.2026.128792",
+      "scopes": [
+        "roughness"
+      ]
+    },
+    {
+      "year": 2026,
       "authors": "Min, G., Atlar, M., Dai, S., Kim, D., & Song, S.",
       "title": "ALS-induced propeller air ingestion and its effects on ship propulsive performance",
       "venue": "Ocean Engineering",
