@@ -1096,3 +1096,11 @@ video[controls] { background: #000; }
     transition-duration: .01ms !important;
   }
 }
+
+/* 소프트웨어 페이지: 프로그램 이름 아래 부제 */
+.scope-sub {
+  margin: -0.4rem 0 1rem;
+  font-size: 0.95rem;
+  font-weight: 550;
+  color: var(--accent);
+}
