@@ -98,19 +98,25 @@
       </div>
     </section>
 
-    <!-- ── RHL-IceMBD ─────────────────────────────────────────────────────── -->
+    <!-- ── INHACIS ────────────────────────────────────────────────────────── -->
     <section class="scope" id="ice">
       <div class="scope-media">
         <figure>
-          <video src="videos/ice-mbd.mp4" autoplay muted loop playsinline preload="metadata" aria-label="RHL-IceMBD in use: the simulator computing hull ice resistance for the icebreaker Araon, with the instantaneous and averaged ice load plotted live"></video>
+          <video src="videos/ice-mbd.mp4" autoplay muted loop playsinline preload="metadata" aria-label="INHACIS in use: the simulator computing hull ice resistance for the icebreaker Araon, with the instantaneous and averaged ice load plotted live"></video>
+        </figure>
+        <figure>
+          <video src="videos/ice-breaking-persp.mp4" autoplay muted loop playsinline preload="metadata" aria-label="INHACIS simulation of a ship breaking through level ice, perspective view"></video>
+        </figure>
+        <figure>
+          <video src="videos/ice-breaking-plan.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Broken ice channel behind an advancing ship computed with INHACIS, plan view"></video>
         </figure>
       </div>
       <div class="scope-body">
-        <h2>RHL-IceMBD</h2>
+        <h2>INHACIS</h2>
         <p class="scope-sub">Ship–ice interaction by multi-body dynamics, with CFD in the background</p>
         <p>
           Our ship-ice work began with coupled CFD–DEM, which resolves every floe in
-          the flow but at a heavy computational price. RHL-IceMBD is the fast
+          the flow but at a heavy computational price. INHACIS is the fast
           counterpart: a multi-body dynamics solver handles ice–ice and ice–ship
           contact and the resulting ice loads, while STAR-CCM+ runs in the
           background as a flow module the program drives directly.
