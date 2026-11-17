@@ -2,6 +2,26 @@
   "_comment": "연구과제 목록. scopes 는 research.html 의 연구분야 id 입니다: roughness, manoeuvring, energy, arctic, fowt, tidal, environmental, other. 여러 분야에 걸치면 둘 이상 적습니다.",
   "projects": [
     {
+      "title_en": "Construction of a Wake-Characteristics Database for Floating Multi-Rotor Systems",
+      "title_ko": "부유식 다중로터 시스템 후류특성 분석을 위한 DB 구축",
+      "agency_en": "Korea Research Institute of Ships & Ocean Engineering (KRISO)",
+      "agency_ko": "선박해양플랜트연구소",
+      "period": "2026–2027",
+      "scopes": [
+        "fowt"
+      ]
+    },
+    {
+      "title_en": "Measurement of the Wave-Attenuation Performance of Swimming-Pool Lane Ropes",
+      "title_ko": "수영장 코스로프 물결 상쇄 측정실험",
+      "agency_en": "Bniel Seal",
+      "agency_ko": "브니엘씰",
+      "period": "2026",
+      "scopes": [
+        "environmental"
+      ]
+    },
+    {
       "title_en": "Korea–U.S. Collaborative Development and Demonstration of AI-Based Core Solutions for Unmanned Surface Vessels",
       "title_ko": "한·미 공동연구를 통한 AI 기반 무인수상함 핵심솔루션 개발 및 실증",
       "agency_en": "Korea Evaluation Institute of Industrial Technology (KEIT)",
@@ -97,7 +117,7 @@
       "title_ko": "방오도료 적용 선박의 유효마력 산출을 위한 평판 마찰저항 기반 실선 예측 모델 개발",
       "agency_en": "Hanwha Ocean",
       "agency_ko": "한화오션",
-      "period": "2025",
+      "period": "2025–2026",
       "scopes": [
         "roughness"
       ]
